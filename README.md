@@ -9,8 +9,8 @@
 
 _by [@LegoFigure11](https://github.com/LegoFigure11/)_
 
-**Parliament** <small>(_n._)</small><br />
-<small>/ˈpɑːlɪm(ə)nt/</small>
+>**Parliament** <small>(_n._)</small><br />
+><small>/ˈpɑːlɪm(ə)nt/</small>
 <br />
 A group of owls.
 
@@ -26,7 +26,7 @@ A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Bill
 
 ## Credits and thanks to
 
-* [@Lusamine](https://github.com/Lusamine/) for research, [moarencounterbots](https://github.com/Lusamine/SysBot.NET/tree/moarencounterbots/SysBot.Pokemon/LA), and [LINQPad scripts](https://gist.github.com/Lusamine) from where much of the core logic of this program was lifted. This pogram could simply be considered a GUI wrapper around her work.
+* [@Lusamine](https://github.com/Lusamine/) for research, [moarencounterbots](https://github.com/Lusamine/SysBot.NET/tree/moarencounterbots/SysBot.Pokemon/LA), and [LINQPad scripts](https://gist.github.com/Lusamine) from where much of the core logic of this program was lifted. This program could simply be considered a GUI wrapper around her work.
 * [@Billo-PS](https://github.com/Billo-PS) for research and your endless patience and testing, as well as your incredible guides.
 
 ## Disclaimer

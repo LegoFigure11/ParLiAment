@@ -1067,36 +1067,39 @@ public partial class MainWindow : Form
             this.DisplayMessageBox("Selected files are the same. Please select two different files.");
             return;
         }
-
-        foreach (var entity in entities)
+        SetControlEnabledState(false, B_CalculateGroupSeed);
+        Task.Run(async () =>
         {
-            Debug.WriteLine($"Checking {entity.FileName}");
-
-            var matches = Solver.GetAllSeeds(entity);
-            foreach (var match in matches)
+            foreach (var entity in entities)
             {
-                Debug.WriteLine($"Pokemon Seed: {match:x16}\n");
-                var gen_seed_matches = Solver.FindPotentialGenSeeds(match);
-                foreach (var gen_match in gen_seed_matches)
-                {
-                    Debug.WriteLine($"-Generator Seed: {gen_match:x16}");
-                    var groupSeed = Solver.GetGroupSeed(gen_match);
-                    Debug.WriteLine($"-Group Seed: {groupSeed:x16}\n");
-                    if (!Solver.IsValidGroupSeed(groupSeed, ECs))
-                        continue;
+                Debug.WriteLine($"Checking {entity.FileName}");
 
-                    Debug.WriteLine($"Found a matching group seed: {groupSeed:x16}");
-                    SetControlText($"{groupSeed:X16}", TB_GroupSeedResult);
-                    SetControlEnabledState(true, B_CopyToOWL);
-                    this.DisplayMessageBox($"Found a matching group seed: {groupSeed:X16}", "Seed result");
-                    return;
+                var matches = Solver.GetAllSeeds(entity);
+                foreach (var match in matches)
+                {
+                    Debug.WriteLine($"Pokemon Seed: {match:x16}\n");
+                    var gen_seed_matches = Solver.FindPotentialGenSeeds(match);
+                    foreach (var gen_match in gen_seed_matches)
+                    {
+                        Debug.WriteLine($"-Generator Seed: {gen_match:x16}");
+                        var groupSeed = Solver.GetGroupSeed(gen_match);
+                        Debug.WriteLine($"-Group Seed: {groupSeed:x16}\n");
+                        if (!Solver.IsValidGroupSeed(groupSeed, ECs))
+                            continue;
+
+                        Debug.WriteLine($"Found a matching group seed: {groupSeed:x16}");
+                        SetControlText($"{groupSeed:X16}", TB_GroupSeedResult);
+                        SetControlEnabledState(true, B_CopyToOWL, B_CalculateGroupSeed);
+                        this.DisplayMessageBox($"Found a matching group seed: {groupSeed:X16}", "Seed Result");
+                        return;
+                    }
                 }
             }
-        }
 
-        Debug.WriteLine($"No matching group seed found.");
-        SetControlText("not found", TB_GroupSeedResult);
-        this.DisplayMessageBox($"No matching group seed found.");
+            Debug.WriteLine($"No matching group seed found.");
+            SetControlEnabledState(true, B_CalculateGroupSeed);
+            this.DisplayMessageBox($"No matching group seed found.");
+        });
     }
 
     private void LL_SeedSolverAttribution_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

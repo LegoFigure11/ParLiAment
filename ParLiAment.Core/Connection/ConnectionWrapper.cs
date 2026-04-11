@@ -19,7 +19,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
     private bool IsConnected { get; set; }
     private readonly bool CRLF = Config.Protocol is SwitchProtocol.WiFi;
 
-    private string title { get; set; } = string.Empty;
+    private string Title { get; set; } = string.Empty;
     private readonly SAV8LA sav = new();
 
 
@@ -34,11 +34,11 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
             IsConnected = true;
 
             StatusUpdate("Detecting Game Version");
-            title = await Connection.GetTitleID(token).ConfigureAwait(false);
-            if (title != TitleID)
+            Title = await Connection.GetTitleID(token).ConfigureAwait(false);
+            if (Title != TitleID)
             {
                 IsConnected = false;
-                return (false, $"{title} is not Pokémon Legends: Arceus.");
+                return (false, $"{Title} is not Pokémon Legends: Arceus.");
             }
 
             StatusUpdate("Configuring sysmodule...");
@@ -92,7 +92,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         if (_currentSeedOffset == 0)
             _currentSeedOffset = await Connection.PointerAll(MainRNGPointer, token).ConfigureAwait(false);
 
-        var data = await Connection.ReadBytesAsync(_currentSeedOffset, 16, token).ConfigureAwait(false);
+        var data = await Connection.ReadBytesAbsoluteAsync(_currentSeedOffset, 16, token).ConfigureAwait(false);
         return (BitConverter.ToUInt64(data, 0), BitConverter.ToUInt64(data, 8));
     }
 
@@ -103,8 +103,8 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
 
         var s0 = BitConverter.GetBytes(_s0);
         var s1 = BitConverter.GetBytes(_s1);
-        await Connection.WriteBytesAsync(s0, _currentSeedOffset, token).ConfigureAwait(false);
-        await Connection.WriteBytesAsync(s1, _currentSeedOffset + 8, token).ConfigureAwait(false);
+        await Connection.WriteBytesAbsoluteAsync(s0, _currentSeedOffset, token).ConfigureAwait(false);
+        await Connection.WriteBytesAbsoluteAsync(s1, _currentSeedOffset + 8, token).ConfigureAwait(false);
     }
 
     private ulong _myStatusOffset = 0;
@@ -113,7 +113,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         if (_myStatusOffset == 0)
             _myStatusOffset = await Connection.PointerAll(MyStatusPointer, token).ConfigureAwait(false);
 
-        var data = await Connection.ReadBytesAsync(_myStatusOffset, 0x50, token).ConfigureAwait(false);
+        var data = await Connection.ReadBytesAbsoluteAsync(_myStatusOffset, 0x50, token).ConfigureAwait(false);
         data.AsSpan().CopyTo(sav.MyStatus.Data);
     }
 
@@ -124,7 +124,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         if (_wildPokemonOffset == 0)
             _wildPokemonOffset = await Connection.PointerAll(WildPokemonPointer, token).ConfigureAwait(false);
 
-        var data = await Connection.ReadBytesAsync(_wildPokemonOffset, BoxFormatSlotSize, token).ConfigureAwait(false);
+        var data = await Connection.ReadBytesAbsoluteAsync(_wildPokemonOffset, BoxFormatSlotSize, token).ConfigureAwait(false);
         return new PA8(data);
     }
 
@@ -134,7 +134,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         if (_boxPokemonOffset == 0)
             _boxPokemonOffset = await Connection.PointerAll(BoxStartPokemonPointer, token).ConfigureAwait(false);
 
-        var data = await Connection.ReadBytesAsync(_boxPokemonOffset, BoxFormatSlotSize, token).ConfigureAwait(false);
+        var data = await Connection.ReadBytesAbsoluteAsync(_boxPokemonOffset, BoxFormatSlotSize, token).ConfigureAwait(false);
         return new PA8(data);
     }
 

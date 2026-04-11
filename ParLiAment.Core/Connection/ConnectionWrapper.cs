@@ -119,10 +119,10 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
 
 
     private ulong _wildPokemonOffset = 0;
-    public async Task<PA8> ReadEncounter(CancellationToken token)
+    public async Task<PA8> ReadEncounter(uint slot, CancellationToken token)
     {
-        if (_wildPokemonOffset == 0)
-            _wildPokemonOffset = await Connection.PointerAll(WildPokemonPointer, token).ConfigureAwait(false);
+        WildPokemonPointer[2] = 0x90 + (0x60 * slot);
+        _wildPokemonOffset = await Connection.PointerAll(WildPokemonPointer, token).ConfigureAwait(false);
 
         var data = await Connection.ReadBytesAbsoluteAsync(_wildPokemonOffset, BoxFormatSlotSize, token).ConfigureAwait(false);
         return new PA8(data);

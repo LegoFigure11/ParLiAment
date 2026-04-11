@@ -21,7 +21,7 @@ public abstract class Offsets
     public IReadOnlyList<long> SaveBlockManaphySubeventProgress { get; } = [0x42A6EE0, 0x290, 0x68, 0x240, 0x0, 0x18];
     public IReadOnlyList<long> SaveBlockPhioneCaptureCount { get; } = [0x42A6EE0, 0x228, 0x1D8, 0x0, 0x440, 0x0, 0x0, 0x18];
 
-    public IReadOnlyList<long> WildPokemonPointer { get; } = [0x42A6F00, 0x98, 0x90, 0x10, 0x58, 0x00]; // Zyro https://github.com/zyro670/PokeViewer.NET/blob/main/PokeViewer.NET/SubForms/WideViewerLA.cs#L49
+    public List<long> WildPokemonPointer { get; } = [0x42A6F00, 0x98, 0x90, 0x10, 0x58, 0x00]; // Zyro https://github.com/zyro670/PokeViewer.NET/blob/main/PokeViewer.NET/SubForms/WideViewerLA.cs#L49
 
     public const int BoxFormatSlotSize = 0x168;
 }

@@ -29,7 +29,7 @@ namespace ParLiAment.WinForms;
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
         GB_Connection = new GroupBox();
         B_CopyToInitial = new Button();
@@ -59,10 +59,15 @@ namespace ParLiAment.WinForms;
         B_ReadWildPokemon = new Button();
         TB_Wild = new TextBox();
         TC_Main = new TabControl();
-        TP_OWL = new TabPage();
+        TP_Spawner = new TabPage();
+        L_Spawner_Advances = new Label();
+        TB_Spawner_Advances = new TextBox();
+        B_Spawner_Generate = new Button();
         L_GroupSeed = new Label();
         TB_GroupSeed = new TextBox();
-        groupBox1 = new GroupBox();
+        GB_Spawner_Filters = new GroupBox();
+        L_Spawner_Height = new Label();
+        CB_Spawner_Height = new ComboBox();
         L_Spawner_Nature = new Label();
         CB_Spawner_Nature = new ComboBox();
         CB_Spawner_FiltersEnabled = new CheckBox();
@@ -174,34 +179,16 @@ namespace ParLiAment.WinForms;
         TB_BabyMode = new TextBox();
         B_ConnectionSettings = new Button();
         DGV_Results = new DataGridView();
-        advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        eCDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        pIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        abilityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        natureDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        HP = new DataGridViewTextBoxColumn();
-        Atk = new DataGridViewTextBoxColumn();
-        Def = new DataGridViewTextBoxColumn();
-        SpA = new DataGridViewTextBoxColumn();
-        SpD = new DataGridViewTextBoxColumn();
-        Spe = new DataGridViewTextBoxColumn();
-        genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         BS_Results = new BindingSource(components);
         B_ReadB1S1 = new Button();
         B_CopyIVs = new Button();
-        B_Spawner_Generate = new Button();
-        TB_Spawner_Advances = new TextBox();
-        L_Spawner_Advances = new Label();
-        L_Spawner_Height = new Label();
-        CB_Spawner_Height = new ComboBox();
+        NUD_ReadSlot = new NumericUpDown();
         GB_Connection.SuspendLayout();
         GB_Seed.SuspendLayout();
         GB_SAVInfo.SuspendLayout();
         TC_Main.SuspendLayout();
-        TP_OWL.SuspendLayout();
-        groupBox1.SuspendLayout();
+        TP_Spawner.SuspendLayout();
+        GB_Spawner_Filters.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Spe_Max).BeginInit();
         ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Spe_Min).BeginInit();
         ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpD_Max).BeginInit();
@@ -234,6 +221,7 @@ namespace ParLiAment.WinForms;
         ((System.ComponentModel.ISupportInitialize)NUD_BabyModeDelay).BeginInit();
         ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
         ((System.ComponentModel.ISupportInitialize)BS_Results).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_ReadSlot).BeginInit();
         SuspendLayout();
         // 
         // GB_Connection
@@ -536,7 +524,7 @@ namespace ParLiAment.WinForms;
         // 
         B_ReadWildPokemon.Location = new Point(601, 173);
         B_ReadWildPokemon.Name = "B_ReadWildPokemon";
-        B_ReadWildPokemon.Size = new Size(181, 25);
+        B_ReadWildPokemon.Size = new Size(147, 25);
         B_ReadWildPokemon.TabIndex = 9;
         B_ReadWildPokemon.Text = "Read Encounter";
         B_ReadWildPokemon.UseVisualStyleBackColor = true;
@@ -555,7 +543,7 @@ namespace ParLiAment.WinForms;
         // 
         // TC_Main
         // 
-        TC_Main.Controls.Add(TP_OWL);
+        TC_Main.Controls.Add(TP_Spawner);
         TC_Main.Controls.Add(TP_Static);
         TC_Main.Controls.Add(TP_GroupSeedSolver);
         TC_Main.Location = new Point(211, 1);
@@ -564,22 +552,52 @@ namespace ParLiAment.WinForms;
         TC_Main.Size = new Size(388, 337);
         TC_Main.TabIndex = 127;
         // 
-        // TP_OWL
+        // TP_Spawner
         // 
-        TP_OWL.Controls.Add(L_Spawner_Advances);
-        TP_OWL.Controls.Add(TB_Spawner_Advances);
-        TP_OWL.Controls.Add(B_Spawner_Generate);
-        TP_OWL.Controls.Add(L_GroupSeed);
-        TP_OWL.Controls.Add(TB_GroupSeed);
-        TP_OWL.Controls.Add(groupBox1);
-        TP_OWL.Controls.Add(L_Spawner_Species);
-        TP_OWL.Controls.Add(CB_Spawner_Species);
-        TP_OWL.Location = new Point(4, 24);
-        TP_OWL.Name = "TP_OWL";
-        TP_OWL.Size = new Size(380, 309);
-        TP_OWL.TabIndex = 5;
-        TP_OWL.Text = "Overworld Legendary (Spawner)";
-        TP_OWL.UseVisualStyleBackColor = true;
+        TP_Spawner.Controls.Add(L_Spawner_Advances);
+        TP_Spawner.Controls.Add(TB_Spawner_Advances);
+        TP_Spawner.Controls.Add(B_Spawner_Generate);
+        TP_Spawner.Controls.Add(L_GroupSeed);
+        TP_Spawner.Controls.Add(TB_GroupSeed);
+        TP_Spawner.Controls.Add(GB_Spawner_Filters);
+        TP_Spawner.Controls.Add(L_Spawner_Species);
+        TP_Spawner.Controls.Add(CB_Spawner_Species);
+        TP_Spawner.Location = new Point(4, 24);
+        TP_Spawner.Name = "TP_Spawner";
+        TP_Spawner.Size = new Size(380, 309);
+        TP_Spawner.TabIndex = 5;
+        TP_Spawner.Text = "Overworld Legendary (Spawner)";
+        TP_Spawner.UseVisualStyleBackColor = true;
+        // 
+        // L_Spawner_Advances
+        // 
+        L_Spawner_Advances.AutoSize = true;
+        L_Spawner_Advances.Location = new Point(3, 245);
+        L_Spawner_Advances.Name = "L_Spawner_Advances";
+        L_Spawner_Advances.Size = new Size(61, 15);
+        L_Spawner_Advances.TabIndex = 189;
+        L_Spawner_Advances.Text = "Advances:";
+        // 
+        // TB_Spawner_Advances
+        // 
+        TB_Spawner_Advances.CharacterCasing = CharacterCasing.Upper;
+        TB_Spawner_Advances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        TB_Spawner_Advances.Location = new Point(70, 243);
+        TB_Spawner_Advances.MaxLength = 10;
+        TB_Spawner_Advances.Name = "TB_Spawner_Advances";
+        TB_Spawner_Advances.Size = new Size(101, 22);
+        TB_Spawner_Advances.TabIndex = 188;
+        TB_Spawner_Advances.Text = "100";
+        TB_Spawner_Advances.TextAlign = HorizontalAlignment.Right;
+        // 
+        // B_Spawner_Generate
+        // 
+        B_Spawner_Generate.Location = new Point(3, 269);
+        B_Spawner_Generate.Name = "B_Spawner_Generate";
+        B_Spawner_Generate.Size = new Size(374, 25);
+        B_Spawner_Generate.TabIndex = 187;
+        B_Spawner_Generate.Text = "Generate";
+        B_Spawner_Generate.UseVisualStyleBackColor = true;
         // 
         // L_GroupSeed
         // 
@@ -601,55 +619,73 @@ namespace ParLiAment.WinForms;
         TB_GroupSeed.TabIndex = 9;
         TB_GroupSeed.Text = "0123456789ABCDEF";
         // 
-        // groupBox1
+        // GB_Spawner_Filters
         // 
-        groupBox1.Controls.Add(L_Spawner_Height);
-        groupBox1.Controls.Add(CB_Spawner_Height);
-        groupBox1.Controls.Add(L_Spawner_Nature);
-        groupBox1.Controls.Add(CB_Spawner_Nature);
-        groupBox1.Controls.Add(CB_Spawner_FiltersEnabled);
-        groupBox1.Controls.Add(B_Spawner_Spe_Max);
-        groupBox1.Controls.Add(B_Spawner_Spe_Min);
-        groupBox1.Controls.Add(L_Spawner_Spe);
-        groupBox1.Controls.Add(L_Spawner_SpeSpacer);
-        groupBox1.Controls.Add(NUD_Spawner_Spe_Max);
-        groupBox1.Controls.Add(NUD_Spawner_Spe_Min);
-        groupBox1.Controls.Add(B_Spawner_SpD_Max);
-        groupBox1.Controls.Add(B_Spawner_SpD_Min);
-        groupBox1.Controls.Add(L_Spawner_SpD);
-        groupBox1.Controls.Add(L_Spawner_SpDSpacer);
-        groupBox1.Controls.Add(NUD_Spawner_SpD_Max);
-        groupBox1.Controls.Add(NUD_Spawner_SpD_Min);
-        groupBox1.Controls.Add(B_Spawner_SpA_Max);
-        groupBox1.Controls.Add(B_Spawner_SpA_Min);
-        groupBox1.Controls.Add(L_Spawner_SpA);
-        groupBox1.Controls.Add(L_Spawner_SpASpacer);
-        groupBox1.Controls.Add(NUD_Spawner_SpA_Max);
-        groupBox1.Controls.Add(NUD_Spawner_SpA_Min);
-        groupBox1.Controls.Add(B_Spawner_Def_Max);
-        groupBox1.Controls.Add(B_Spawner_Def_Min);
-        groupBox1.Controls.Add(L_Spawner_Def);
-        groupBox1.Controls.Add(L_Spawner_DefSpacer);
-        groupBox1.Controls.Add(NUD_Spawner_Def_Max);
-        groupBox1.Controls.Add(NUD_Spawner_Def_Min);
-        groupBox1.Controls.Add(B_Spawner_Atk_Max);
-        groupBox1.Controls.Add(B_Spawner_Atk_Min);
-        groupBox1.Controls.Add(L_Spawner_Atk);
-        groupBox1.Controls.Add(L_Spawner_AtkSpacer);
-        groupBox1.Controls.Add(NUD_Spawner_Atk_Max);
-        groupBox1.Controls.Add(NUD_Spawner_Atk_Min);
-        groupBox1.Controls.Add(B_Spawner_HP_Max);
-        groupBox1.Controls.Add(B_Spawner_HP_Min);
-        groupBox1.Controls.Add(L_Spawner_HP);
-        groupBox1.Controls.Add(L_Spawner_HPSpacer);
-        groupBox1.Controls.Add(NUD_Spawner_HP_Max);
-        groupBox1.Controls.Add(NUD_Spawner_HP_Min);
-        groupBox1.Location = new Point(177, 3);
-        groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(200, 262);
-        groupBox1.TabIndex = 185;
-        groupBox1.TabStop = false;
-        groupBox1.Text = "Search Filters";
+        GB_Spawner_Filters.Controls.Add(L_Spawner_Height);
+        GB_Spawner_Filters.Controls.Add(CB_Spawner_Height);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_Nature);
+        GB_Spawner_Filters.Controls.Add(CB_Spawner_Nature);
+        GB_Spawner_Filters.Controls.Add(CB_Spawner_FiltersEnabled);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_Spe_Max);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_Spe_Min);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_Spe);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_SpeSpacer);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_Spe_Max);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_Spe_Min);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_SpD_Max);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_SpD_Min);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_SpD);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_SpDSpacer);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_SpD_Max);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_SpD_Min);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_SpA_Max);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_SpA_Min);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_SpA);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_SpASpacer);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_SpA_Max);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_SpA_Min);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_Def_Max);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_Def_Min);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_Def);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_DefSpacer);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_Def_Max);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_Def_Min);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_Atk_Max);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_Atk_Min);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_Atk);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_AtkSpacer);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_Atk_Max);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_Atk_Min);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_HP_Max);
+        GB_Spawner_Filters.Controls.Add(B_Spawner_HP_Min);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_HP);
+        GB_Spawner_Filters.Controls.Add(L_Spawner_HPSpacer);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_HP_Max);
+        GB_Spawner_Filters.Controls.Add(NUD_Spawner_HP_Min);
+        GB_Spawner_Filters.Location = new Point(177, 3);
+        GB_Spawner_Filters.Name = "GB_Spawner_Filters";
+        GB_Spawner_Filters.Size = new Size(200, 262);
+        GB_Spawner_Filters.TabIndex = 185;
+        GB_Spawner_Filters.TabStop = false;
+        GB_Spawner_Filters.Text = "Search Filters";
+        // 
+        // L_Spawner_Height
+        // 
+        L_Spawner_Height.AutoSize = true;
+        L_Spawner_Height.Location = new Point(2, 171);
+        L_Spawner_Height.Name = "L_Spawner_Height";
+        L_Spawner_Height.Size = new Size(46, 15);
+        L_Spawner_Height.TabIndex = 171;
+        L_Spawner_Height.Text = "Height:";
+        // 
+        // CB_Spawner_Height
+        // 
+        CB_Spawner_Height.FormattingEnabled = true;
+        CB_Spawner_Height.Items.AddRange(new object[] { "Ignore", "Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish", "Lax", "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky" });
+        CB_Spawner_Height.Location = new Point(53, 168);
+        CB_Spawner_Height.Name = "CB_Spawner_Height";
+        CB_Spawner_Height.Size = new Size(142, 23);
+        CB_Spawner_Height.TabIndex = 170;
         // 
         // L_Spawner_Nature
         // 
@@ -1793,13 +1829,10 @@ namespace ParLiAment.WinForms;
         // 
         DGV_Results.AllowUserToAddRows = false;
         DGV_Results.AllowUserToDeleteRows = false;
-        dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-        DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+        dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+        DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
         DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-        DGV_Results.AutoGenerateColumns = false;
         DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        DGV_Results.Columns.AddRange(new DataGridViewColumn[] { advancesDataGridViewTextBoxColumn, eCDataGridViewTextBoxColumn, pIDDataGridViewTextBoxColumn, abilityDataGridViewTextBoxColumn, natureDataGridViewTextBoxColumn, HP, Atk, Def, SpA, SpD, Spe, genderDataGridViewTextBoxColumn, seed0DataGridViewTextBoxColumn, seed1DataGridViewTextBoxColumn });
-        DGV_Results.DataSource = BS_Results;
         DGV_Results.Location = new Point(11, 344);
         DGV_Results.Name = "DGV_Results";
         DGV_Results.ReadOnly = true;
@@ -1808,104 +1841,6 @@ namespace ParLiAment.WinForms;
         DGV_Results.Size = new Size(773, 294);
         DGV_Results.TabIndex = 129;
         DGV_Results.CellFormatting += DGV_Results_CellFormatting;
-        // 
-        // advancesDataGridViewTextBoxColumn
-        // 
-        advancesDataGridViewTextBoxColumn.DataPropertyName = "Advances";
-        advancesDataGridViewTextBoxColumn.HeaderText = "Advances";
-        advancesDataGridViewTextBoxColumn.Name = "advancesDataGridViewTextBoxColumn";
-        advancesDataGridViewTextBoxColumn.ReadOnly = true;
-        // 
-        // eCDataGridViewTextBoxColumn
-        // 
-        eCDataGridViewTextBoxColumn.DataPropertyName = "EC";
-        eCDataGridViewTextBoxColumn.HeaderText = "EC";
-        eCDataGridViewTextBoxColumn.Name = "eCDataGridViewTextBoxColumn";
-        eCDataGridViewTextBoxColumn.ReadOnly = true;
-        // 
-        // pIDDataGridViewTextBoxColumn
-        // 
-        pIDDataGridViewTextBoxColumn.DataPropertyName = "PID";
-        pIDDataGridViewTextBoxColumn.HeaderText = "PID";
-        pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
-        pIDDataGridViewTextBoxColumn.ReadOnly = true;
-        // 
-        // abilityDataGridViewTextBoxColumn
-        // 
-        abilityDataGridViewTextBoxColumn.DataPropertyName = "Ability";
-        abilityDataGridViewTextBoxColumn.HeaderText = "Ability";
-        abilityDataGridViewTextBoxColumn.Name = "abilityDataGridViewTextBoxColumn";
-        abilityDataGridViewTextBoxColumn.ReadOnly = true;
-        // 
-        // natureDataGridViewTextBoxColumn
-        // 
-        natureDataGridViewTextBoxColumn.DataPropertyName = "Nature";
-        natureDataGridViewTextBoxColumn.HeaderText = "Nature";
-        natureDataGridViewTextBoxColumn.Name = "natureDataGridViewTextBoxColumn";
-        natureDataGridViewTextBoxColumn.ReadOnly = true;
-        // 
-        // HP
-        // 
-        HP.DataPropertyName = "HP";
-        HP.HeaderText = "HP";
-        HP.Name = "HP";
-        HP.ReadOnly = true;
-        // 
-        // Atk
-        // 
-        Atk.DataPropertyName = "Atk";
-        Atk.HeaderText = "Atk";
-        Atk.Name = "Atk";
-        Atk.ReadOnly = true;
-        // 
-        // Def
-        // 
-        Def.DataPropertyName = "Def";
-        Def.HeaderText = "Def";
-        Def.Name = "Def";
-        Def.ReadOnly = true;
-        // 
-        // SpA
-        // 
-        SpA.DataPropertyName = "SpA";
-        SpA.HeaderText = "SpA";
-        SpA.Name = "SpA";
-        SpA.ReadOnly = true;
-        // 
-        // SpD
-        // 
-        SpD.DataPropertyName = "SpD";
-        SpD.HeaderText = "SpD";
-        SpD.Name = "SpD";
-        SpD.ReadOnly = true;
-        // 
-        // Spe
-        // 
-        Spe.DataPropertyName = "Spe";
-        Spe.HeaderText = "Spe";
-        Spe.Name = "Spe";
-        Spe.ReadOnly = true;
-        // 
-        // genderDataGridViewTextBoxColumn
-        // 
-        genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
-        genderDataGridViewTextBoxColumn.HeaderText = "Gender";
-        genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-        genderDataGridViewTextBoxColumn.ReadOnly = true;
-        // 
-        // seed0DataGridViewTextBoxColumn
-        // 
-        seed0DataGridViewTextBoxColumn.DataPropertyName = "Seed0";
-        seed0DataGridViewTextBoxColumn.HeaderText = "Seed0";
-        seed0DataGridViewTextBoxColumn.Name = "seed0DataGridViewTextBoxColumn";
-        seed0DataGridViewTextBoxColumn.ReadOnly = true;
-        // 
-        // seed1DataGridViewTextBoxColumn
-        // 
-        seed1DataGridViewTextBoxColumn.DataPropertyName = "Seed1";
-        seed1DataGridViewTextBoxColumn.HeaderText = "Seed1";
-        seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
-        seed1DataGridViewTextBoxColumn.ReadOnly = true;
         // 
         // BS_Results
         // 
@@ -1931,59 +1866,20 @@ namespace ParLiAment.WinForms;
         B_CopyIVs.UseVisualStyleBackColor = true;
         B_CopyIVs.Click += B_CopyIVs_Click;
         // 
-        // B_Spawner_Generate
+        // NUD_ReadSlot
         // 
-        B_Spawner_Generate.Location = new Point(3, 269);
-        B_Spawner_Generate.Name = "B_Spawner_Generate";
-        B_Spawner_Generate.Size = new Size(374, 25);
-        B_Spawner_Generate.TabIndex = 187;
-        B_Spawner_Generate.Text = "Generate";
-        B_Spawner_Generate.UseVisualStyleBackColor = true;
-        // 
-        // TB_Spawner_Advances
-        // 
-        TB_Spawner_Advances.CharacterCasing = CharacterCasing.Upper;
-        TB_Spawner_Advances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-        TB_Spawner_Advances.Location = new Point(70, 243);
-        TB_Spawner_Advances.MaxLength = 10;
-        TB_Spawner_Advances.Name = "TB_Spawner_Advances";
-        TB_Spawner_Advances.Size = new Size(101, 22);
-        TB_Spawner_Advances.TabIndex = 188;
-        TB_Spawner_Advances.Text = "100";
-        TB_Spawner_Advances.TextAlign = HorizontalAlignment.Right;
-        // 
-        // L_Spawner_Advances
-        // 
-        L_Spawner_Advances.AutoSize = true;
-        L_Spawner_Advances.Location = new Point(3, 245);
-        L_Spawner_Advances.Name = "L_Spawner_Advances";
-        L_Spawner_Advances.Size = new Size(61, 15);
-        L_Spawner_Advances.TabIndex = 189;
-        L_Spawner_Advances.Text = "Advances:";
-        // 
-        // L_Spawner_Height
-        // 
-        L_Spawner_Height.AutoSize = true;
-        L_Spawner_Height.Location = new Point(2, 171);
-        L_Spawner_Height.Name = "L_Spawner_Height";
-        L_Spawner_Height.Size = new Size(46, 15);
-        L_Spawner_Height.TabIndex = 171;
-        L_Spawner_Height.Text = "Height:";
-        // 
-        // CB_Spawner_Height
-        // 
-        CB_Spawner_Height.FormattingEnabled = true;
-        CB_Spawner_Height.Items.AddRange(new object[] { "Ignore", "Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish", "Lax", "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky" });
-        CB_Spawner_Height.Location = new Point(53, 168);
-        CB_Spawner_Height.Name = "CB_Spawner_Height";
-        CB_Spawner_Height.Size = new Size(142, 23);
-        CB_Spawner_Height.TabIndex = 170;
+        NUD_ReadSlot.Location = new Point(750, 175);
+        NUD_ReadSlot.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+        NUD_ReadSlot.Name = "NUD_ReadSlot";
+        NUD_ReadSlot.Size = new Size(32, 23);
+        NUD_ReadSlot.TabIndex = 134;
         // 
         // MainWindow
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(796, 650);
+        Controls.Add(NUD_ReadSlot);
         Controls.Add(B_CopyIVs);
         Controls.Add(GB_Seed);
         Controls.Add(GB_Connection);
@@ -2006,10 +1902,10 @@ namespace ParLiAment.WinForms;
         GB_SAVInfo.ResumeLayout(false);
         GB_SAVInfo.PerformLayout();
         TC_Main.ResumeLayout(false);
-        TP_OWL.ResumeLayout(false);
-        TP_OWL.PerformLayout();
-        groupBox1.ResumeLayout(false);
-        groupBox1.PerformLayout();
+        TP_Spawner.ResumeLayout(false);
+        TP_Spawner.PerformLayout();
+        GB_Spawner_Filters.ResumeLayout(false);
+        GB_Spawner_Filters.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Spe_Max).EndInit();
         ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Spe_Min).EndInit();
         ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpD_Max).EndInit();
@@ -2046,6 +1942,7 @@ namespace ParLiAment.WinForms;
         ((System.ComponentModel.ISupportInitialize)NUD_BabyModeDelay).EndInit();
         ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
         ((System.ComponentModel.ISupportInitialize)BS_Results).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_ReadSlot).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -2138,7 +2035,7 @@ namespace ParLiAment.WinForms;
     private Button B_CopyIVs;
     public ComboBox CB_BabyMode_Action;
     private TabPage TP_GroupSeedSolver;
-    private TabPage TP_OWL;
+    private TabPage TP_Spawner;
     private TextBox TB_File1;
     private Button B_File1;
     private TextBox TB_File2;
@@ -2158,7 +2055,7 @@ namespace ParLiAment.WinForms;
     private BindingSource BS_Results;
     private Label L_GroupSeed;
     public TextBox TB_GroupSeed;
-    private GroupBox groupBox1;
+    private GroupBox GB_Spawner_Filters;
     private Label L_Spawner_Nature;
     private ComboBox CB_Spawner_Nature;
     private Button B_Spawner_Spe_Max;
@@ -2198,24 +2095,11 @@ namespace ParLiAment.WinForms;
     private NumericUpDown NUD_Spawner_HP_Max;
     private NumericUpDown NUD_Spawner_HP_Min;
     private CheckBox CB_Spawner_FiltersEnabled;
-    private DataGridViewTextBoxColumn advancesDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn eCDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn abilityDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn natureDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn HP;
-    private DataGridViewTextBoxColumn Atk;
-    private DataGridViewTextBoxColumn Def;
-    private DataGridViewTextBoxColumn SpA;
-    private DataGridViewTextBoxColumn SpD;
-    private DataGridViewTextBoxColumn Spe;
-    private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
     public TextBox TB_Spawner_Advances;
     private Button B_Spawner_Generate;
     private Label L_Spawner_Advances;
     private Label L_Spawner_Height;
     private ComboBox CB_Spawner_Height;
+    private NumericUpDown NUD_ReadSlot;
 }
 

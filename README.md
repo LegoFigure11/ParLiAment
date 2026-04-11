@@ -9,10 +9,9 @@
 
 _by [@LegoFigure11](https://github.com/LegoFigure11/)_
 
->**Parliament** <small>(_n._)</small><br />
-><small>/ˈpɑːlɪm(ə)nt/</small>
-<br />
-A group of owls.
+> **Parliament** <small>(_n._)</small><br />
+> <small>/ˈpɑːlɪm(ə)nt/</small><br />
+> A group of owls.
 
 ParLiAment is a sys-botbase client and RNG Tool for Static and Over-World Legendaries (OWLs) in Pok&eacute;mon Legends: Arceus for the Nintendo Switch.
 <!--

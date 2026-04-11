@@ -767,19 +767,16 @@ public partial class MainWindow : Form
     private void ValidateInputs()
     {
         // Initial
-        var initial = (TextBox)Controls.Find($"TB_Initial", true).FirstOrDefault()!;
+        var initial = TB_Static_Initial;
         if (string.IsNullOrEmpty(initial.GetText())) SetControlText("0", initial);
-        var mon = (TextBox)Controls.Find($"TB_MonInitial", true).FirstOrDefault()!;
-        if (string.IsNullOrEmpty(mon.GetText())) SetControlText("0", mon);
 
         // Advances
-        var advances = (TextBox)Controls.Find($"TB_Advances", true).FirstOrDefault()!;
-        var adv = advances.GetText();
-        if (string.IsNullOrEmpty(adv) || adv is "0") SetControlText("1", advances);
-
-        var monadvances = (TextBox)Controls.Find($"TB_MonAdvances", true).FirstOrDefault()!;
-        var monadv = advances.GetText();
-        if (string.IsNullOrEmpty(monadv) || monadv is "0") SetControlText("1", monadvances);
+        Control[] tbs = [TB_Spawner_Advances, TB_Static_Advances, TB_BabyMode];
+        foreach (var advances in tbs)
+        {
+            var adv = advances.GetText();
+            if (string.IsNullOrEmpty(adv) || adv is "0") SetControlText("1", advances);
+        }
 
         // Seed
         if (string.IsNullOrEmpty(TB_InitialSeed0.GetText())) SetControlText("0", TB_InitialSeed0);
@@ -797,6 +794,15 @@ public partial class MainWindow : Form
             SetControlText("1390", TB_InitialSeed1);
         }
         SetControlText(TB_InitialSeed1.GetText().PadLeft(16, '0'), TB_InitialSeed1);
+
+
+        if (string.IsNullOrEmpty(TB_GroupSeed.GetText())) SetControlText("0", TB_GroupSeed);
+
+        if (TB_GroupSeed.GetText() is "0")
+        {
+            SetControlText("42069", TB_GroupSeed);
+        }
+        SetControlText(TB_GroupSeed.GetText().PadLeft(16, '0'), TB_GroupSeed);
 
         // IDs
         if (string.IsNullOrEmpty(TB_TID.GetText())) SetControlText("0", TB_TID);
@@ -844,6 +850,7 @@ public partial class MainWindow : Form
 
     private void B_Static_Search_Click(object sender, EventArgs e)
     {
+        ValidateInputs();
         SetControlEnabledState(false, B_Static_Search);
         Task.Run(async () =>
         {
@@ -887,6 +894,7 @@ public partial class MainWindow : Form
 
     private void B_BabyMode_Go_Click(object sender, EventArgs e)
     {
+        ValidateInputs();
         babyModeTarget = uint.Parse(TB_BabyMode.GetText());
         var delay = CB_BabyModeDelay.GetIsChecked() ? NUD_BabyModeDelay.GetValue() : 0u;
         babyModeTarget -= delay;
@@ -1161,6 +1169,7 @@ public partial class MainWindow : Form
 
     private void B_Spawner_Generate_Click(object sender, EventArgs e)
     {
+        ValidateInputs();
         SetControlEnabledState(false, B_Spawner_Generate);
         Task.Run(async () =>
         {

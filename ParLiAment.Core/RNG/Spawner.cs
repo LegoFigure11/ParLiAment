@@ -4,17 +4,18 @@ using static ParLiAment.Core.RNG.Validator;
 
 namespace ParLiAment.Core.RNG;
 
-public static class Static
+public static class Spawner
 {
-    public static Task<List<StaticFrame>> Generate(ulong s0, ulong s1, ulong startAdv, ulong endAdv, StaticConfig cfg)
+    public static Task<List<SpawnerFrame>> Generate(ulong groupSeed, ulong endAdv, SpawnerConfig cfg)
     {
         return Task.Run(() =>
         {
-            List<StaticFrame> results = [];
+            List<SpawnerFrame> results = [];
 
             bool FiltersEnabled = cfg.FiltersEnabled;
             int FixedIVs = cfg.FixedIVs;
             bool GenerateGender = cfg.GenerateGender;
+            bool GenerateHW = cfg.GenerateHW;
 
             bool IsShiny;
             uint ShinyXOR;
@@ -26,20 +27,26 @@ public static class Static
             byte Ability;
             Nature Nature;
 
-            if (cfg.UseDelay) (s0, s1) = RNGUtil.XoroshiroJump(s0, s1, cfg.Delay);
+            ulong init = unchecked(groupSeed);
+            var rng = new Xoroshiro128Plus(init);
 
-            var outer = new Xoroshiro128Plus(s0, s1);
-
-            for (ulong i = startAdv; i <= startAdv + endAdv; i++)
+            for (ulong i = 0; i <= endAdv; i++)
             {
-                var os = outer.GetState();
-                var rng = new Xoroshiro128Plus(os.s0, os.s1);
+                var generatorSeed = rng.Next();
 
-                EC = (uint)rng.NextInt();
+                _ = rng.Next(); // Alpha Move
 
-                FakeIDs = (uint)rng.NextInt();
+                var slotRng = new Xoroshiro128Plus(generatorSeed);
+                _ = slotRng.Next(); // Slot
+                var PokemonSeed = slotRng.Next();
 
-                PID = (uint)rng.NextInt();
+                var pokeRng = new Xoroshiro128Plus(PokemonSeed);
+
+                EC = (uint)pokeRng.NextInt();
+
+                FakeIDs = (uint)pokeRng.NextInt();
+
+                PID = (uint)pokeRng.NextInt();
                 ShinyXOR = RNGUtil.GetShinyXOR(PID, FakeIDs);
                 IsShiny = ShinyXOR < 16;
                 if (IsShiny) PID ^= 0x10000000;
@@ -49,7 +56,7 @@ public static class Static
                 for (var iv = 0; iv < FixedIVs; iv++)
                 {
                     int index;
-                    do { index = (int)rng.NextInt(6); }
+                    do { index = (int)pokeRng.NextInt(6); }
                     while (ivs[index] != -1);
 
                     ivs[index] = 31;
@@ -63,7 +70,8 @@ public static class Static
 
                 if (!PassIVs)
                 {
-                    outer.Next();
+                    var _s = rng.Next();
+                    rng = new Xoroshiro128Plus(_s);
                     continue;
                 }
 
@@ -71,7 +79,7 @@ public static class Static
                 {
                     if (ivs[iv] == -1)
                     {
-                        ivs[iv] = (int)rng.NextInt(32);
+                        ivs[iv] = (int)pokeRng.NextInt(32);
                         if (cfg.FiltersEnabled && !CheckIV(ivs[iv], cfg.TargetMinIVs[iv], cfg.TargetMaxIVs[iv], cfg.SearchTypes[iv]))
                         {
                             PassIVs = false;
@@ -82,31 +90,47 @@ public static class Static
 
                 if (!PassIVs)
                 {
-                    outer.Next();
+                    var _s = rng.Next();
+                    rng = new Xoroshiro128Plus(_s);
                     continue;
                 }
 
-                Ability = (byte)rng.NextInt(2);
+                Ability = (byte)pokeRng.NextInt(2);
                 cfg._pk.SetAbilityIndex(Ability);
 
                 Gender = cfg._pk.Gender;
                 if (GenerateGender)
                 {
-                    Gender = (byte)(rng.NextInt(253) + 1);
+                    Gender = (byte)(pokeRng.NextInt(253) + 1);
                 }
 
-                Nature = (Nature)rng.NextInt(25);
+                Nature = (Nature)pokeRng.NextInt(25);
                 if (cfg.FiltersEnabled && !CheckNature((byte)Nature, cfg.TargetNature))
                 {
-                    outer.Next();
+                    var _s = rng.Next();
+                    rng = new Xoroshiro128Plus(_s);
                     continue;
                 }
 
-                var f = new StaticFrame()
+                byte Height = 127, Weight = 127;
+                if (GenerateHW)
+                {
+                    Height = (byte)(pokeRng.NextInt(0x81) + pokeRng.NextInt(0x80));
+                    if (cfg.FiltersEnabled && !CheckHeight(Height, cfg.TargetScale))
+                    {
+                        var _s = rng.Next();
+                        rng = new Xoroshiro128Plus(_s);
+                        continue;
+                    }
+
+                    Weight = (byte)(pokeRng.NextInt(0x81) + pokeRng.NextInt(0x80));
+                }
+
+                var f = new SpawnerFrame()
                 {
                     _advances = i,
-                    _seed0 = os.s0,
-                    _seed1 = os.s1,
+                    _seed0 = generatorSeed,
+                    _seed1 = PokemonSeed,
 
                     _ec = EC,
                     _pid = PID,
@@ -123,9 +147,14 @@ public static class Static
                     _ivs = ivs.ToArray(),
 
                     Ability = Abilities[cfg._pk.Ability],
+
+                    _height = Height,
+                    _weight = Weight,
                 };
                 results.Add(f);
-                outer.Next();
+
+                var ns = rng.Next();
+                rng = new Xoroshiro128Plus(ns);
             }
 
             return results;

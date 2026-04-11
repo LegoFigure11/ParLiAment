@@ -57,6 +57,7 @@ public class SpawnerConfig : IGeneratorConfig, IIVGeneratorConfig
     public ushort TSV => (ushort)RNGUtil.GetShinyValue(TID, SID);
 
     public Nature TargetNature { get; set; } = Nature.Random;
+    public ScaleType TargetScale { get; set; } = ScaleType.Any;
 
     public uint[] TargetMinIVs { get; set; } = [0, 0, 0, 0, 0, 0];
     public uint[] TargetMaxIVs { get; set; } = [31, 31, 31, 31, 31, 31];
@@ -64,6 +65,7 @@ public class SpawnerConfig : IGeneratorConfig, IIVGeneratorConfig
 
     public PA8 _pk { get; set; } = new();
     public int FixedIVs => Encounters.GetFixedIVs((Species)_pk.Species);
+    public bool GenerateHW => FixedIVs == 0;
     public byte Gender => PersonalTable.LA[_pk.Species].Gender;
     public bool GenerateGender => Gender is not PersonalInfo.RatioMagicGenderless and not PersonalInfo.RatioMagicMale and not PersonalInfo.RatioMagicFemale;
 }

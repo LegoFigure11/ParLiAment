@@ -113,10 +113,10 @@ public partial class MainWindow : Form
         var spawner = GetSpawnerEncounters();
         foreach (var item in spawner) CB_Spawner_Species.Items.Add(item);
 
-        SetComboBoxSelectedIndex(0, CB_BabyMode_Action, CB_Static_Nature, CB_Static_Species, CB_Spawner_Species);
+        SetComboBoxSelectedIndex(0, CB_BabyMode_Action, CB_Static_Nature, CB_Static_Species, CB_Spawner_Species, CB_Spawner_Nature, CB_Spawner_Height);
 
-        SetControlText("0", TB_InitialSeed0, TB_InitialSeed1);
-        SetControlText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentSeed0, TB_CurrentSeed1);
+        SetControlText("0", TB_InitialSeed0, TB_InitialSeed1, TB_GroupSeed);
+        SetControlText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentSeed0, TB_CurrentSeed1, TB_GroupSeedResult);
 
         TB_Status.Text = "Not Connected.";
         TB_Wild.Text = string.Empty;
@@ -423,17 +423,7 @@ public partial class MainWindow : Form
 
             Disconnect(Source.Token);
         }
-    }
-
-
-    private static ShinyType GetFilterShinyType(int selected) => selected switch
-    {
-        1 => ShinyType.Either,
-        2 => ShinyType.Square,
-        3 => ShinyType.Star,
-        4 => ShinyType.None,
-        _ => ShinyType.Any,
-    };
+    }       
 
     private static Nature GetFilterNatureType(int selected) => selected switch
     {
@@ -586,7 +576,7 @@ public partial class MainWindow : Form
 
     private void B_ReadWildPokemon_Click(object sender, EventArgs e)
     {
-        if (ConnectionWrapper.Connected)
+        if (ConnectionWrapper is not null && ConnectionWrapper.Connected)
         {
             Task.Run(async () =>
             {
@@ -616,7 +606,7 @@ public partial class MainWindow : Form
 
     private void B_ReadB1S1_Click(object sender, EventArgs e)
     {
-        if (ConnectionWrapper.Connected)
+        if (ConnectionWrapper is not null && ConnectionWrapper.Connected)
         {
             Task.Run(async () =>
             {
@@ -883,8 +873,8 @@ public partial class MainWindow : Form
             var staticFrames = await Core.RNG.Static.Generate(s0, s1, start, end, cfg);
 
             hasShifted = false;
-            SetBindingSourceDataSource(staticFrames, BS_Results);
-            SetDataGridViewDataSource(BS_Results, DGV_Results);
+            SetBindingSourceDataSource(staticFrames, BS_StaticResults);
+            SetDataGridViewDataSource(BS_StaticResults, DGV_Results);
             SetControlEnabledState(true, B_Static_Search);
             Frames = [.. staticFrames.Cast<object>()];
         });
@@ -941,6 +931,8 @@ public partial class MainWindow : Form
         {
             DGV_Results.Columns["Height"]?.DisplayIndex = DGV_Results.ColumnCount - 1;
             DGV_Results.Columns["Weight"]?.DisplayIndex = DGV_Results.ColumnCount - 1;
+            DGV_Results.Columns["GeneratorSeed"]?.DisplayIndex = DGV_Results.ColumnCount - 1;
+            DGV_Results.Columns["PokemonSeed"]?.DisplayIndex = DGV_Results.ColumnCount - 1;
             DGV_Results.Columns["Seed0"]?.DisplayIndex = DGV_Results.ColumnCount - 1;
             DGV_Results.Columns["Seed1"]?.DisplayIndex = DGV_Results.ColumnCount - 1;
             hasShifted = true;
@@ -1166,7 +1158,37 @@ public partial class MainWindow : Form
 
     private void B_Spawner_Generate_Click(object sender, EventArgs e)
     {
+        SetControlEnabledState(false, B_Spawner_Generate);
+        Task.Run(async () =>
+        {
+            var s0 = ulong.Parse(TB_GroupSeed.GetText(), NumberStyles.AllowHexSpecifier);
+            var end = ulong.Parse(TB_Spawner_Advances.GetText());
 
+            var cfg = new SpawnerConfig()
+            {
+                SID = ushort.Parse(TB_SID.GetText()),
+                TID = ushort.Parse(TB_TID.GetText()),
+
+                TargetNature = GetFilterNatureType(CB_Spawner_Nature.GetSelectedIndex()),
+
+                TargetScale = (ScaleType)CB_Spawner_Height.GetSelectedIndex(),
+
+                TargetMinIVs = [NUD_Spawner_HP_Min.GetValue(), NUD_Spawner_Atk_Min.GetValue(), NUD_Spawner_Def_Min.GetValue(), NUD_Spawner_SpA_Min.GetValue(), NUD_Spawner_SpD_Min.GetValue(), NUD_Spawner_Spe_Min.GetValue()],
+                TargetMaxIVs = [NUD_Spawner_HP_Max.GetValue(), NUD_Spawner_Atk_Max.GetValue(), NUD_Spawner_Def_Max.GetValue(), NUD_Spawner_SpA_Max.GetValue(), NUD_Spawner_SpD_Max.GetValue(), NUD_Spawner_Spe_Max.GetValue()],
+                SearchTypes = [GetIVSearchType(L_Spawner_HPSpacer.GetText()), GetIVSearchType(L_Spawner_AtkSpacer.GetText()), GetIVSearchType(L_Spawner_DefSpacer.GetText()), GetIVSearchType(L_Spawner_SpASpacer.GetText()), GetIVSearchType(L_Spawner_SpDSpacer.GetText()), GetIVSearchType(L_Spawner_SpeSpacer.GetText())],
+
+                _pk = GetSpawnerEncounter(CB_Spawner_Species.GetSelectedIndex()),
+
+                FiltersEnabled = CB_Spawner_FiltersEnabled.GetIsChecked(),
+            };
+            var spawnerFrames = await Core.RNG.Spawner.Generate(s0, end, cfg);
+
+            hasShifted = false;
+            SetBindingSourceDataSource(spawnerFrames, BS_SpawnerResults);
+            SetDataGridViewDataSource(BS_SpawnerResults, DGV_Results);
+            SetControlEnabledState(true, B_Spawner_Generate);
+            Frames = [.. spawnerFrames.Cast<object>()];
+        });
     }
 }
 

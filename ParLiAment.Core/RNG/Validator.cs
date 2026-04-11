@@ -9,17 +9,6 @@ internal static class Validator
     internal readonly static IReadOnlyList<string> Types = Utils.Strings.Types;
     internal readonly static IReadOnlyList<string> Abilities = Utils.Strings.Ability;
 
-    public static bool CheckIsShiny(uint xor, ShinyType target) => target switch
-    {
-        ShinyType.Square => xor == 0,
-        ShinyType.Star   => xor is > 0 and < 8,
-        ShinyType.Either => xor < 16,
-        ShinyType.None   => xor >= 16,
-        _                => true,
-    };
-
-    public static bool CheckEC(uint ec, bool rare) => !rare || (rare && ec % 100 == 0);
-
     public static bool CheckNature(byte nature, Nature target) => target == Nature.Random || nature == (byte)target;
 
     public static bool CheckIV(int iv, uint min, uint max, IVSearchType type)
@@ -27,18 +16,18 @@ internal static class Validator
         return !(type == IVSearchType.Range && (iv < min || iv > max) || type == IVSearchType.Or && iv != min && iv != max);
     }
 
-    public static bool CheckIVs(byte[] IVs, IIVGeneratorConfig cfg)
+    public static bool CheckHeight(uint height, ScaleType target) => target switch
     {
-        for (var i = 0; i < 6; i++)
-        {
-            var iv = IVs[i];
-
-            if (cfg.SearchTypes[i] == IVSearchType.Range && (iv < cfg.TargetMinIVs[i] || iv > cfg.TargetMaxIVs[i]) ||
-                cfg.SearchTypes[i] == IVSearchType.Or && iv != cfg.TargetMinIVs[i] && iv != cfg.TargetMaxIVs[i])
-            {
-                return false;
-            }
-        }
-        return true;
-    }
+        ScaleType.XXXS => height == 0,
+        ScaleType.XXS => height >= 1 && height <= 24,
+        ScaleType.XS => height >= 25 && height <= 59,
+        ScaleType.S => height >= 60 && height <= 99,
+        ScaleType.M => height >= 100 && height <= 155,
+        ScaleType.L => height >= 156 && height <= 195,
+        ScaleType.XL => height >= 196 && height <= 230,
+        ScaleType.XXL => height >= 231 && height <= 254,
+        ScaleType.XXXL => height == 255,
+        ScaleType.MinOrMax => height == 0 || height == 255,
+        _ => true,
+    };
 }

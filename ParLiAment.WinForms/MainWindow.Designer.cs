@@ -179,7 +179,8 @@ namespace ParLiAment.WinForms;
         L_BabyMode = new Label();
         TB_BabyMode = new TextBox();
         DGV_Results = new DataGridView();
-        BS_Results = new BindingSource(components);
+        BS_SpawnerResults = new BindingSource(components);
+        BS_StaticResults = new BindingSource(components);
         B_ReadB1S1 = new Button();
         B_CopyIVs = new Button();
         NUD_ReadSlot = new NumericUpDown();
@@ -220,7 +221,8 @@ namespace ParLiAment.WinForms;
         GB_ConnectionSettings.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)NUD_BabyModeDelay).BeginInit();
         ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)BS_Results).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)BS_SpawnerResults).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)BS_StaticResults).BeginInit();
         ((System.ComponentModel.ISupportInitialize)NUD_ReadSlot).BeginInit();
         SuspendLayout();
         // 
@@ -688,7 +690,7 @@ namespace ParLiAment.WinForms;
         // CB_Spawner_Height
         // 
         CB_Spawner_Height.FormattingEnabled = true;
-        CB_Spawner_Height.Items.AddRange(new object[] { "Ignore", "Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish", "Lax", "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky" });
+        CB_Spawner_Height.Items.AddRange(new object[] { "Ignore", "XXXS", "XXS", "XS", "S", "M", "L", "XL", "XXL", "XXXL", "XXXS or XXXL" });
         CB_Spawner_Height.Location = new Point(53, 168);
         CB_Spawner_Height.Name = "CB_Spawner_Height";
         CB_Spawner_Height.Size = new Size(142, 23);
@@ -1851,9 +1853,13 @@ namespace ParLiAment.WinForms;
         DGV_Results.TabIndex = 129;
         DGV_Results.CellFormatting += DGV_Results_CellFormatting;
         // 
-        // BS_Results
+        // BS_SpawnerResults
         // 
-        BS_Results.DataSource = typeof(Core.Interfaces.PokemonFrame);
+        BS_SpawnerResults.DataSource = typeof(Core.Interfaces.SpawnerFrame);
+        // 
+        // BS_StaticResults
+        // 
+        BS_StaticResults.DataSource = typeof(Core.Interfaces.StaticFrame);
         // 
         // B_ReadB1S1
         // 
@@ -1949,7 +1955,8 @@ namespace ParLiAment.WinForms;
         GB_ConnectionSettings.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)NUD_BabyModeDelay).EndInit();
         ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
-        ((System.ComponentModel.ISupportInitialize)BS_Results).EndInit();
+        ((System.ComponentModel.ISupportInitialize)BS_SpawnerResults).EndInit();
+        ((System.ComponentModel.ISupportInitialize)BS_StaticResults).EndInit();
         ((System.ComponentModel.ISupportInitialize)NUD_ReadSlot).EndInit();
         ResumeLayout(false);
         PerformLayout();
@@ -2059,7 +2066,7 @@ namespace ParLiAment.WinForms;
     private Button B_CopyToInitial;
     private Label L_Spawner_Species;
     public ComboBox CB_Spawner_Species;
-    private BindingSource BS_Results;
+    private BindingSource BS_StaticResults;
     private Label L_GroupSeed;
     public TextBox TB_GroupSeed;
     private GroupBox GB_Spawner_Filters;
@@ -2109,5 +2116,6 @@ namespace ParLiAment.WinForms;
     private ComboBox CB_Spawner_Height;
     private NumericUpDown NUD_ReadSlot;
     private Button B_CopyToOWL;
+    private BindingSource BS_SpawnerResults;
 }
 

@@ -895,7 +895,7 @@ public partial class MainWindow : Form
             SetBindingSourceDataSource(staticFrames, BS_Results);
             SetDataGridViewDataSource(BS_Results, DGV_Results);
             SetControlEnabledState(true, B_Static_Search);
-            Frames = staticFrames.Cast<object>().ToList();
+            Frames = [.. staticFrames.Cast<object>()];
         });
     }
 
@@ -943,7 +943,7 @@ public partial class MainWindow : Form
         if (Frames.Count <= index) return;
         var row = DGV_Results.Rows[index];
         var result = Frames[index];
-        
+
         // IVs
         if (result is IIVFrame iv)
         {

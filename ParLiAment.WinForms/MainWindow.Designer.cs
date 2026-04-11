@@ -29,7 +29,7 @@ namespace ParLiAment.WinForms;
     private void InitializeComponent()
     {
         components = new System.ComponentModel.Container();
-        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
         GB_Connection = new GroupBox();
         B_CopyToInitial = new Button();
@@ -63,45 +63,45 @@ namespace ParLiAment.WinForms;
         L_GroupSeed = new Label();
         TB_GroupSeed = new TextBox();
         groupBox1 = new GroupBox();
-        label3 = new Label();
-        comboBox1 = new ComboBox();
-        checkBox2 = new CheckBox();
-        button1 = new Button();
-        button2 = new Button();
-        label4 = new Label();
-        label5 = new Label();
-        numericUpDown2 = new NumericUpDown();
-        numericUpDown3 = new NumericUpDown();
-        button3 = new Button();
-        button4 = new Button();
-        label6 = new Label();
-        label7 = new Label();
-        numericUpDown4 = new NumericUpDown();
-        numericUpDown5 = new NumericUpDown();
-        button5 = new Button();
-        button6 = new Button();
-        label8 = new Label();
-        label9 = new Label();
-        numericUpDown6 = new NumericUpDown();
-        numericUpDown7 = new NumericUpDown();
-        button7 = new Button();
-        button8 = new Button();
-        label10 = new Label();
-        label11 = new Label();
-        numericUpDown8 = new NumericUpDown();
-        numericUpDown9 = new NumericUpDown();
-        button9 = new Button();
-        button10 = new Button();
-        label12 = new Label();
-        label13 = new Label();
-        numericUpDown10 = new NumericUpDown();
-        numericUpDown11 = new NumericUpDown();
-        button11 = new Button();
-        button12 = new Button();
-        label14 = new Label();
-        label15 = new Label();
-        numericUpDown12 = new NumericUpDown();
-        numericUpDown13 = new NumericUpDown();
+        L_Spawner_Nature = new Label();
+        CB_Spawner_Nature = new ComboBox();
+        CB_Spawner_FiltersEnabled = new CheckBox();
+        B_Spawner_Spe_Max = new Button();
+        B_Spawner_Spe_Min = new Button();
+        L_Spawner_Spe = new Label();
+        L_Spawner_SpeSpacer = new Label();
+        NUD_Spawner_Spe_Max = new NumericUpDown();
+        NUD_Spawner_Spe_Min = new NumericUpDown();
+        B_Spawner_SpD_Max = new Button();
+        B_Spawner_SpD_Min = new Button();
+        L_Spawner_SpD = new Label();
+        L_Spawner_SpDSpacer = new Label();
+        NUD_Spawner_SpD_Max = new NumericUpDown();
+        NUD_Spawner_SpD_Min = new NumericUpDown();
+        B_Spawner_SpA_Max = new Button();
+        B_Spawner_SpA_Min = new Button();
+        L_Spawner_SpA = new Label();
+        L_Spawner_SpASpacer = new Label();
+        NUD_Spawner_SpA_Max = new NumericUpDown();
+        NUD_Spawner_SpA_Min = new NumericUpDown();
+        B_Spawner_Def_Max = new Button();
+        B_Spawner_Def_Min = new Button();
+        L_Spawner_Def = new Label();
+        L_Spawner_DefSpacer = new Label();
+        NUD_Spawner_Def_Max = new NumericUpDown();
+        NUD_Spawner_Def_Min = new NumericUpDown();
+        B_Spawner_Atk_Max = new Button();
+        B_Spawner_Atk_Min = new Button();
+        L_Spawner_Atk = new Label();
+        L_Spawner_AtkSpacer = new Label();
+        NUD_Spawner_Atk_Max = new NumericUpDown();
+        NUD_Spawner_Atk_Min = new NumericUpDown();
+        B_Spawner_HP_Max = new Button();
+        B_Spawner_HP_Min = new Button();
+        L_Spawner_HP = new Label();
+        L_Spawner_HPSpacer = new Label();
+        NUD_Spawner_HP_Max = new NumericUpDown();
+        NUD_Spawner_HP_Min = new NumericUpDown();
         L_Spawner_Species = new Label();
         CB_Spawner_Species = new ComboBox();
         TP_Static = new TabPage();
@@ -174,9 +174,6 @@ namespace ParLiAment.WinForms;
         TB_BabyMode = new TextBox();
         B_ConnectionSettings = new Button();
         DGV_Results = new DataGridView();
-        BS_Results = new BindingSource(components);
-        B_ReadB1S1 = new Button();
-        B_CopyIVs = new Button();
         advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         eCDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         pIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -191,24 +188,32 @@ namespace ParLiAment.WinForms;
         genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        BS_Results = new BindingSource(components);
+        B_ReadB1S1 = new Button();
+        B_CopyIVs = new Button();
+        B_Spawner_Generate = new Button();
+        TB_Spawner_Advances = new TextBox();
+        L_Spawner_Advances = new Label();
+        L_Spawner_Height = new Label();
+        CB_Spawner_Height = new ComboBox();
         GB_Connection.SuspendLayout();
         GB_Seed.SuspendLayout();
         GB_SAVInfo.SuspendLayout();
         TC_Main.SuspendLayout();
         TP_OWL.SuspendLayout();
         groupBox1.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown6).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown8).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown9).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown10).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown11).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown12).BeginInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown13).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Spe_Max).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Spe_Min).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpD_Max).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpD_Min).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpA_Max).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpA_Min).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Def_Max).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Def_Min).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Atk_Max).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Atk_Min).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_HP_Max).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_HP_Min).BeginInit();
         TP_Static.SuspendLayout();
         GB_Static_Filters.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)NUD_Static_Delay).BeginInit();
@@ -561,6 +566,9 @@ namespace ParLiAment.WinForms;
         // 
         // TP_OWL
         // 
+        TP_OWL.Controls.Add(L_Spawner_Advances);
+        TP_OWL.Controls.Add(TB_Spawner_Advances);
+        TP_OWL.Controls.Add(B_Spawner_Generate);
         TP_OWL.Controls.Add(L_GroupSeed);
         TP_OWL.Controls.Add(TB_GroupSeed);
         TP_OWL.Controls.Add(groupBox1);
@@ -576,7 +584,7 @@ namespace ParLiAment.WinForms;
         // L_GroupSeed
         // 
         L_GroupSeed.AutoSize = true;
-        L_GroupSeed.Location = new Point(15, 48);
+        L_GroupSeed.Location = new Point(3, 50);
         L_GroupSeed.Name = "L_GroupSeed";
         L_GroupSeed.Size = new Size(35, 15);
         L_GroupSeed.TabIndex = 186;
@@ -595,45 +603,47 @@ namespace ParLiAment.WinForms;
         // 
         // groupBox1
         // 
-        groupBox1.Controls.Add(label3);
-        groupBox1.Controls.Add(comboBox1);
-        groupBox1.Controls.Add(checkBox2);
-        groupBox1.Controls.Add(button1);
-        groupBox1.Controls.Add(button2);
-        groupBox1.Controls.Add(label4);
-        groupBox1.Controls.Add(label5);
-        groupBox1.Controls.Add(numericUpDown2);
-        groupBox1.Controls.Add(numericUpDown3);
-        groupBox1.Controls.Add(button3);
-        groupBox1.Controls.Add(button4);
-        groupBox1.Controls.Add(label6);
-        groupBox1.Controls.Add(label7);
-        groupBox1.Controls.Add(numericUpDown4);
-        groupBox1.Controls.Add(numericUpDown5);
-        groupBox1.Controls.Add(button5);
-        groupBox1.Controls.Add(button6);
-        groupBox1.Controls.Add(label8);
-        groupBox1.Controls.Add(label9);
-        groupBox1.Controls.Add(numericUpDown6);
-        groupBox1.Controls.Add(numericUpDown7);
-        groupBox1.Controls.Add(button7);
-        groupBox1.Controls.Add(button8);
-        groupBox1.Controls.Add(label10);
-        groupBox1.Controls.Add(label11);
-        groupBox1.Controls.Add(numericUpDown8);
-        groupBox1.Controls.Add(numericUpDown9);
-        groupBox1.Controls.Add(button9);
-        groupBox1.Controls.Add(button10);
-        groupBox1.Controls.Add(label12);
-        groupBox1.Controls.Add(label13);
-        groupBox1.Controls.Add(numericUpDown10);
-        groupBox1.Controls.Add(numericUpDown11);
-        groupBox1.Controls.Add(button11);
-        groupBox1.Controls.Add(button12);
-        groupBox1.Controls.Add(label14);
-        groupBox1.Controls.Add(label15);
-        groupBox1.Controls.Add(numericUpDown12);
-        groupBox1.Controls.Add(numericUpDown13);
+        groupBox1.Controls.Add(L_Spawner_Height);
+        groupBox1.Controls.Add(CB_Spawner_Height);
+        groupBox1.Controls.Add(L_Spawner_Nature);
+        groupBox1.Controls.Add(CB_Spawner_Nature);
+        groupBox1.Controls.Add(CB_Spawner_FiltersEnabled);
+        groupBox1.Controls.Add(B_Spawner_Spe_Max);
+        groupBox1.Controls.Add(B_Spawner_Spe_Min);
+        groupBox1.Controls.Add(L_Spawner_Spe);
+        groupBox1.Controls.Add(L_Spawner_SpeSpacer);
+        groupBox1.Controls.Add(NUD_Spawner_Spe_Max);
+        groupBox1.Controls.Add(NUD_Spawner_Spe_Min);
+        groupBox1.Controls.Add(B_Spawner_SpD_Max);
+        groupBox1.Controls.Add(B_Spawner_SpD_Min);
+        groupBox1.Controls.Add(L_Spawner_SpD);
+        groupBox1.Controls.Add(L_Spawner_SpDSpacer);
+        groupBox1.Controls.Add(NUD_Spawner_SpD_Max);
+        groupBox1.Controls.Add(NUD_Spawner_SpD_Min);
+        groupBox1.Controls.Add(B_Spawner_SpA_Max);
+        groupBox1.Controls.Add(B_Spawner_SpA_Min);
+        groupBox1.Controls.Add(L_Spawner_SpA);
+        groupBox1.Controls.Add(L_Spawner_SpASpacer);
+        groupBox1.Controls.Add(NUD_Spawner_SpA_Max);
+        groupBox1.Controls.Add(NUD_Spawner_SpA_Min);
+        groupBox1.Controls.Add(B_Spawner_Def_Max);
+        groupBox1.Controls.Add(B_Spawner_Def_Min);
+        groupBox1.Controls.Add(L_Spawner_Def);
+        groupBox1.Controls.Add(L_Spawner_DefSpacer);
+        groupBox1.Controls.Add(NUD_Spawner_Def_Max);
+        groupBox1.Controls.Add(NUD_Spawner_Def_Min);
+        groupBox1.Controls.Add(B_Spawner_Atk_Max);
+        groupBox1.Controls.Add(B_Spawner_Atk_Min);
+        groupBox1.Controls.Add(L_Spawner_Atk);
+        groupBox1.Controls.Add(L_Spawner_AtkSpacer);
+        groupBox1.Controls.Add(NUD_Spawner_Atk_Max);
+        groupBox1.Controls.Add(NUD_Spawner_Atk_Min);
+        groupBox1.Controls.Add(B_Spawner_HP_Max);
+        groupBox1.Controls.Add(B_Spawner_HP_Min);
+        groupBox1.Controls.Add(L_Spawner_HP);
+        groupBox1.Controls.Add(L_Spawner_HPSpacer);
+        groupBox1.Controls.Add(NUD_Spawner_HP_Max);
+        groupBox1.Controls.Add(NUD_Spawner_HP_Min);
         groupBox1.Location = new Point(177, 3);
         groupBox1.Name = "groupBox1";
         groupBox1.Size = new Size(200, 262);
@@ -641,360 +651,384 @@ namespace ParLiAment.WinForms;
         groupBox1.TabStop = false;
         groupBox1.Text = "Search Filters";
         // 
-        // label3
-        // 
-        label3.AutoSize = true;
-        label3.Location = new Point(2, 196);
-        label3.Name = "label3";
-        label3.Size = new Size(46, 15);
-        label3.TabIndex = 169;
-        label3.Text = "Nature:";
-        // 
-        // comboBox1
-        // 
-        comboBox1.FormattingEnabled = true;
-        comboBox1.Items.AddRange(new object[] { "Ignore", "Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish", "Lax", "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky" });
-        comboBox1.Location = new Point(53, 193);
-        comboBox1.Name = "comboBox1";
-        comboBox1.Size = new Size(142, 23);
-        comboBox1.TabIndex = 168;
-        // 
-        // checkBox2
-        // 
-        checkBox2.AutoSize = true;
-        checkBox2.CheckAlign = ContentAlignment.MiddleRight;
-        checkBox2.Checked = true;
-        checkBox2.CheckState = CheckState.Checked;
-        checkBox2.Location = new Point(88, 218);
-        checkBox2.Name = "checkBox2";
-        checkBox2.Size = new Size(107, 19);
-        checkBox2.TabIndex = 28;
-        checkBox2.Tag = "";
-        checkBox2.Text = "Filters Enabled?";
-        checkBox2.UseVisualStyleBackColor = true;
-        // 
-        // button1
-        // 
-        button1.Location = new Point(168, 142);
-        button1.Name = "button1";
-        button1.Size = new Size(27, 25);
-        button1.TabIndex = 23;
-        button1.Text = "31";
-        button1.UseVisualStyleBackColor = true;
-        // 
-        // button2
-        // 
-        button2.Location = new Point(139, 142);
-        button2.Name = "button2";
-        button2.Size = new Size(27, 25);
-        button2.TabIndex = 22;
-        button2.Text = "0";
-        button2.UseVisualStyleBackColor = true;
-        // 
-        // label4
-        // 
-        label4.AutoSize = true;
-        label4.Location = new Point(19, 147);
-        label4.Name = "label4";
-        label4.Size = new Size(29, 15);
-        label4.TabIndex = 161;
-        label4.Text = "Spe:";
-        // 
-        // label5
-        // 
-        label5.AutoSize = true;
-        label5.Location = new Point(86, 145);
-        label5.Name = "label5";
-        label5.Size = new Size(15, 15);
-        label5.TabIndex = 11;
-        label5.Text = "~";
-        // 
-        // numericUpDown2
-        // 
-        numericUpDown2.Location = new Point(102, 143);
-        numericUpDown2.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown2.Name = "numericUpDown2";
-        numericUpDown2.Size = new Size(32, 23);
-        numericUpDown2.TabIndex = 140;
-        numericUpDown2.Value = new decimal(new int[] { 31, 0, 0, 0 });
-        // 
-        // numericUpDown3
-        // 
-        numericUpDown3.Location = new Point(53, 143);
-        numericUpDown3.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown3.Name = "numericUpDown3";
-        numericUpDown3.Size = new Size(32, 23);
-        numericUpDown3.TabIndex = 10;
-        // 
-        // button3
-        // 
-        button3.Location = new Point(168, 117);
-        button3.Name = "button3";
-        button3.Size = new Size(27, 25);
-        button3.TabIndex = 21;
-        button3.Text = "31";
-        button3.UseVisualStyleBackColor = true;
-        // 
-        // button4
-        // 
-        button4.Location = new Point(139, 117);
-        button4.Name = "button4";
-        button4.Size = new Size(27, 25);
-        button4.TabIndex = 20;
-        button4.Text = "0";
-        button4.UseVisualStyleBackColor = true;
-        // 
-        // label6
-        // 
-        label6.AutoSize = true;
-        label6.Location = new Point(17, 123);
-        label6.Name = "label6";
-        label6.Size = new Size(31, 15);
-        label6.TabIndex = 160;
-        label6.Text = "SpD:";
-        // 
-        // label7
-        // 
-        label7.AutoSize = true;
-        label7.Location = new Point(86, 120);
-        label7.Name = "label7";
-        label7.Size = new Size(15, 15);
-        label7.TabIndex = 9;
-        label7.Text = "~";
-        // 
-        // numericUpDown4
-        // 
-        numericUpDown4.Location = new Point(102, 118);
-        numericUpDown4.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown4.Name = "numericUpDown4";
-        numericUpDown4.Size = new Size(32, 23);
-        numericUpDown4.TabIndex = 137;
-        numericUpDown4.Value = new decimal(new int[] { 31, 0, 0, 0 });
-        // 
-        // numericUpDown5
-        // 
-        numericUpDown5.Location = new Point(53, 118);
-        numericUpDown5.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown5.Name = "numericUpDown5";
-        numericUpDown5.Size = new Size(32, 23);
-        numericUpDown5.TabIndex = 8;
-        // 
-        // button5
-        // 
-        button5.Location = new Point(168, 92);
-        button5.Name = "button5";
-        button5.Size = new Size(27, 25);
-        button5.TabIndex = 19;
-        button5.Text = "31";
-        button5.UseVisualStyleBackColor = true;
-        // 
-        // button6
-        // 
-        button6.Location = new Point(139, 92);
-        button6.Name = "button6";
-        button6.Size = new Size(27, 25);
-        button6.TabIndex = 18;
-        button6.Text = "0";
-        button6.UseVisualStyleBackColor = true;
-        // 
-        // label8
-        // 
-        label8.AutoSize = true;
-        label8.Location = new Point(17, 95);
-        label8.Name = "label8";
-        label8.Size = new Size(31, 15);
-        label8.TabIndex = 156;
-        label8.Text = "SpA:";
-        // 
-        // label9
-        // 
-        label9.AutoSize = true;
-        label9.Location = new Point(86, 95);
-        label9.Name = "label9";
-        label9.Size = new Size(15, 15);
-        label9.TabIndex = 134;
-        label9.Text = "~";
-        // 
-        // numericUpDown6
-        // 
-        numericUpDown6.Location = new Point(102, 93);
-        numericUpDown6.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown6.Name = "numericUpDown6";
-        numericUpDown6.Size = new Size(32, 23);
-        numericUpDown6.TabIndex = 7;
-        numericUpDown6.Value = new decimal(new int[] { 31, 0, 0, 0 });
-        // 
-        // numericUpDown7
-        // 
-        numericUpDown7.Location = new Point(53, 93);
-        numericUpDown7.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown7.Name = "numericUpDown7";
-        numericUpDown7.Size = new Size(32, 23);
-        numericUpDown7.TabIndex = 6;
-        // 
-        // button7
-        // 
-        button7.Location = new Point(168, 67);
-        button7.Name = "button7";
-        button7.Size = new Size(27, 25);
-        button7.TabIndex = 17;
-        button7.Text = "31";
-        button7.UseVisualStyleBackColor = true;
-        // 
-        // button8
-        // 
-        button8.Location = new Point(139, 67);
-        button8.Name = "button8";
-        button8.Size = new Size(27, 25);
-        button8.TabIndex = 16;
-        button8.Text = "0";
-        button8.UseVisualStyleBackColor = true;
-        // 
-        // label10
-        // 
-        label10.AutoSize = true;
-        label10.Location = new Point(20, 70);
-        label10.Name = "label10";
-        label10.Size = new Size(28, 15);
-        label10.TabIndex = 149;
-        label10.Text = "Def:";
-        // 
-        // label11
-        // 
-        label11.AutoSize = true;
-        label11.Location = new Point(86, 70);
-        label11.Name = "label11";
-        label11.Size = new Size(15, 15);
-        label11.TabIndex = 129;
-        label11.Text = "~";
-        // 
-        // numericUpDown8
-        // 
-        numericUpDown8.Location = new Point(102, 68);
-        numericUpDown8.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown8.Name = "numericUpDown8";
-        numericUpDown8.Size = new Size(32, 23);
-        numericUpDown8.TabIndex = 5;
-        numericUpDown8.Value = new decimal(new int[] { 31, 0, 0, 0 });
-        // 
-        // numericUpDown9
-        // 
-        numericUpDown9.Location = new Point(53, 68);
-        numericUpDown9.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown9.Name = "numericUpDown9";
-        numericUpDown9.Size = new Size(32, 23);
-        numericUpDown9.TabIndex = 4;
-        // 
-        // button9
-        // 
-        button9.Location = new Point(168, 42);
-        button9.Name = "button9";
-        button9.Size = new Size(27, 25);
-        button9.TabIndex = 15;
-        button9.Text = "31";
-        button9.UseVisualStyleBackColor = true;
-        // 
-        // button10
-        // 
-        button10.Location = new Point(139, 42);
-        button10.Name = "button10";
-        button10.Size = new Size(27, 25);
-        button10.TabIndex = 14;
-        button10.Text = "0";
-        button10.UseVisualStyleBackColor = true;
-        // 
-        // label12
-        // 
-        label12.AutoSize = true;
-        label12.Location = new Point(20, 45);
-        label12.Name = "label12";
-        label12.Size = new Size(28, 15);
-        label12.TabIndex = 142;
-        label12.Text = "Atk:";
-        // 
-        // label13
-        // 
-        label13.AutoSize = true;
-        label13.Location = new Point(86, 45);
-        label13.Name = "label13";
-        label13.Size = new Size(15, 15);
-        label13.TabIndex = 126;
-        label13.Text = "~";
-        // 
-        // numericUpDown10
-        // 
-        numericUpDown10.Location = new Point(102, 43);
-        numericUpDown10.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown10.Name = "numericUpDown10";
-        numericUpDown10.Size = new Size(32, 23);
-        numericUpDown10.TabIndex = 3;
-        numericUpDown10.Value = new decimal(new int[] { 31, 0, 0, 0 });
-        // 
-        // numericUpDown11
-        // 
-        numericUpDown11.Location = new Point(53, 43);
-        numericUpDown11.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown11.Name = "numericUpDown11";
-        numericUpDown11.Size = new Size(32, 23);
-        numericUpDown11.TabIndex = 2;
-        // 
-        // button11
-        // 
-        button11.Location = new Point(168, 17);
-        button11.Name = "button11";
-        button11.Size = new Size(27, 25);
-        button11.TabIndex = 13;
-        button11.Text = "31";
-        button11.UseVisualStyleBackColor = true;
-        // 
-        // button12
-        // 
-        button12.Location = new Point(139, 17);
-        button12.Name = "button12";
-        button12.Size = new Size(27, 25);
-        button12.TabIndex = 12;
-        button12.Text = "0";
-        button12.UseVisualStyleBackColor = true;
-        // 
-        // label14
-        // 
-        label14.AutoSize = true;
-        label14.Location = new Point(22, 20);
-        label14.Name = "label14";
-        label14.Size = new Size(26, 15);
-        label14.TabIndex = 132;
-        label14.Text = "HP:";
-        // 
-        // label15
-        // 
-        label15.AutoSize = true;
-        label15.Location = new Point(86, 20);
-        label15.Name = "label15";
-        label15.Size = new Size(15, 15);
-        label15.TabIndex = 130;
-        label15.Text = "~";
-        // 
-        // numericUpDown12
-        // 
-        numericUpDown12.Location = new Point(102, 18);
-        numericUpDown12.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown12.Name = "numericUpDown12";
-        numericUpDown12.Size = new Size(32, 23);
-        numericUpDown12.TabIndex = 1;
-        numericUpDown12.Value = new decimal(new int[] { 31, 0, 0, 0 });
-        // 
-        // numericUpDown13
-        // 
-        numericUpDown13.Location = new Point(53, 18);
-        numericUpDown13.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-        numericUpDown13.Name = "numericUpDown13";
-        numericUpDown13.Size = new Size(32, 23);
-        numericUpDown13.TabIndex = 0;
+        // L_Spawner_Nature
+        // 
+        L_Spawner_Nature.AutoSize = true;
+        L_Spawner_Nature.Location = new Point(2, 196);
+        L_Spawner_Nature.Name = "L_Spawner_Nature";
+        L_Spawner_Nature.Size = new Size(46, 15);
+        L_Spawner_Nature.TabIndex = 169;
+        L_Spawner_Nature.Text = "Nature:";
+        // 
+        // CB_Spawner_Nature
+        // 
+        CB_Spawner_Nature.FormattingEnabled = true;
+        CB_Spawner_Nature.Items.AddRange(new object[] { "Ignore", "Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish", "Lax", "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky" });
+        CB_Spawner_Nature.Location = new Point(53, 193);
+        CB_Spawner_Nature.Name = "CB_Spawner_Nature";
+        CB_Spawner_Nature.Size = new Size(142, 23);
+        CB_Spawner_Nature.TabIndex = 168;
+        // 
+        // CB_Spawner_FiltersEnabled
+        // 
+        CB_Spawner_FiltersEnabled.AutoSize = true;
+        CB_Spawner_FiltersEnabled.CheckAlign = ContentAlignment.MiddleRight;
+        CB_Spawner_FiltersEnabled.Checked = true;
+        CB_Spawner_FiltersEnabled.CheckState = CheckState.Checked;
+        CB_Spawner_FiltersEnabled.Location = new Point(88, 218);
+        CB_Spawner_FiltersEnabled.Name = "CB_Spawner_FiltersEnabled";
+        CB_Spawner_FiltersEnabled.Size = new Size(107, 19);
+        CB_Spawner_FiltersEnabled.TabIndex = 28;
+        CB_Spawner_FiltersEnabled.Tag = "";
+        CB_Spawner_FiltersEnabled.Text = "Filters Enabled?";
+        CB_Spawner_FiltersEnabled.UseVisualStyleBackColor = true;
+        // 
+        // B_Spawner_Spe_Max
+        // 
+        B_Spawner_Spe_Max.Location = new Point(168, 142);
+        B_Spawner_Spe_Max.Name = "B_Spawner_Spe_Max";
+        B_Spawner_Spe_Max.Size = new Size(27, 25);
+        B_Spawner_Spe_Max.TabIndex = 23;
+        B_Spawner_Spe_Max.Text = "31";
+        B_Spawner_Spe_Max.UseVisualStyleBackColor = true;
+        B_Spawner_Spe_Max.Click += B_IV_Max_Click;
+        // 
+        // B_Spawner_Spe_Min
+        // 
+        B_Spawner_Spe_Min.Location = new Point(139, 142);
+        B_Spawner_Spe_Min.Name = "B_Spawner_Spe_Min";
+        B_Spawner_Spe_Min.Size = new Size(27, 25);
+        B_Spawner_Spe_Min.TabIndex = 22;
+        B_Spawner_Spe_Min.Text = "0";
+        B_Spawner_Spe_Min.UseVisualStyleBackColor = true;
+        B_Spawner_Spe_Min.Click += IV_Spacer_Click;
+        // 
+        // L_Spawner_Spe
+        // 
+        L_Spawner_Spe.AutoSize = true;
+        L_Spawner_Spe.Location = new Point(19, 147);
+        L_Spawner_Spe.Name = "L_Spawner_Spe";
+        L_Spawner_Spe.Size = new Size(29, 15);
+        L_Spawner_Spe.TabIndex = 161;
+        L_Spawner_Spe.Text = "Spe:";
+        L_Spawner_Spe.Click += IV_Label_Click;
+        // 
+        // L_Spawner_SpeSpacer
+        // 
+        L_Spawner_SpeSpacer.AutoSize = true;
+        L_Spawner_SpeSpacer.Location = new Point(86, 145);
+        L_Spawner_SpeSpacer.Name = "L_Spawner_SpeSpacer";
+        L_Spawner_SpeSpacer.Size = new Size(15, 15);
+        L_Spawner_SpeSpacer.TabIndex = 11;
+        L_Spawner_SpeSpacer.Text = "~";
+        L_Spawner_SpeSpacer.Click += IV_Spacer_Click;
+        // 
+        // NUD_Spawner_Spe_Max
+        // 
+        NUD_Spawner_Spe_Max.Location = new Point(102, 143);
+        NUD_Spawner_Spe_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_Spe_Max.Name = "NUD_Spawner_Spe_Max";
+        NUD_Spawner_Spe_Max.Size = new Size(32, 23);
+        NUD_Spawner_Spe_Max.TabIndex = 140;
+        NUD_Spawner_Spe_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // NUD_Spawner_Spe_Min
+        // 
+        NUD_Spawner_Spe_Min.Location = new Point(53, 143);
+        NUD_Spawner_Spe_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_Spe_Min.Name = "NUD_Spawner_Spe_Min";
+        NUD_Spawner_Spe_Min.Size = new Size(32, 23);
+        NUD_Spawner_Spe_Min.TabIndex = 10;
+        // 
+        // B_Spawner_SpD_Max
+        // 
+        B_Spawner_SpD_Max.Location = new Point(168, 117);
+        B_Spawner_SpD_Max.Name = "B_Spawner_SpD_Max";
+        B_Spawner_SpD_Max.Size = new Size(27, 25);
+        B_Spawner_SpD_Max.TabIndex = 21;
+        B_Spawner_SpD_Max.Text = "31";
+        B_Spawner_SpD_Max.UseVisualStyleBackColor = true;
+        B_Spawner_SpD_Max.Click += B_IV_Max_Click;
+        // 
+        // B_Spawner_SpD_Min
+        // 
+        B_Spawner_SpD_Min.Location = new Point(139, 117);
+        B_Spawner_SpD_Min.Name = "B_Spawner_SpD_Min";
+        B_Spawner_SpD_Min.Size = new Size(27, 25);
+        B_Spawner_SpD_Min.TabIndex = 20;
+        B_Spawner_SpD_Min.Text = "0";
+        B_Spawner_SpD_Min.UseVisualStyleBackColor = true;
+        B_Spawner_SpD_Min.Click += IV_Spacer_Click;
+        // 
+        // L_Spawner_SpD
+        // 
+        L_Spawner_SpD.AutoSize = true;
+        L_Spawner_SpD.Location = new Point(17, 123);
+        L_Spawner_SpD.Name = "L_Spawner_SpD";
+        L_Spawner_SpD.Size = new Size(31, 15);
+        L_Spawner_SpD.TabIndex = 160;
+        L_Spawner_SpD.Text = "SpD:";
+        L_Spawner_SpD.Click += IV_Label_Click;
+        // 
+        // L_Spawner_SpDSpacer
+        // 
+        L_Spawner_SpDSpacer.AutoSize = true;
+        L_Spawner_SpDSpacer.Location = new Point(86, 120);
+        L_Spawner_SpDSpacer.Name = "L_Spawner_SpDSpacer";
+        L_Spawner_SpDSpacer.Size = new Size(15, 15);
+        L_Spawner_SpDSpacer.TabIndex = 9;
+        L_Spawner_SpDSpacer.Text = "~";
+        L_Spawner_SpDSpacer.Click += IV_Spacer_Click;
+        // 
+        // NUD_Spawner_SpD_Max
+        // 
+        NUD_Spawner_SpD_Max.Location = new Point(102, 118);
+        NUD_Spawner_SpD_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_SpD_Max.Name = "NUD_Spawner_SpD_Max";
+        NUD_Spawner_SpD_Max.Size = new Size(32, 23);
+        NUD_Spawner_SpD_Max.TabIndex = 137;
+        NUD_Spawner_SpD_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // NUD_Spawner_SpD_Min
+        // 
+        NUD_Spawner_SpD_Min.Location = new Point(53, 118);
+        NUD_Spawner_SpD_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_SpD_Min.Name = "NUD_Spawner_SpD_Min";
+        NUD_Spawner_SpD_Min.Size = new Size(32, 23);
+        NUD_Spawner_SpD_Min.TabIndex = 8;
+        // 
+        // B_Spawner_SpA_Max
+        // 
+        B_Spawner_SpA_Max.Location = new Point(168, 92);
+        B_Spawner_SpA_Max.Name = "B_Spawner_SpA_Max";
+        B_Spawner_SpA_Max.Size = new Size(27, 25);
+        B_Spawner_SpA_Max.TabIndex = 19;
+        B_Spawner_SpA_Max.Text = "31";
+        B_Spawner_SpA_Max.UseVisualStyleBackColor = true;
+        B_Spawner_SpA_Max.Click += B_IV_Max_Click;
+        // 
+        // B_Spawner_SpA_Min
+        // 
+        B_Spawner_SpA_Min.Location = new Point(139, 92);
+        B_Spawner_SpA_Min.Name = "B_Spawner_SpA_Min";
+        B_Spawner_SpA_Min.Size = new Size(27, 25);
+        B_Spawner_SpA_Min.TabIndex = 18;
+        B_Spawner_SpA_Min.Text = "0";
+        B_Spawner_SpA_Min.UseVisualStyleBackColor = true;
+        B_Spawner_SpA_Min.Click += IV_Spacer_Click;
+        // 
+        // L_Spawner_SpA
+        // 
+        L_Spawner_SpA.AutoSize = true;
+        L_Spawner_SpA.Location = new Point(17, 95);
+        L_Spawner_SpA.Name = "L_Spawner_SpA";
+        L_Spawner_SpA.Size = new Size(31, 15);
+        L_Spawner_SpA.TabIndex = 156;
+        L_Spawner_SpA.Text = "SpA:";
+        L_Spawner_SpA.Click += IV_Label_Click;
+        // 
+        // L_Spawner_SpASpacer
+        // 
+        L_Spawner_SpASpacer.AutoSize = true;
+        L_Spawner_SpASpacer.Location = new Point(86, 95);
+        L_Spawner_SpASpacer.Name = "L_Spawner_SpASpacer";
+        L_Spawner_SpASpacer.Size = new Size(15, 15);
+        L_Spawner_SpASpacer.TabIndex = 134;
+        L_Spawner_SpASpacer.Text = "~";
+        L_Spawner_SpASpacer.Click += IV_Spacer_Click;
+        // 
+        // NUD_Spawner_SpA_Max
+        // 
+        NUD_Spawner_SpA_Max.Location = new Point(102, 93);
+        NUD_Spawner_SpA_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_SpA_Max.Name = "NUD_Spawner_SpA_Max";
+        NUD_Spawner_SpA_Max.Size = new Size(32, 23);
+        NUD_Spawner_SpA_Max.TabIndex = 7;
+        NUD_Spawner_SpA_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // NUD_Spawner_SpA_Min
+        // 
+        NUD_Spawner_SpA_Min.Location = new Point(53, 93);
+        NUD_Spawner_SpA_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_SpA_Min.Name = "NUD_Spawner_SpA_Min";
+        NUD_Spawner_SpA_Min.Size = new Size(32, 23);
+        NUD_Spawner_SpA_Min.TabIndex = 6;
+        // 
+        // B_Spawner_Def_Max
+        // 
+        B_Spawner_Def_Max.Location = new Point(168, 67);
+        B_Spawner_Def_Max.Name = "B_Spawner_Def_Max";
+        B_Spawner_Def_Max.Size = new Size(27, 25);
+        B_Spawner_Def_Max.TabIndex = 17;
+        B_Spawner_Def_Max.Text = "31";
+        B_Spawner_Def_Max.UseVisualStyleBackColor = true;
+        B_Spawner_Def_Max.Click += B_IV_Max_Click;
+        // 
+        // B_Spawner_Def_Min
+        // 
+        B_Spawner_Def_Min.Location = new Point(139, 67);
+        B_Spawner_Def_Min.Name = "B_Spawner_Def_Min";
+        B_Spawner_Def_Min.Size = new Size(27, 25);
+        B_Spawner_Def_Min.TabIndex = 16;
+        B_Spawner_Def_Min.Text = "0";
+        B_Spawner_Def_Min.UseVisualStyleBackColor = true;
+        B_Spawner_Def_Min.Click += IV_Spacer_Click;
+        // 
+        // L_Spawner_Def
+        // 
+        L_Spawner_Def.AutoSize = true;
+        L_Spawner_Def.Location = new Point(20, 70);
+        L_Spawner_Def.Name = "L_Spawner_Def";
+        L_Spawner_Def.Size = new Size(28, 15);
+        L_Spawner_Def.TabIndex = 149;
+        L_Spawner_Def.Text = "Def:";
+        L_Spawner_Def.Click += IV_Label_Click;
+        // 
+        // L_Spawner_DefSpacer
+        // 
+        L_Spawner_DefSpacer.AutoSize = true;
+        L_Spawner_DefSpacer.Location = new Point(86, 70);
+        L_Spawner_DefSpacer.Name = "L_Spawner_DefSpacer";
+        L_Spawner_DefSpacer.Size = new Size(15, 15);
+        L_Spawner_DefSpacer.TabIndex = 129;
+        L_Spawner_DefSpacer.Text = "~";
+        L_Spawner_DefSpacer.Click += IV_Spacer_Click;
+        // 
+        // NUD_Spawner_Def_Max
+        // 
+        NUD_Spawner_Def_Max.Location = new Point(102, 68);
+        NUD_Spawner_Def_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_Def_Max.Name = "NUD_Spawner_Def_Max";
+        NUD_Spawner_Def_Max.Size = new Size(32, 23);
+        NUD_Spawner_Def_Max.TabIndex = 5;
+        NUD_Spawner_Def_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // NUD_Spawner_Def_Min
+        // 
+        NUD_Spawner_Def_Min.Location = new Point(53, 68);
+        NUD_Spawner_Def_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_Def_Min.Name = "NUD_Spawner_Def_Min";
+        NUD_Spawner_Def_Min.Size = new Size(32, 23);
+        NUD_Spawner_Def_Min.TabIndex = 4;
+        // 
+        // B_Spawner_Atk_Max
+        // 
+        B_Spawner_Atk_Max.Location = new Point(168, 42);
+        B_Spawner_Atk_Max.Name = "B_Spawner_Atk_Max";
+        B_Spawner_Atk_Max.Size = new Size(27, 25);
+        B_Spawner_Atk_Max.TabIndex = 15;
+        B_Spawner_Atk_Max.Text = "31";
+        B_Spawner_Atk_Max.UseVisualStyleBackColor = true;
+        B_Spawner_Atk_Max.Click += B_IV_Max_Click;
+        // 
+        // B_Spawner_Atk_Min
+        // 
+        B_Spawner_Atk_Min.Location = new Point(139, 42);
+        B_Spawner_Atk_Min.Name = "B_Spawner_Atk_Min";
+        B_Spawner_Atk_Min.Size = new Size(27, 25);
+        B_Spawner_Atk_Min.TabIndex = 14;
+        B_Spawner_Atk_Min.Text = "0";
+        B_Spawner_Atk_Min.UseVisualStyleBackColor = true;
+        B_Spawner_Atk_Min.Click += IV_Spacer_Click;
+        // 
+        // L_Spawner_Atk
+        // 
+        L_Spawner_Atk.AutoSize = true;
+        L_Spawner_Atk.Location = new Point(20, 45);
+        L_Spawner_Atk.Name = "L_Spawner_Atk";
+        L_Spawner_Atk.Size = new Size(28, 15);
+        L_Spawner_Atk.TabIndex = 142;
+        L_Spawner_Atk.Text = "Atk:";
+        L_Spawner_Atk.Click += IV_Label_Click;
+        // 
+        // L_Spawner_AtkSpacer
+        // 
+        L_Spawner_AtkSpacer.AutoSize = true;
+        L_Spawner_AtkSpacer.Location = new Point(86, 45);
+        L_Spawner_AtkSpacer.Name = "L_Spawner_AtkSpacer";
+        L_Spawner_AtkSpacer.Size = new Size(15, 15);
+        L_Spawner_AtkSpacer.TabIndex = 126;
+        L_Spawner_AtkSpacer.Text = "~";
+        L_Spawner_AtkSpacer.Click += IV_Spacer_Click;
+        // 
+        // NUD_Spawner_Atk_Max
+        // 
+        NUD_Spawner_Atk_Max.Location = new Point(102, 43);
+        NUD_Spawner_Atk_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_Atk_Max.Name = "NUD_Spawner_Atk_Max";
+        NUD_Spawner_Atk_Max.Size = new Size(32, 23);
+        NUD_Spawner_Atk_Max.TabIndex = 3;
+        NUD_Spawner_Atk_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // NUD_Spawner_Atk_Min
+        // 
+        NUD_Spawner_Atk_Min.Location = new Point(53, 43);
+        NUD_Spawner_Atk_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_Atk_Min.Name = "NUD_Spawner_Atk_Min";
+        NUD_Spawner_Atk_Min.Size = new Size(32, 23);
+        NUD_Spawner_Atk_Min.TabIndex = 2;
+        // 
+        // B_Spawner_HP_Max
+        // 
+        B_Spawner_HP_Max.Location = new Point(168, 17);
+        B_Spawner_HP_Max.Name = "B_Spawner_HP_Max";
+        B_Spawner_HP_Max.Size = new Size(27, 25);
+        B_Spawner_HP_Max.TabIndex = 13;
+        B_Spawner_HP_Max.Text = "31";
+        B_Spawner_HP_Max.UseVisualStyleBackColor = true;
+        B_Spawner_HP_Max.Click += B_IV_Max_Click;
+        // 
+        // B_Spawner_HP_Min
+        // 
+        B_Spawner_HP_Min.Location = new Point(139, 17);
+        B_Spawner_HP_Min.Name = "B_Spawner_HP_Min";
+        B_Spawner_HP_Min.Size = new Size(27, 25);
+        B_Spawner_HP_Min.TabIndex = 12;
+        B_Spawner_HP_Min.Text = "0";
+        B_Spawner_HP_Min.UseVisualStyleBackColor = true;
+        B_Spawner_HP_Min.Click += IV_Spacer_Click;
+        // 
+        // L_Spawner_HP
+        // 
+        L_Spawner_HP.AutoSize = true;
+        L_Spawner_HP.Location = new Point(22, 20);
+        L_Spawner_HP.Name = "L_Spawner_HP";
+        L_Spawner_HP.Size = new Size(26, 15);
+        L_Spawner_HP.TabIndex = 132;
+        L_Spawner_HP.Text = "HP:";
+        L_Spawner_HP.Click += IV_Label_Click;
+        // 
+        // L_Spawner_HPSpacer
+        // 
+        L_Spawner_HPSpacer.AutoSize = true;
+        L_Spawner_HPSpacer.Location = new Point(86, 20);
+        L_Spawner_HPSpacer.Name = "L_Spawner_HPSpacer";
+        L_Spawner_HPSpacer.Size = new Size(15, 15);
+        L_Spawner_HPSpacer.TabIndex = 130;
+        L_Spawner_HPSpacer.Text = "~";
+        L_Spawner_HPSpacer.Click += IV_Spacer_Click;
+        // 
+        // NUD_Spawner_HP_Max
+        // 
+        NUD_Spawner_HP_Max.Location = new Point(102, 18);
+        NUD_Spawner_HP_Max.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_HP_Max.Name = "NUD_Spawner_HP_Max";
+        NUD_Spawner_HP_Max.Size = new Size(32, 23);
+        NUD_Spawner_HP_Max.TabIndex = 1;
+        NUD_Spawner_HP_Max.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // NUD_Spawner_HP_Min
+        // 
+        NUD_Spawner_HP_Min.Location = new Point(53, 18);
+        NUD_Spawner_HP_Min.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        NUD_Spawner_HP_Min.Name = "NUD_Spawner_HP_Min";
+        NUD_Spawner_HP_Min.Size = new Size(32, 23);
+        NUD_Spawner_HP_Min.TabIndex = 0;
         // 
         // L_Spawner_Species
         // 
         L_Spawner_Species.AutoSize = true;
-        L_Spawner_Species.Location = new Point(15, 23);
+        L_Spawner_Species.Location = new Point(3, 23);
         L_Spawner_Species.Name = "L_Spawner_Species";
         L_Spawner_Species.Size = new Size(49, 15);
         L_Spawner_Species.TabIndex = 184;
@@ -1029,7 +1063,7 @@ namespace ParLiAment.WinForms;
         // L_Static_Species
         // 
         L_Static_Species.AutoSize = true;
-        L_Static_Species.Location = new Point(15, 23);
+        L_Static_Species.Location = new Point(3, 23);
         L_Static_Species.Name = "L_Static_Species";
         L_Static_Species.Size = new Size(49, 15);
         L_Static_Species.TabIndex = 182;
@@ -1759,8 +1793,8 @@ namespace ParLiAment.WinForms;
         // 
         DGV_Results.AllowUserToAddRows = false;
         DGV_Results.AllowUserToDeleteRows = false;
-        dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
-        DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+        dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
+        DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
         DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         DGV_Results.AutoGenerateColumns = false;
         DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1771,33 +1805,9 @@ namespace ParLiAment.WinForms;
         DGV_Results.ReadOnly = true;
         DGV_Results.RowHeadersVisible = false;
         DGV_Results.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        DGV_Results.Size = new Size(1254, 294);
+        DGV_Results.Size = new Size(773, 294);
         DGV_Results.TabIndex = 129;
         DGV_Results.CellFormatting += DGV_Results_CellFormatting;
-        // 
-        // BS_Results
-        // 
-        BS_Results.DataSource = typeof(Core.Interfaces.PokemonFrame);
-        // 
-        // B_ReadB1S1
-        // 
-        B_ReadB1S1.Location = new Point(601, 199);
-        B_ReadB1S1.Name = "B_ReadB1S1";
-        B_ReadB1S1.Size = new Size(181, 25);
-        B_ReadB1S1.TabIndex = 130;
-        B_ReadB1S1.Text = "Read B1S1";
-        B_ReadB1S1.UseVisualStyleBackColor = true;
-        B_ReadB1S1.Click += B_ReadB1S1_Click;
-        // 
-        // B_CopyIVs
-        // 
-        B_CopyIVs.Location = new Point(601, 226);
-        B_CopyIVs.Name = "B_CopyIVs";
-        B_CopyIVs.Size = new Size(181, 25);
-        B_CopyIVs.TabIndex = 133;
-        B_CopyIVs.Text = "Copy IVs to Filters";
-        B_CopyIVs.UseVisualStyleBackColor = true;
-        B_CopyIVs.Click += B_CopyIVs_Click;
         // 
         // advancesDataGridViewTextBoxColumn
         // 
@@ -1897,11 +1907,83 @@ namespace ParLiAment.WinForms;
         seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
         seed1DataGridViewTextBoxColumn.ReadOnly = true;
         // 
+        // BS_Results
+        // 
+        BS_Results.DataSource = typeof(Core.Interfaces.PokemonFrame);
+        // 
+        // B_ReadB1S1
+        // 
+        B_ReadB1S1.Location = new Point(601, 199);
+        B_ReadB1S1.Name = "B_ReadB1S1";
+        B_ReadB1S1.Size = new Size(181, 25);
+        B_ReadB1S1.TabIndex = 130;
+        B_ReadB1S1.Text = "Read B1S1";
+        B_ReadB1S1.UseVisualStyleBackColor = true;
+        B_ReadB1S1.Click += B_ReadB1S1_Click;
+        // 
+        // B_CopyIVs
+        // 
+        B_CopyIVs.Location = new Point(601, 226);
+        B_CopyIVs.Name = "B_CopyIVs";
+        B_CopyIVs.Size = new Size(181, 25);
+        B_CopyIVs.TabIndex = 133;
+        B_CopyIVs.Text = "Copy IVs to Filters";
+        B_CopyIVs.UseVisualStyleBackColor = true;
+        B_CopyIVs.Click += B_CopyIVs_Click;
+        // 
+        // B_Spawner_Generate
+        // 
+        B_Spawner_Generate.Location = new Point(3, 269);
+        B_Spawner_Generate.Name = "B_Spawner_Generate";
+        B_Spawner_Generate.Size = new Size(374, 25);
+        B_Spawner_Generate.TabIndex = 187;
+        B_Spawner_Generate.Text = "Generate";
+        B_Spawner_Generate.UseVisualStyleBackColor = true;
+        // 
+        // TB_Spawner_Advances
+        // 
+        TB_Spawner_Advances.CharacterCasing = CharacterCasing.Upper;
+        TB_Spawner_Advances.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        TB_Spawner_Advances.Location = new Point(70, 243);
+        TB_Spawner_Advances.MaxLength = 10;
+        TB_Spawner_Advances.Name = "TB_Spawner_Advances";
+        TB_Spawner_Advances.Size = new Size(101, 22);
+        TB_Spawner_Advances.TabIndex = 188;
+        TB_Spawner_Advances.Text = "100";
+        TB_Spawner_Advances.TextAlign = HorizontalAlignment.Right;
+        // 
+        // L_Spawner_Advances
+        // 
+        L_Spawner_Advances.AutoSize = true;
+        L_Spawner_Advances.Location = new Point(3, 245);
+        L_Spawner_Advances.Name = "L_Spawner_Advances";
+        L_Spawner_Advances.Size = new Size(61, 15);
+        L_Spawner_Advances.TabIndex = 189;
+        L_Spawner_Advances.Text = "Advances:";
+        // 
+        // L_Spawner_Height
+        // 
+        L_Spawner_Height.AutoSize = true;
+        L_Spawner_Height.Location = new Point(2, 171);
+        L_Spawner_Height.Name = "L_Spawner_Height";
+        L_Spawner_Height.Size = new Size(46, 15);
+        L_Spawner_Height.TabIndex = 171;
+        L_Spawner_Height.Text = "Height:";
+        // 
+        // CB_Spawner_Height
+        // 
+        CB_Spawner_Height.FormattingEnabled = true;
+        CB_Spawner_Height.Items.AddRange(new object[] { "Ignore", "Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish", "Lax", "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky" });
+        CB_Spawner_Height.Location = new Point(53, 168);
+        CB_Spawner_Height.Name = "CB_Spawner_Height";
+        CB_Spawner_Height.Size = new Size(142, 23);
+        CB_Spawner_Height.TabIndex = 170;
+        // 
         // MainWindow
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1277, 650);
+        ClientSize = new Size(796, 650);
         Controls.Add(B_CopyIVs);
         Controls.Add(GB_Seed);
         Controls.Add(GB_Connection);
@@ -1928,18 +2010,18 @@ namespace ParLiAment.WinForms;
         TP_OWL.PerformLayout();
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown6).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown7).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown8).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown9).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown10).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown11).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown12).EndInit();
-        ((System.ComponentModel.ISupportInitialize)numericUpDown13).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Spe_Max).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Spe_Min).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpD_Max).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpD_Min).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpA_Max).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_SpA_Min).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Def_Max).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Def_Min).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Atk_Max).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_Atk_Min).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_HP_Max).EndInit();
+        ((System.ComponentModel.ISupportInitialize)NUD_Spawner_HP_Min).EndInit();
         TP_Static.ResumeLayout(false);
         TP_Static.PerformLayout();
         GB_Static_Filters.ResumeLayout(false);
@@ -2077,45 +2159,45 @@ namespace ParLiAment.WinForms;
     private Label L_GroupSeed;
     public TextBox TB_GroupSeed;
     private GroupBox groupBox1;
-    private Label label3;
-    private ComboBox comboBox1;
-    private Button button1;
-    private Button button2;
-    private Label label4;
-    private Label label5;
-    private NumericUpDown numericUpDown2;
-    private NumericUpDown numericUpDown3;
-    private Button button3;
-    private Button button4;
-    private Label label6;
-    private Label label7;
-    private NumericUpDown numericUpDown4;
-    private NumericUpDown numericUpDown5;
-    private Button button5;
-    private Button button6;
-    private Label label8;
-    private Label label9;
-    private NumericUpDown numericUpDown6;
-    private NumericUpDown numericUpDown7;
-    private Button button7;
-    private Button button8;
-    private Label label10;
-    private Label label11;
-    private NumericUpDown numericUpDown8;
-    private NumericUpDown numericUpDown9;
-    private Button button9;
-    private Button button10;
-    private Label label12;
-    private Label label13;
-    private NumericUpDown numericUpDown10;
-    private NumericUpDown numericUpDown11;
-    private Button button11;
-    private Button button12;
-    private Label label14;
-    private Label label15;
-    private NumericUpDown numericUpDown12;
-    private NumericUpDown numericUpDown13;
-    private CheckBox checkBox2;
+    private Label L_Spawner_Nature;
+    private ComboBox CB_Spawner_Nature;
+    private Button B_Spawner_Spe_Max;
+    private Button B_Spawner_Spe_Min;
+    private Label L_Spawner_Spe;
+    private Label L_Spawner_SpeSpacer;
+    private NumericUpDown NUD_Spawner_Spe_Max;
+    private NumericUpDown NUD_Spawner_Spe_Min;
+    private Button B_Spawner_SpD_Max;
+    private Button B_Spawner_SpD_Min;
+    private Label L_Spawner_SpD;
+    private Label L_Spawner_SpDSpacer;
+    private NumericUpDown NUD_Spawner_SpD_Max;
+    private NumericUpDown NUD_Spawner_SpD_Min;
+    private Button B_Spawner_SpA_Max;
+    private Button B_Spawner_SpA_Min;
+    private Label L_Spawner_SpA;
+    private Label L_Spawner_SpASpacer;
+    private NumericUpDown NUD_Spawner_SpA_Max;
+    private NumericUpDown NUD_Spawner_SpA_Min;
+    private Button B_Spawner_Def_Max;
+    private Button B_Spawner_Def_Min;
+    private Label L_Spawner_Def;
+    private Label L_Spawner_DefSpacer;
+    private NumericUpDown NUD_Spawner_Def_Max;
+    private NumericUpDown NUD_Spawner_Def_Min;
+    private Button B_Spawner_Atk_Max;
+    private Button B_Spawner_Atk_Min;
+    private Label L_Spawner_Atk;
+    private Label L_Spawner_AtkSpacer;
+    private NumericUpDown NUD_Spawner_Atk_Max;
+    private NumericUpDown NUD_Spawner_Atk_Min;
+    private Button B_Spawner_HP_Max;
+    private Button B_Spawner_HP_Min;
+    private Label L_Spawner_HP;
+    private Label L_Spawner_HPSpacer;
+    private NumericUpDown NUD_Spawner_HP_Max;
+    private NumericUpDown NUD_Spawner_HP_Min;
+    private CheckBox CB_Spawner_FiltersEnabled;
     private DataGridViewTextBoxColumn advancesDataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn eCDataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
@@ -2130,5 +2212,10 @@ namespace ParLiAment.WinForms;
     private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
+    public TextBox TB_Spawner_Advances;
+    private Button B_Spawner_Generate;
+    private Label L_Spawner_Advances;
+    private Label L_Spawner_Height;
+    private ComboBox CB_Spawner_Height;
 }
 

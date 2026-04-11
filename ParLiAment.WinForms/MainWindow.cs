@@ -16,7 +16,6 @@ namespace ParLiAment.WinForms;
 public partial class MainWindow : Form
 {
     private static CancellationTokenSource Source = new();
-    private static CancellationTokenSource GameResetSource = new();
 
     private static readonly Lock _connectLock = new();
 
@@ -173,7 +172,7 @@ public partial class MainWindow : Form
                     return;
                 }
 
-                SetControlEnabledState(true, B_Disconnect);
+                SetControlEnabledState(true, B_Disconnect, B_CopyToInitial);
 
                 UpdateStatus("Monitoring RNG State...");
                 try
@@ -252,8 +251,6 @@ public partial class MainWindow : Form
                 }
                 await Source.CancelAsync().ConfigureAwait(false);
                 Source = new();
-                await GameResetSource.CancelAsync().ConfigureAwait(false);
-                GameResetSource = new();
                 SetControlEnabledState(true, B_Connect);
             },
             token
@@ -855,12 +852,6 @@ public partial class MainWindow : Form
 #endif
     }
 
-    private void B_Reset_Cancel_Click(object sender, EventArgs e)
-    {
-        GameResetSource.Cancel();
-        GameResetSource = new();
-    }
-
     private void B_Static_Search_Click(object sender, EventArgs e)
     {
         SetControlEnabledState(false, B_Static_Search);
@@ -1171,6 +1162,11 @@ public partial class MainWindow : Form
     {
         SetControlText(TB_GroupSeedResult.GetText(), TB_GroupSeed);
         TC_Main.SelectedTab = TP_Spawner;
+    }
+
+    private void B_Spawner_Generate_Click(object sender, EventArgs e)
+    {
+
     }
 }
 

@@ -602,6 +602,7 @@ namespace ParLiAment.WinForms;
         B_Spawner_Generate.TabIndex = 187;
         B_Spawner_Generate.Text = "Generate";
         B_Spawner_Generate.UseVisualStyleBackColor = true;
+        B_Spawner_Generate.Click += B_Spawner_Generate_Click;
         // 
         // L_GroupSeed
         // 

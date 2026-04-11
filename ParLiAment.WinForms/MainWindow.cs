@@ -695,9 +695,11 @@ public partial class MainWindow : Form
     {
         if (e is not { Modifiers: Keys.Control, KeyCode: Keys.V } && e is not { Modifiers: Keys.Shift, KeyCode: Keys.Insert }) return;
         var n = string.Empty;
+        var newline = 0;
         foreach (char c in Clipboard.GetText())
         {
             if (c.IsHex()) n += c;
+            if (c == (char)Keys.Enter) newline++;
         }
 
         var l = n.Length;
@@ -706,9 +708,14 @@ public partial class MainWindow : Form
             Clipboard.Clear();
             return;
         }
-        if (l > 8)
+        if (l == 32 && newline <= 1)
         {
-            ((TextBox)sender).Text = n[..8];
+            ((Control)sender).Parent!.Controls.Find("TB_InitialSeed0", true).FirstOrDefault()!.Text = n[..16];
+            ((Control)sender).Parent!.Controls.Find("TB_InitialSeed1", true).FirstOrDefault()!.Text = n[16..32];
+        }
+        else if (l > 16)
+        {
+            ((TextBox)sender).Text = n[..16];
         }
         else
         {

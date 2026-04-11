@@ -1,5 +1,4 @@
 using ParLiAment.Core.Enums;
-using ParLiAment.Core.Structures;
 using PKHeX.Core;
 using System.Reflection;
 
@@ -86,7 +85,7 @@ public static class Utils
         var tagString = response.AsSpan()[first..second].TrimStart('v');
 
         var patchIndex = tagString.IndexOf('-');
-        if (patchIndex != -1) tagString = tagString.ToString().Remove(patchIndex).AsSpan();
+        if (patchIndex != -1) tagString = tagString.ToString()[..patchIndex].AsSpan();
 
         return !Version.TryParse(tagString, out var latestVersion) ? null : latestVersion;
     }

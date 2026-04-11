@@ -1645,6 +1645,7 @@ namespace ParLiAment.WinForms;
         // 
         // B_CopyToOWL
         // 
+        B_CopyToOWL.Enabled = false;
         B_CopyToOWL.Location = new Point(3, 146);
         B_CopyToOWL.Name = "B_CopyToOWL";
         B_CopyToOWL.Size = new Size(374, 25);

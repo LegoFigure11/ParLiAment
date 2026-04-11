@@ -160,6 +160,7 @@ namespace ParLiAment.WinForms;
         NUD_Static_HP_Max = new NumericUpDown();
         NUD_Static_HP_Min = new NumericUpDown();
         TP_GroupSeedSolver = new TabPage();
+        B_CopyToOWL = new Button();
         LL_SeedSolverAttribution = new LinkLabel();
         L_SeedSolverAttribution = new Label();
         L_GroupSeedResult = new Label();
@@ -177,7 +178,6 @@ namespace ParLiAment.WinForms;
         B_BabyMode_Go = new Button();
         L_BabyMode = new Label();
         TB_BabyMode = new TextBox();
-        B_ConnectionSettings = new Button();
         DGV_Results = new DataGridView();
         BS_Results = new BindingSource(components);
         B_ReadB1S1 = new Button();
@@ -439,6 +439,8 @@ namespace ParLiAment.WinForms;
         TB_InitialSeed1.Size = new Size(118, 22);
         TB_InitialSeed1.TabIndex = 7;
         TB_InitialSeed1.Text = "0123456789ABCDEF";
+        TB_InitialSeed1.KeyDown += State_HandlePaste;
+        TB_InitialSeed1.KeyPress += AllowOnlyHex_KeyPress;
         // 
         // L_InitialSeed
         // 
@@ -589,6 +591,8 @@ namespace ParLiAment.WinForms;
         TB_Spawner_Advances.TabIndex = 188;
         TB_Spawner_Advances.Text = "100";
         TB_Spawner_Advances.TextAlign = HorizontalAlignment.Right;
+        TB_Spawner_Advances.KeyDown += Dec_HandlePaste;
+        TB_Spawner_Advances.KeyPress += AllowOnlyNumerical_KeyPress;
         // 
         // B_Spawner_Generate
         // 
@@ -618,6 +622,8 @@ namespace ParLiAment.WinForms;
         TB_GroupSeed.Size = new Size(118, 22);
         TB_GroupSeed.TabIndex = 9;
         TB_GroupSeed.Text = "0123456789ABCDEF";
+        TB_GroupSeed.KeyDown += State_HandlePaste;
+        TB_GroupSeed.KeyPress += AllowOnlyHex_KeyPress;
         // 
         // GB_Spawner_Filters
         // 
@@ -1620,6 +1626,7 @@ namespace ParLiAment.WinForms;
         // 
         // TP_GroupSeedSolver
         // 
+        TP_GroupSeedSolver.Controls.Add(B_CopyToOWL);
         TP_GroupSeedSolver.Controls.Add(LL_SeedSolverAttribution);
         TP_GroupSeedSolver.Controls.Add(L_SeedSolverAttribution);
         TP_GroupSeedSolver.Controls.Add(L_GroupSeedResult);
@@ -1635,6 +1642,16 @@ namespace ParLiAment.WinForms;
         TP_GroupSeedSolver.TabIndex = 4;
         TP_GroupSeedSolver.Text = "Group Seed Solver";
         TP_GroupSeedSolver.UseVisualStyleBackColor = true;
+        // 
+        // B_CopyToOWL
+        // 
+        B_CopyToOWL.Location = new Point(3, 146);
+        B_CopyToOWL.Name = "B_CopyToOWL";
+        B_CopyToOWL.Size = new Size(374, 25);
+        B_CopyToOWL.TabIndex = 16;
+        B_CopyToOWL.Text = "Copy to Overworld Legendary (Spawner) Tab";
+        B_CopyToOWL.UseVisualStyleBackColor = true;
+        B_CopyToOWL.Click += B_CopyToOWL_Click;
         // 
         // LL_SeedSolverAttribution
         // 
@@ -1733,9 +1750,9 @@ namespace ParLiAment.WinForms;
         GB_ConnectionSettings.Controls.Add(B_BabyMode_Go);
         GB_ConnectionSettings.Controls.Add(L_BabyMode);
         GB_ConnectionSettings.Controls.Add(TB_BabyMode);
-        GB_ConnectionSettings.Location = new Point(596, 244);
+        GB_ConnectionSettings.Location = new Point(0, 252);
         GB_ConnectionSettings.Name = "GB_ConnectionSettings";
-        GB_ConnectionSettings.Size = new Size(195, 94);
+        GB_ConnectionSettings.Size = new Size(212, 94);
         GB_ConnectionSettings.TabIndex = 128;
         GB_ConnectionSettings.TabStop = false;
         // 
@@ -1745,7 +1762,7 @@ namespace ParLiAment.WinForms;
         CB_BabyMode_Action.Items.AddRange(new object[] { "A", "HOME" });
         CB_BabyMode_Action.Location = new Point(114, 40);
         CB_BabyMode_Action.Name = "CB_BabyMode_Action";
-        CB_BabyMode_Action.Size = new Size(72, 23);
+        CB_BabyMode_Action.Size = new Size(92, 23);
         CB_BabyMode_Action.TabIndex = 21;
         CB_BabyMode_Action.SelectedIndexChanged += CB_BabyMode_Action_SelectedIndexChanged;
         // 
@@ -1787,7 +1804,7 @@ namespace ParLiAment.WinForms;
         // 
         B_BabyMode_Go.Location = new Point(82, 65);
         B_BabyMode_Go.Name = "B_BabyMode_Go";
-        B_BabyMode_Go.Size = new Size(104, 25);
+        B_BabyMode_Go.Size = new Size(124, 25);
         B_BabyMode_Go.TabIndex = 173;
         B_BabyMode_Go.Text = "Go!";
         B_BabyMode_Go.UseVisualStyleBackColor = true;
@@ -1809,21 +1826,11 @@ namespace ParLiAment.WinForms;
         TB_BabyMode.Location = new Point(82, 13);
         TB_BabyMode.MaxLength = 10;
         TB_BabyMode.Name = "TB_BabyMode";
-        TB_BabyMode.Size = new Size(104, 22);
+        TB_BabyMode.Size = new Size(124, 22);
         TB_BabyMode.TabIndex = 172;
         TB_BabyMode.TextAlign = HorizontalAlignment.Right;
         TB_BabyMode.KeyDown += Dec_HandlePaste;
         TB_BabyMode.KeyPress += AllowOnlyNumerical_KeyPress;
-        // 
-        // B_ConnectionSettings
-        // 
-        B_ConnectionSettings.Location = new Point(11, 269);
-        B_ConnectionSettings.Name = "B_ConnectionSettings";
-        B_ConnectionSettings.Size = new Size(194, 25);
-        B_ConnectionSettings.TabIndex = 0;
-        B_ConnectionSettings.Text = "Connection/Reset Settings";
-        B_ConnectionSettings.UseVisualStyleBackColor = true;
-        B_ConnectionSettings.Click += B_ResetSettings_Click;
         // 
         // DGV_Results
         // 
@@ -1858,7 +1865,7 @@ namespace ParLiAment.WinForms;
         // 
         // B_CopyIVs
         // 
-        B_CopyIVs.Location = new Point(601, 226);
+        B_CopyIVs.Location = new Point(601, 251);
         B_CopyIVs.Name = "B_CopyIVs";
         B_CopyIVs.Size = new Size(181, 25);
         B_CopyIVs.TabIndex = 133;
@@ -1879,6 +1886,7 @@ namespace ParLiAment.WinForms;
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(796, 650);
+        Controls.Add(DGV_Results);
         Controls.Add(NUD_ReadSlot);
         Controls.Add(B_CopyIVs);
         Controls.Add(GB_Seed);
@@ -1886,8 +1894,6 @@ namespace ParLiAment.WinForms;
         Controls.Add(GB_SAVInfo);
         Controls.Add(GB_ConnectionSettings);
         Controls.Add(B_ReadB1S1);
-        Controls.Add(DGV_Results);
-        Controls.Add(B_ConnectionSettings);
         Controls.Add(TC_Main);
         Controls.Add(TB_Wild);
         Controls.Add(B_ReadWildPokemon);
@@ -1973,7 +1979,6 @@ namespace ParLiAment.WinForms;
     private TextBox TB_Wild;
     private TabControl TC_Main;
     private GroupBox GB_ConnectionSettings;
-    private Button B_ConnectionSettings;
     private DataGridView DGV_Results;
     private Button B_ReadB1S1;
     private TabPage TP_Static;
@@ -2101,5 +2106,6 @@ namespace ParLiAment.WinForms;
     private Label L_Spawner_Height;
     private ComboBox CB_Spawner_Height;
     private NumericUpDown NUD_ReadSlot;
+    private Button B_CopyToOWL;
 }
 

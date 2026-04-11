@@ -803,6 +803,14 @@ public partial class MainWindow : Form
         }
         SetControlText(TB_InitialSeed0.GetText().PadLeft(16, '0'), TB_InitialSeed0);
 
+        if (string.IsNullOrEmpty(TB_InitialSeed1.GetText())) SetControlText("0", TB_InitialSeed1);
+
+        if (TB_InitialSeed1.GetText() is "0")
+        {
+            SetControlText("1390", TB_InitialSeed1);
+        }
+        SetControlText(TB_InitialSeed1.GetText().PadLeft(16, '0'), TB_InitialSeed1);
+
         // IDs
         if (string.IsNullOrEmpty(TB_TID.GetText())) SetControlText("0", TB_TID);
         if (string.IsNullOrEmpty(TB_SID.GetText())) SetControlText("0", TB_SID);
@@ -839,28 +847,12 @@ public partial class MainWindow : Form
         using Subforms.UpdateNotifPopup nup = new(CurrentVersion, version);
         if (nup.ShowDialog() == DialogResult.OK)
         {
-            Process.Start(new ProcessStartInfo("https://github.com/LegoFigure11/AutomaticRadParLiAmentedExtrapolator/releases/")
+            Process.Start(new ProcessStartInfo("https://github.com/LegoFigure11/ParLiAment/releases/")
             {
                 UseShellExecute = true
             });
         }
 #endif
-    }
-
-    internal bool ResetSettingsFormOpen = false;
-    private ResetSettings? ResetSettingsForm;
-    private void B_ResetSettings_Click(object sender, EventArgs e)
-    {
-        if (!ResetSettingsFormOpen)
-        {
-            ResetSettingsFormOpen = true;
-            ResetSettingsForm = new ResetSettings(ref Config, this);
-            ResetSettingsForm.Show();
-        }
-        else
-        {
-            ResetSettingsForm?.Focus();
-        }
     }
 
     private void B_Reset_Cancel_Click(object sender, EventArgs e)
@@ -1112,7 +1104,8 @@ public partial class MainWindow : Form
 
                     Debug.WriteLine($"Found a matching group seed: {groupSeed:x16}");
                     SetControlText($"{groupSeed:X16}", TB_GroupSeedResult);
-                    this.DisplayMessageBox($"Found a matching group seed: {groupSeed:x16}", "Seed result");
+                    SetControlEnabledState(true, B_CopyToOWL);
+                    this.DisplayMessageBox($"Found a matching group seed: {groupSeed:X16}", "Seed result");
                     return;
                 }
             }
@@ -1172,6 +1165,12 @@ public partial class MainWindow : Form
 #if DEBUG
         }
 #endif
+    }
+
+    private void B_CopyToOWL_Click(object sender, EventArgs e)
+    {
+        SetControlText(TB_GroupSeedResult.GetText(), TB_GroupSeed);
+        TC_Main.SelectedTab = TP_Spawner;
     }
 }
 

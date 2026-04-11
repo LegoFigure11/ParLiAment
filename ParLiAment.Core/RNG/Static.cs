@@ -111,7 +111,7 @@ public static class Static
                     _ec = EC,
                     _pid = PID,
 
-                    Gender = Gender switch
+                    Gender = cfg.Gender switch
                     {
                         PersonalInfo.RatioMagicGenderless => '-',
                         PersonalInfo.RatioMagicMale => 'M',

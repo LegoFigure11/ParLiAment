@@ -943,7 +943,7 @@ public partial class MainWindow : Form
         if (Frames.Count <= index) return;
         var row = DGV_Results.Rows[index];
         var result = Frames[index];
-        /*
+        
         // IVs
         if (result is IIVFrame iv)
         {
@@ -968,7 +968,7 @@ public partial class MainWindow : Form
                     row.Cells[col].Style.Font = row.DefaultCellStyle.Font;
                 }
             }
-        }*/
+        }
     }
 
     private void B_CopyIVs_Click(object sender, EventArgs e)

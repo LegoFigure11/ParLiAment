@@ -7,8 +7,8 @@ public static class Encounters
     private static readonly byte[]? _main;
     private static readonly byte[]? _spawner;
 
-    private static List<PA8> Main = [];
-    private static List<PA8> Spawner = [];
+    private static readonly List<PA8> Main = [];
+    private static readonly List<PA8> Spawner = [];
 
     static Encounters()
     {

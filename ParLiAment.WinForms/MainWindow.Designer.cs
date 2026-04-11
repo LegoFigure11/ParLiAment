@@ -60,6 +60,48 @@ namespace ParLiAment.WinForms;
         TB_Wild = new TextBox();
         TC_Main = new TabControl();
         TP_OWL = new TabPage();
+        L_GroupSeed = new Label();
+        TB_GroupSeed = new TextBox();
+        groupBox1 = new GroupBox();
+        label3 = new Label();
+        comboBox1 = new ComboBox();
+        checkBox2 = new CheckBox();
+        button1 = new Button();
+        button2 = new Button();
+        label4 = new Label();
+        label5 = new Label();
+        numericUpDown2 = new NumericUpDown();
+        numericUpDown3 = new NumericUpDown();
+        button3 = new Button();
+        button4 = new Button();
+        label6 = new Label();
+        label7 = new Label();
+        numericUpDown4 = new NumericUpDown();
+        numericUpDown5 = new NumericUpDown();
+        button5 = new Button();
+        button6 = new Button();
+        label8 = new Label();
+        label9 = new Label();
+        numericUpDown6 = new NumericUpDown();
+        numericUpDown7 = new NumericUpDown();
+        button7 = new Button();
+        button8 = new Button();
+        label10 = new Label();
+        label11 = new Label();
+        numericUpDown8 = new NumericUpDown();
+        numericUpDown9 = new NumericUpDown();
+        button9 = new Button();
+        button10 = new Button();
+        label12 = new Label();
+        label13 = new Label();
+        numericUpDown10 = new NumericUpDown();
+        numericUpDown11 = new NumericUpDown();
+        button11 = new Button();
+        button12 = new Button();
+        label14 = new Label();
+        label15 = new Label();
+        numericUpDown12 = new NumericUpDown();
+        numericUpDown13 = new NumericUpDown();
         L_Spawner_Species = new Label();
         CB_Spawner_Species = new ComboBox();
         TP_Static = new TabPage();
@@ -132,20 +174,20 @@ namespace ParLiAment.WinForms;
         TB_BabyMode = new TextBox();
         B_ConnectionSettings = new Button();
         DGV_Results = new DataGridView();
+        BS_Results = new BindingSource(components);
         B_ReadB1S1 = new Button();
         B_CopyIVs = new Button();
-        BS_Results = new BindingSource(components);
         advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         eCDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         pIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         abilityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         natureDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        hPDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        atkDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        defDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        spADataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        spDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-        speDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        HP = new DataGridViewTextBoxColumn();
+        Atk = new DataGridViewTextBoxColumn();
+        Def = new DataGridViewTextBoxColumn();
+        SpA = new DataGridViewTextBoxColumn();
+        SpD = new DataGridViewTextBoxColumn();
+        Spe = new DataGridViewTextBoxColumn();
         genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -154,6 +196,19 @@ namespace ParLiAment.WinForms;
         GB_SAVInfo.SuspendLayout();
         TC_Main.SuspendLayout();
         TP_OWL.SuspendLayout();
+        groupBox1.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown6).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown8).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown9).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown10).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown11).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown12).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown13).BeginInit();
         TP_Static.SuspendLayout();
         GB_Static_Filters.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)NUD_Static_Delay).BeginInit();
@@ -506,6 +561,9 @@ namespace ParLiAment.WinForms;
         // 
         // TP_OWL
         // 
+        TP_OWL.Controls.Add(L_GroupSeed);
+        TP_OWL.Controls.Add(TB_GroupSeed);
+        TP_OWL.Controls.Add(groupBox1);
         TP_OWL.Controls.Add(L_Spawner_Species);
         TP_OWL.Controls.Add(CB_Spawner_Species);
         TP_OWL.Location = new Point(4, 24);
@@ -514,6 +572,424 @@ namespace ParLiAment.WinForms;
         TP_OWL.TabIndex = 5;
         TP_OWL.Text = "Overworld Legendary (Spawner)";
         TP_OWL.UseVisualStyleBackColor = true;
+        // 
+        // L_GroupSeed
+        // 
+        L_GroupSeed.AutoSize = true;
+        L_GroupSeed.Location = new Point(15, 48);
+        L_GroupSeed.Name = "L_GroupSeed";
+        L_GroupSeed.Size = new Size(35, 15);
+        L_GroupSeed.TabIndex = 186;
+        L_GroupSeed.Text = "Seed:";
+        // 
+        // TB_GroupSeed
+        // 
+        TB_GroupSeed.CharacterCasing = CharacterCasing.Upper;
+        TB_GroupSeed.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+        TB_GroupSeed.Location = new Point(53, 45);
+        TB_GroupSeed.MaxLength = 16;
+        TB_GroupSeed.Name = "TB_GroupSeed";
+        TB_GroupSeed.Size = new Size(118, 22);
+        TB_GroupSeed.TabIndex = 9;
+        TB_GroupSeed.Text = "0123456789ABCDEF";
+        // 
+        // groupBox1
+        // 
+        groupBox1.Controls.Add(label3);
+        groupBox1.Controls.Add(comboBox1);
+        groupBox1.Controls.Add(checkBox2);
+        groupBox1.Controls.Add(button1);
+        groupBox1.Controls.Add(button2);
+        groupBox1.Controls.Add(label4);
+        groupBox1.Controls.Add(label5);
+        groupBox1.Controls.Add(numericUpDown2);
+        groupBox1.Controls.Add(numericUpDown3);
+        groupBox1.Controls.Add(button3);
+        groupBox1.Controls.Add(button4);
+        groupBox1.Controls.Add(label6);
+        groupBox1.Controls.Add(label7);
+        groupBox1.Controls.Add(numericUpDown4);
+        groupBox1.Controls.Add(numericUpDown5);
+        groupBox1.Controls.Add(button5);
+        groupBox1.Controls.Add(button6);
+        groupBox1.Controls.Add(label8);
+        groupBox1.Controls.Add(label9);
+        groupBox1.Controls.Add(numericUpDown6);
+        groupBox1.Controls.Add(numericUpDown7);
+        groupBox1.Controls.Add(button7);
+        groupBox1.Controls.Add(button8);
+        groupBox1.Controls.Add(label10);
+        groupBox1.Controls.Add(label11);
+        groupBox1.Controls.Add(numericUpDown8);
+        groupBox1.Controls.Add(numericUpDown9);
+        groupBox1.Controls.Add(button9);
+        groupBox1.Controls.Add(button10);
+        groupBox1.Controls.Add(label12);
+        groupBox1.Controls.Add(label13);
+        groupBox1.Controls.Add(numericUpDown10);
+        groupBox1.Controls.Add(numericUpDown11);
+        groupBox1.Controls.Add(button11);
+        groupBox1.Controls.Add(button12);
+        groupBox1.Controls.Add(label14);
+        groupBox1.Controls.Add(label15);
+        groupBox1.Controls.Add(numericUpDown12);
+        groupBox1.Controls.Add(numericUpDown13);
+        groupBox1.Location = new Point(177, 3);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new Size(200, 262);
+        groupBox1.TabIndex = 185;
+        groupBox1.TabStop = false;
+        groupBox1.Text = "Search Filters";
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(2, 196);
+        label3.Name = "label3";
+        label3.Size = new Size(46, 15);
+        label3.TabIndex = 169;
+        label3.Text = "Nature:";
+        // 
+        // comboBox1
+        // 
+        comboBox1.FormattingEnabled = true;
+        comboBox1.Items.AddRange(new object[] { "Ignore", "Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish", "Lax", "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky" });
+        comboBox1.Location = new Point(53, 193);
+        comboBox1.Name = "comboBox1";
+        comboBox1.Size = new Size(142, 23);
+        comboBox1.TabIndex = 168;
+        // 
+        // checkBox2
+        // 
+        checkBox2.AutoSize = true;
+        checkBox2.CheckAlign = ContentAlignment.MiddleRight;
+        checkBox2.Checked = true;
+        checkBox2.CheckState = CheckState.Checked;
+        checkBox2.Location = new Point(88, 218);
+        checkBox2.Name = "checkBox2";
+        checkBox2.Size = new Size(107, 19);
+        checkBox2.TabIndex = 28;
+        checkBox2.Tag = "";
+        checkBox2.Text = "Filters Enabled?";
+        checkBox2.UseVisualStyleBackColor = true;
+        // 
+        // button1
+        // 
+        button1.Location = new Point(168, 142);
+        button1.Name = "button1";
+        button1.Size = new Size(27, 25);
+        button1.TabIndex = 23;
+        button1.Text = "31";
+        button1.UseVisualStyleBackColor = true;
+        // 
+        // button2
+        // 
+        button2.Location = new Point(139, 142);
+        button2.Name = "button2";
+        button2.Size = new Size(27, 25);
+        button2.TabIndex = 22;
+        button2.Text = "0";
+        button2.UseVisualStyleBackColor = true;
+        // 
+        // label4
+        // 
+        label4.AutoSize = true;
+        label4.Location = new Point(19, 147);
+        label4.Name = "label4";
+        label4.Size = new Size(29, 15);
+        label4.TabIndex = 161;
+        label4.Text = "Spe:";
+        // 
+        // label5
+        // 
+        label5.AutoSize = true;
+        label5.Location = new Point(86, 145);
+        label5.Name = "label5";
+        label5.Size = new Size(15, 15);
+        label5.TabIndex = 11;
+        label5.Text = "~";
+        // 
+        // numericUpDown2
+        // 
+        numericUpDown2.Location = new Point(102, 143);
+        numericUpDown2.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown2.Name = "numericUpDown2";
+        numericUpDown2.Size = new Size(32, 23);
+        numericUpDown2.TabIndex = 140;
+        numericUpDown2.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // numericUpDown3
+        // 
+        numericUpDown3.Location = new Point(53, 143);
+        numericUpDown3.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown3.Name = "numericUpDown3";
+        numericUpDown3.Size = new Size(32, 23);
+        numericUpDown3.TabIndex = 10;
+        // 
+        // button3
+        // 
+        button3.Location = new Point(168, 117);
+        button3.Name = "button3";
+        button3.Size = new Size(27, 25);
+        button3.TabIndex = 21;
+        button3.Text = "31";
+        button3.UseVisualStyleBackColor = true;
+        // 
+        // button4
+        // 
+        button4.Location = new Point(139, 117);
+        button4.Name = "button4";
+        button4.Size = new Size(27, 25);
+        button4.TabIndex = 20;
+        button4.Text = "0";
+        button4.UseVisualStyleBackColor = true;
+        // 
+        // label6
+        // 
+        label6.AutoSize = true;
+        label6.Location = new Point(17, 123);
+        label6.Name = "label6";
+        label6.Size = new Size(31, 15);
+        label6.TabIndex = 160;
+        label6.Text = "SpD:";
+        // 
+        // label7
+        // 
+        label7.AutoSize = true;
+        label7.Location = new Point(86, 120);
+        label7.Name = "label7";
+        label7.Size = new Size(15, 15);
+        label7.TabIndex = 9;
+        label7.Text = "~";
+        // 
+        // numericUpDown4
+        // 
+        numericUpDown4.Location = new Point(102, 118);
+        numericUpDown4.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown4.Name = "numericUpDown4";
+        numericUpDown4.Size = new Size(32, 23);
+        numericUpDown4.TabIndex = 137;
+        numericUpDown4.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // numericUpDown5
+        // 
+        numericUpDown5.Location = new Point(53, 118);
+        numericUpDown5.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown5.Name = "numericUpDown5";
+        numericUpDown5.Size = new Size(32, 23);
+        numericUpDown5.TabIndex = 8;
+        // 
+        // button5
+        // 
+        button5.Location = new Point(168, 92);
+        button5.Name = "button5";
+        button5.Size = new Size(27, 25);
+        button5.TabIndex = 19;
+        button5.Text = "31";
+        button5.UseVisualStyleBackColor = true;
+        // 
+        // button6
+        // 
+        button6.Location = new Point(139, 92);
+        button6.Name = "button6";
+        button6.Size = new Size(27, 25);
+        button6.TabIndex = 18;
+        button6.Text = "0";
+        button6.UseVisualStyleBackColor = true;
+        // 
+        // label8
+        // 
+        label8.AutoSize = true;
+        label8.Location = new Point(17, 95);
+        label8.Name = "label8";
+        label8.Size = new Size(31, 15);
+        label8.TabIndex = 156;
+        label8.Text = "SpA:";
+        // 
+        // label9
+        // 
+        label9.AutoSize = true;
+        label9.Location = new Point(86, 95);
+        label9.Name = "label9";
+        label9.Size = new Size(15, 15);
+        label9.TabIndex = 134;
+        label9.Text = "~";
+        // 
+        // numericUpDown6
+        // 
+        numericUpDown6.Location = new Point(102, 93);
+        numericUpDown6.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown6.Name = "numericUpDown6";
+        numericUpDown6.Size = new Size(32, 23);
+        numericUpDown6.TabIndex = 7;
+        numericUpDown6.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // numericUpDown7
+        // 
+        numericUpDown7.Location = new Point(53, 93);
+        numericUpDown7.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown7.Name = "numericUpDown7";
+        numericUpDown7.Size = new Size(32, 23);
+        numericUpDown7.TabIndex = 6;
+        // 
+        // button7
+        // 
+        button7.Location = new Point(168, 67);
+        button7.Name = "button7";
+        button7.Size = new Size(27, 25);
+        button7.TabIndex = 17;
+        button7.Text = "31";
+        button7.UseVisualStyleBackColor = true;
+        // 
+        // button8
+        // 
+        button8.Location = new Point(139, 67);
+        button8.Name = "button8";
+        button8.Size = new Size(27, 25);
+        button8.TabIndex = 16;
+        button8.Text = "0";
+        button8.UseVisualStyleBackColor = true;
+        // 
+        // label10
+        // 
+        label10.AutoSize = true;
+        label10.Location = new Point(20, 70);
+        label10.Name = "label10";
+        label10.Size = new Size(28, 15);
+        label10.TabIndex = 149;
+        label10.Text = "Def:";
+        // 
+        // label11
+        // 
+        label11.AutoSize = true;
+        label11.Location = new Point(86, 70);
+        label11.Name = "label11";
+        label11.Size = new Size(15, 15);
+        label11.TabIndex = 129;
+        label11.Text = "~";
+        // 
+        // numericUpDown8
+        // 
+        numericUpDown8.Location = new Point(102, 68);
+        numericUpDown8.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown8.Name = "numericUpDown8";
+        numericUpDown8.Size = new Size(32, 23);
+        numericUpDown8.TabIndex = 5;
+        numericUpDown8.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // numericUpDown9
+        // 
+        numericUpDown9.Location = new Point(53, 68);
+        numericUpDown9.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown9.Name = "numericUpDown9";
+        numericUpDown9.Size = new Size(32, 23);
+        numericUpDown9.TabIndex = 4;
+        // 
+        // button9
+        // 
+        button9.Location = new Point(168, 42);
+        button9.Name = "button9";
+        button9.Size = new Size(27, 25);
+        button9.TabIndex = 15;
+        button9.Text = "31";
+        button9.UseVisualStyleBackColor = true;
+        // 
+        // button10
+        // 
+        button10.Location = new Point(139, 42);
+        button10.Name = "button10";
+        button10.Size = new Size(27, 25);
+        button10.TabIndex = 14;
+        button10.Text = "0";
+        button10.UseVisualStyleBackColor = true;
+        // 
+        // label12
+        // 
+        label12.AutoSize = true;
+        label12.Location = new Point(20, 45);
+        label12.Name = "label12";
+        label12.Size = new Size(28, 15);
+        label12.TabIndex = 142;
+        label12.Text = "Atk:";
+        // 
+        // label13
+        // 
+        label13.AutoSize = true;
+        label13.Location = new Point(86, 45);
+        label13.Name = "label13";
+        label13.Size = new Size(15, 15);
+        label13.TabIndex = 126;
+        label13.Text = "~";
+        // 
+        // numericUpDown10
+        // 
+        numericUpDown10.Location = new Point(102, 43);
+        numericUpDown10.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown10.Name = "numericUpDown10";
+        numericUpDown10.Size = new Size(32, 23);
+        numericUpDown10.TabIndex = 3;
+        numericUpDown10.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // numericUpDown11
+        // 
+        numericUpDown11.Location = new Point(53, 43);
+        numericUpDown11.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown11.Name = "numericUpDown11";
+        numericUpDown11.Size = new Size(32, 23);
+        numericUpDown11.TabIndex = 2;
+        // 
+        // button11
+        // 
+        button11.Location = new Point(168, 17);
+        button11.Name = "button11";
+        button11.Size = new Size(27, 25);
+        button11.TabIndex = 13;
+        button11.Text = "31";
+        button11.UseVisualStyleBackColor = true;
+        // 
+        // button12
+        // 
+        button12.Location = new Point(139, 17);
+        button12.Name = "button12";
+        button12.Size = new Size(27, 25);
+        button12.TabIndex = 12;
+        button12.Text = "0";
+        button12.UseVisualStyleBackColor = true;
+        // 
+        // label14
+        // 
+        label14.AutoSize = true;
+        label14.Location = new Point(22, 20);
+        label14.Name = "label14";
+        label14.Size = new Size(26, 15);
+        label14.TabIndex = 132;
+        label14.Text = "HP:";
+        // 
+        // label15
+        // 
+        label15.AutoSize = true;
+        label15.Location = new Point(86, 20);
+        label15.Name = "label15";
+        label15.Size = new Size(15, 15);
+        label15.TabIndex = 130;
+        label15.Text = "~";
+        // 
+        // numericUpDown12
+        // 
+        numericUpDown12.Location = new Point(102, 18);
+        numericUpDown12.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown12.Name = "numericUpDown12";
+        numericUpDown12.Size = new Size(32, 23);
+        numericUpDown12.TabIndex = 1;
+        numericUpDown12.Value = new decimal(new int[] { 31, 0, 0, 0 });
+        // 
+        // numericUpDown13
+        // 
+        numericUpDown13.Location = new Point(53, 18);
+        numericUpDown13.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+        numericUpDown13.Name = "numericUpDown13";
+        numericUpDown13.Size = new Size(32, 23);
+        numericUpDown13.TabIndex = 0;
         // 
         // L_Spawner_Species
         // 
@@ -1288,7 +1764,7 @@ namespace ParLiAment.WinForms;
         DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         DGV_Results.AutoGenerateColumns = false;
         DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        DGV_Results.Columns.AddRange(new DataGridViewColumn[] { advancesDataGridViewTextBoxColumn, eCDataGridViewTextBoxColumn, pIDDataGridViewTextBoxColumn, abilityDataGridViewTextBoxColumn, natureDataGridViewTextBoxColumn, hPDataGridViewTextBoxColumn, atkDataGridViewTextBoxColumn, defDataGridViewTextBoxColumn, spADataGridViewTextBoxColumn, spDDataGridViewTextBoxColumn, speDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, seed0DataGridViewTextBoxColumn, seed1DataGridViewTextBoxColumn });
+        DGV_Results.Columns.AddRange(new DataGridViewColumn[] { advancesDataGridViewTextBoxColumn, eCDataGridViewTextBoxColumn, pIDDataGridViewTextBoxColumn, abilityDataGridViewTextBoxColumn, natureDataGridViewTextBoxColumn, HP, Atk, Def, SpA, SpD, Spe, genderDataGridViewTextBoxColumn, seed0DataGridViewTextBoxColumn, seed1DataGridViewTextBoxColumn });
         DGV_Results.DataSource = BS_Results;
         DGV_Results.Location = new Point(11, 344);
         DGV_Results.Name = "DGV_Results";
@@ -1298,6 +1774,10 @@ namespace ParLiAment.WinForms;
         DGV_Results.Size = new Size(1254, 294);
         DGV_Results.TabIndex = 129;
         DGV_Results.CellFormatting += DGV_Results_CellFormatting;
+        // 
+        // BS_Results
+        // 
+        BS_Results.DataSource = typeof(Core.Interfaces.PokemonFrame);
         // 
         // B_ReadB1S1
         // 
@@ -1318,10 +1798,6 @@ namespace ParLiAment.WinForms;
         B_CopyIVs.Text = "Copy IVs to Filters";
         B_CopyIVs.UseVisualStyleBackColor = true;
         B_CopyIVs.Click += B_CopyIVs_Click;
-        // 
-        // BS_Results
-        // 
-        BS_Results.DataSource = typeof(Core.Interfaces.PokemonFrame);
         // 
         // advancesDataGridViewTextBoxColumn
         // 
@@ -1358,47 +1834,47 @@ namespace ParLiAment.WinForms;
         natureDataGridViewTextBoxColumn.Name = "natureDataGridViewTextBoxColumn";
         natureDataGridViewTextBoxColumn.ReadOnly = true;
         // 
-        // hPDataGridViewTextBoxColumn
+        // HP
         // 
-        hPDataGridViewTextBoxColumn.DataPropertyName = "HP";
-        hPDataGridViewTextBoxColumn.HeaderText = "HP";
-        hPDataGridViewTextBoxColumn.Name = "hPDataGridViewTextBoxColumn";
-        hPDataGridViewTextBoxColumn.ReadOnly = true;
+        HP.DataPropertyName = "HP";
+        HP.HeaderText = "HP";
+        HP.Name = "HP";
+        HP.ReadOnly = true;
         // 
-        // atkDataGridViewTextBoxColumn
+        // Atk
         // 
-        atkDataGridViewTextBoxColumn.DataPropertyName = "Atk";
-        atkDataGridViewTextBoxColumn.HeaderText = "Atk";
-        atkDataGridViewTextBoxColumn.Name = "atkDataGridViewTextBoxColumn";
-        atkDataGridViewTextBoxColumn.ReadOnly = true;
+        Atk.DataPropertyName = "Atk";
+        Atk.HeaderText = "Atk";
+        Atk.Name = "Atk";
+        Atk.ReadOnly = true;
         // 
-        // defDataGridViewTextBoxColumn
+        // Def
         // 
-        defDataGridViewTextBoxColumn.DataPropertyName = "Def";
-        defDataGridViewTextBoxColumn.HeaderText = "Def";
-        defDataGridViewTextBoxColumn.Name = "defDataGridViewTextBoxColumn";
-        defDataGridViewTextBoxColumn.ReadOnly = true;
+        Def.DataPropertyName = "Def";
+        Def.HeaderText = "Def";
+        Def.Name = "Def";
+        Def.ReadOnly = true;
         // 
-        // spADataGridViewTextBoxColumn
+        // SpA
         // 
-        spADataGridViewTextBoxColumn.DataPropertyName = "SpA";
-        spADataGridViewTextBoxColumn.HeaderText = "SpA";
-        spADataGridViewTextBoxColumn.Name = "spADataGridViewTextBoxColumn";
-        spADataGridViewTextBoxColumn.ReadOnly = true;
+        SpA.DataPropertyName = "SpA";
+        SpA.HeaderText = "SpA";
+        SpA.Name = "SpA";
+        SpA.ReadOnly = true;
         // 
-        // spDDataGridViewTextBoxColumn
+        // SpD
         // 
-        spDDataGridViewTextBoxColumn.DataPropertyName = "SpD";
-        spDDataGridViewTextBoxColumn.HeaderText = "SpD";
-        spDDataGridViewTextBoxColumn.Name = "spDDataGridViewTextBoxColumn";
-        spDDataGridViewTextBoxColumn.ReadOnly = true;
+        SpD.DataPropertyName = "SpD";
+        SpD.HeaderText = "SpD";
+        SpD.Name = "SpD";
+        SpD.ReadOnly = true;
         // 
-        // speDataGridViewTextBoxColumn
+        // Spe
         // 
-        speDataGridViewTextBoxColumn.DataPropertyName = "Spe";
-        speDataGridViewTextBoxColumn.HeaderText = "Spe";
-        speDataGridViewTextBoxColumn.Name = "speDataGridViewTextBoxColumn";
-        speDataGridViewTextBoxColumn.ReadOnly = true;
+        Spe.DataPropertyName = "Spe";
+        Spe.HeaderText = "Spe";
+        Spe.Name = "Spe";
+        Spe.ReadOnly = true;
         // 
         // genderDataGridViewTextBoxColumn
         // 
@@ -1450,6 +1926,20 @@ namespace ParLiAment.WinForms;
         TC_Main.ResumeLayout(false);
         TP_OWL.ResumeLayout(false);
         TP_OWL.PerformLayout();
+        groupBox1.ResumeLayout(false);
+        groupBox1.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown6).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown7).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown8).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown9).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown10).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown11).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown12).EndInit();
+        ((System.ComponentModel.ISupportInitialize)numericUpDown13).EndInit();
         TP_Static.ResumeLayout(false);
         TP_Static.PerformLayout();
         GB_Static_Filters.ResumeLayout(false);
@@ -1583,20 +2073,62 @@ namespace ParLiAment.WinForms;
     private Button B_CopyToInitial;
     private Label L_Spawner_Species;
     public ComboBox CB_Spawner_Species;
+    private BindingSource BS_Results;
+    private Label L_GroupSeed;
+    public TextBox TB_GroupSeed;
+    private GroupBox groupBox1;
+    private Label label3;
+    private ComboBox comboBox1;
+    private Button button1;
+    private Button button2;
+    private Label label4;
+    private Label label5;
+    private NumericUpDown numericUpDown2;
+    private NumericUpDown numericUpDown3;
+    private Button button3;
+    private Button button4;
+    private Label label6;
+    private Label label7;
+    private NumericUpDown numericUpDown4;
+    private NumericUpDown numericUpDown5;
+    private Button button5;
+    private Button button6;
+    private Label label8;
+    private Label label9;
+    private NumericUpDown numericUpDown6;
+    private NumericUpDown numericUpDown7;
+    private Button button7;
+    private Button button8;
+    private Label label10;
+    private Label label11;
+    private NumericUpDown numericUpDown8;
+    private NumericUpDown numericUpDown9;
+    private Button button9;
+    private Button button10;
+    private Label label12;
+    private Label label13;
+    private NumericUpDown numericUpDown10;
+    private NumericUpDown numericUpDown11;
+    private Button button11;
+    private Button button12;
+    private Label label14;
+    private Label label15;
+    private NumericUpDown numericUpDown12;
+    private NumericUpDown numericUpDown13;
+    private CheckBox checkBox2;
     private DataGridViewTextBoxColumn advancesDataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn eCDataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn abilityDataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn natureDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn hPDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn atkDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn defDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn spADataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn spDDataGridViewTextBoxColumn;
-    private DataGridViewTextBoxColumn speDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn HP;
+    private DataGridViewTextBoxColumn Atk;
+    private DataGridViewTextBoxColumn Def;
+    private DataGridViewTextBoxColumn SpA;
+    private DataGridViewTextBoxColumn SpD;
+    private DataGridViewTextBoxColumn Spe;
     private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
     private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
-    private BindingSource BS_Results;
 }
 

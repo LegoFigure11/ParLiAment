@@ -138,6 +138,14 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         return new PA8(data);
     }
 
+    public void ResetPointers()
+    {
+        _boxPokemonOffset = 0;
+        _currentSeedOffset = 0;
+        _myStatusOffset = 0;
+        _wildPokemonOffset = 0;
+    }
+
     public async Task PressAndHold(IEnumerable<SwitchButton> b, int hold, int delay, CancellationToken token)
     {
         foreach (var key in b)

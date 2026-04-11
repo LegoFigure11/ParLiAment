@@ -110,6 +110,9 @@ namespace ParLiAment.WinForms;
         L_Spawner_Species = new Label();
         CB_Spawner_Species = new ComboBox();
         TP_Static = new TabPage();
+        B_SeedReset = new Button();
+        B_CancelReset = new Button();
+        B_ResetSettings = new Button();
         L_Static_Species = new Label();
         CB_Static_Species = new ComboBox();
         B_Static_Search = new Button();
@@ -184,7 +187,6 @@ namespace ParLiAment.WinForms;
         B_ReadB1S1 = new Button();
         B_CopyIVs = new Button();
         NUD_ReadSlot = new NumericUpDown();
-        B_ResetSettings = new Button();
         GB_Connection.SuspendLayout();
         GB_Seed.SuspendLayout();
         GB_SAVInfo.SuspendLayout();
@@ -1091,6 +1093,8 @@ namespace ParLiAment.WinForms;
         // 
         // TP_Static
         // 
+        TP_Static.Controls.Add(B_SeedReset);
+        TP_Static.Controls.Add(B_CancelReset);
         TP_Static.Controls.Add(B_ResetSettings);
         TP_Static.Controls.Add(L_Static_Species);
         TP_Static.Controls.Add(CB_Static_Species);
@@ -1106,6 +1110,37 @@ namespace ParLiAment.WinForms;
         TP_Static.TabIndex = 2;
         TP_Static.Text = "Static (Main)";
         TP_Static.UseVisualStyleBackColor = true;
+        // 
+        // B_SeedReset
+        // 
+        B_SeedReset.Location = new Point(7, 88);
+        B_SeedReset.Name = "B_SeedReset";
+        B_SeedReset.Size = new Size(164, 25);
+        B_SeedReset.TabIndex = 185;
+        B_SeedReset.Text = "Reset for Seed";
+        B_SeedReset.UseVisualStyleBackColor = true;
+        B_SeedReset.Click += B_SeedReset_Click;
+        // 
+        // B_CancelReset
+        // 
+        B_CancelReset.Enabled = false;
+        B_CancelReset.Location = new Point(7, 115);
+        B_CancelReset.Name = "B_CancelReset";
+        B_CancelReset.Size = new Size(164, 25);
+        B_CancelReset.TabIndex = 184;
+        B_CancelReset.Text = "Cancel Seed Reset";
+        B_CancelReset.UseVisualStyleBackColor = true;
+        B_CancelReset.Click += B_CancelReset_Click;
+        // 
+        // B_ResetSettings
+        // 
+        B_ResetSettings.Location = new Point(7, 142);
+        B_ResetSettings.Name = "B_ResetSettings";
+        B_ResetSettings.Size = new Size(164, 25);
+        B_ResetSettings.TabIndex = 183;
+        B_ResetSettings.Text = "Seed Reset Settings";
+        B_ResetSettings.UseVisualStyleBackColor = true;
+        B_ResetSettings.Click += B_ResetSettings_Click;
         // 
         // L_Static_Species
         // 
@@ -1891,16 +1926,6 @@ namespace ParLiAment.WinForms;
         NUD_ReadSlot.Size = new Size(32, 23);
         NUD_ReadSlot.TabIndex = 134;
         // 
-        // B_ResetSettings
-        // 
-        B_ResetSettings.Location = new Point(7, 142);
-        B_ResetSettings.Name = "B_ResetSettings";
-        B_ResetSettings.Size = new Size(164, 25);
-        B_ResetSettings.TabIndex = 183;
-        B_ResetSettings.Text = "Reset Settings";
-        B_ResetSettings.UseVisualStyleBackColor = true;
-        B_ResetSettings.Click += B_ResetSettings_Click;
-        // 
         // MainWindow
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2130,5 +2155,7 @@ namespace ParLiAment.WinForms;
     private Button B_CopyToOWL;
     private BindingSource BS_SpawnerResults;
     private Button B_ResetSettings;
+    private Button B_CancelReset;
+    private Button B_SeedReset;
 }
 

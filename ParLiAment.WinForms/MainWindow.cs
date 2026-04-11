@@ -426,7 +426,7 @@ public partial class MainWindow : Form
 
             Disconnect(Source.Token);
         }
-    }       
+    }
 
     private static Nature GetFilterNatureType(int selected) => selected switch
     {
@@ -1222,6 +1222,109 @@ public partial class MainWindow : Form
         {
             ResetSettingsForm?.Focus();
         }
+    }
+
+    private void B_CancelReset_Click(object sender, EventArgs e)
+    {
+        ResetSource.Cancel();
+        ResetSource = new();
+        SetControlEnabledState(true, B_SeedReset);
+        SetControlEnabledState(false, B_CancelReset);
+        readPause = false;
+    }
+
+    private void B_SeedReset_Click(object sender, EventArgs e)
+    {
+        if (ConnectionWrapper is not null && ConnectionWrapper.Connected)
+        {
+            SetControlEnabledState(false, B_SeedReset, B_Static_Search, B_Spawner_Generate);
+            SetControlEnabledState(true, B_CancelReset);
+            try
+            {
+                Task.Run(async () =>
+                {
+                    readPause = true;
+                    await Task.Delay(200, ResetSource.Token).ConfigureAwait(false);
+                    List<StaticFrame>? staticFrames = [];
+                    var first = true;
+                    do
+                    {
+                        if (first)
+                        {
+                            await ConnectionWrapper.PressButton(SwitchButton.LSTICK, 50, ResetSource.Token).ConfigureAwait(false); // First input doesn't always go through
+                            first = false;
+                        }
+                        await ConnectionWrapper.CloseGame(Config, first, ResetSource.Token).ConfigureAwait(false);
+                        await ConnectionWrapper.OpenGame(Config, ResetSource.Token).ConfigureAwait(false);
+
+                        ConnectionWrapper.ResetPointers();
+
+                        var (_s0, _s1) = await ConnectionWrapper.GetCurrentRNGState(ResetSource.Token).ConfigureAwait(false);
+                        SetControlText($"{_s0:X16}", TB_InitialSeed0);
+                        SetControlText($"{_s1:X16}", TB_InitialSeed1);
+
+                        ValidateInputs();
+
+                        var s0 = ulong.Parse(TB_InitialSeed0.GetText(), NumberStyles.AllowHexSpecifier);
+                        var s1 = ulong.Parse(TB_InitialSeed1.GetText(), NumberStyles.AllowHexSpecifier);
+                        var start = ulong.Parse(TB_Static_Initial.GetText());
+                        var end = ulong.Parse(TB_Static_Advances.GetText());
+
+                        var cfg = new StaticConfig()
+                        {
+                            SID = ushort.Parse(TB_SID.GetText()),
+                            TID = ushort.Parse(TB_TID.GetText()),
+
+                            UseDelay = CB_Static_Delay.GetIsChecked(),
+                            Delay = NUD_Static_Delay.GetValue(),
+
+                            TargetNature = GetFilterNatureType(CB_Static_Nature.GetSelectedIndex()),
+
+                            TargetMinIVs = [NUD_Static_HP_Min.GetValue(), NUD_Static_Atk_Min.GetValue(), NUD_Static_Def_Min.GetValue(), NUD_Static_SpA_Min.GetValue(), NUD_Static_SpD_Min.GetValue(), NUD_Static_Spe_Min.GetValue()],
+                            TargetMaxIVs = [NUD_Static_HP_Max.GetValue(), NUD_Static_Atk_Max.GetValue(), NUD_Static_Def_Max.GetValue(), NUD_Static_SpA_Max.GetValue(), NUD_Static_SpD_Max.GetValue(), NUD_Static_Spe_Max.GetValue()],
+                            SearchTypes = [GetIVSearchType(L_Static_HPSpacer.GetText()), GetIVSearchType(L_Static_AtkSpacer.GetText()), GetIVSearchType(L_Static_DefSpacer.GetText()), GetIVSearchType(L_Static_SpASpacer.GetText()), GetIVSearchType(L_Static_SpDSpacer.GetText()), GetIVSearchType(L_Static_SpeSpacer.GetText())],
+
+                            _pk = GetMainEncounter(CB_Static_Species.GetSelectedIndex()),
+
+                            FiltersEnabled = CB_Static_FiltersEnabled.GetIsChecked(),
+                        };
+                        staticFrames = await Core.RNG.Static.Generate(s0, s1, start, end, cfg);
+                    } while (staticFrames?.Count == 0 && !ResetSource.IsCancellationRequested);
+
+                    hasShifted = false;
+                    SetBindingSourceDataSource(staticFrames!, BS_StaticResults);
+                    SetDataGridViewDataSource(BS_StaticResults, DGV_Results);
+                    SetControlEnabledState(true, B_Static_Search);
+                    Frames = [.. staticFrames!.Cast<object>()];
+
+                    SetControlEnabledState(true, B_SeedReset, B_Static_Search, B_Spawner_Generate);
+                    SetControlEnabledState(false, B_CancelReset);
+                    readPause = false;
+                    reset = true;
+
+                    ActivateWindow();
+                    this.DisplayMessageBox("Seed result found!", "Seed result");
+                    UpdateStatus("Monitoring RNG state...");
+
+                }, ResetSource.Token);
+            }
+            catch (Exception ex)
+            {
+                if (ex is not TaskCanceledException) this.DisplayMessageBox(ex.Message);
+                SetControlEnabledState(true, B_SeedReset);
+                SetControlEnabledState(false, B_CancelReset);
+                readPause = false;
+                UpdateStatus("Monitoring RNG state...");
+            }
+        }
+    }
+
+    private void ActivateWindow()
+    {
+        if (InvokeRequired)
+            Invoke(Activate);
+        else
+            Activate();
     }
 }
 

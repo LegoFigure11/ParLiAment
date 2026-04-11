@@ -114,7 +114,7 @@ public partial class MainWindow : Form
         var spawner = GetSpawnerEncounters();
         foreach (var item in spawner) CB_Spawner_Species.Items.Add(item);
 
-        SetComboBoxSelectedIndex(0, CB_BabyMode_Action, CB_Static_Shiny, CB_Static_Nature, CB_Static_Species, CB_Spawner_Species);
+        SetComboBoxSelectedIndex(0, CB_BabyMode_Action, CB_Static_Nature, CB_Static_Species, CB_Spawner_Species);
 
         SetControlText("0", TB_InitialSeed0, TB_InitialSeed1);
         SetControlText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentSeed0, TB_CurrentSeed1);
@@ -867,15 +867,10 @@ public partial class MainWindow : Form
         SetControlEnabledState(false, B_Static_Search);
         Task.Run(async () =>
         {
-            var seed = uint.Parse(TB_InitialSeed0.GetText(), NumberStyles.AllowHexSpecifier);
-            var start = uint.Parse(TB_Static_Initial.GetText());
-            var end = uint.Parse(TB_Static_Advances.GetText());
-
-            /*var enc = GetStaticEncounterFromSpecies(
-                GetStaticEncounterSpeciesList(
-                    (Game)Config.Game
-                )[CB_Static_Species.GetSelectedIndex()], (Game)Config.Game
-            );*/
+            var s0 = ulong.Parse(TB_InitialSeed0.GetText(), NumberStyles.AllowHexSpecifier);
+            var s1 = ulong.Parse(TB_InitialSeed1.GetText(), NumberStyles.AllowHexSpecifier);
+            var start = ulong.Parse(TB_Static_Initial.GetText());
+            var end = ulong.Parse(TB_Static_Advances.GetText());
 
             var cfg = new StaticConfig()
             {
@@ -885,21 +880,20 @@ public partial class MainWindow : Form
                 UseDelay = CB_Static_Delay.GetIsChecked(),
                 Delay = NUD_Static_Delay.GetValue(),
 
-                TargetShiny = GetFilterShinyType(CB_Static_Shiny.GetSelectedIndex()),
                 TargetNature = GetFilterNatureType(CB_Static_Nature.GetSelectedIndex()),
 
                 TargetMinIVs = [NUD_Static_HP_Min.GetValue(), NUD_Static_Atk_Min.GetValue(), NUD_Static_Def_Min.GetValue(), NUD_Static_SpA_Min.GetValue(), NUD_Static_SpD_Min.GetValue(), NUD_Static_Spe_Min.GetValue()],
                 TargetMaxIVs = [NUD_Static_HP_Max.GetValue(), NUD_Static_Atk_Max.GetValue(), NUD_Static_Def_Max.GetValue(), NUD_Static_SpA_Max.GetValue(), NUD_Static_SpD_Max.GetValue(), NUD_Static_Spe_Max.GetValue()],
                 SearchTypes = [GetIVSearchType(L_Static_HPSpacer.GetText()), GetIVSearchType(L_Static_AtkSpacer.GetText()), GetIVSearchType(L_Static_DefSpacer.GetText()), GetIVSearchType(L_Static_SpASpacer.GetText()), GetIVSearchType(L_Static_SpDSpacer.GetText()), GetIVSearchType(L_Static_SpeSpacer.GetText())],
 
-                // Encounter = enc,
+                _pk = GetMainEncounter(CB_Static_Species.GetSelectedIndex()),
 
                 FiltersEnabled = CB_Static_FiltersEnabled.GetIsChecked(),
             };
-            var staticFrames = await Core.RNG.Static.Generate(seed, start, end, cfg);
+            var staticFrames = await Core.RNG.Static.Generate(s0, s1, start, end, cfg);
 
-            //SetBindingSourceDataSource(staticFrames, BS_Static);
-            //SetDataGridViewDataSource(BS_Static, DGV_Results);
+            SetBindingSourceDataSource(staticFrames, BS_Results);
+            SetDataGridViewDataSource(BS_Results, DGV_Results);
             SetControlEnabledState(true, B_Static_Search);
             Frames = staticFrames.Cast<object>().ToList();
         });
@@ -949,14 +943,7 @@ public partial class MainWindow : Form
         if (Frames.Count <= index) return;
         var row = DGV_Results.Rows[index];
         var result = Frames[index];
-
-        if (result is IShinyFrame s)
-        {
-            if (s.Shiny is "Square") row.DefaultCellStyle.BackColor = Color.LightCyan;
-            else if (s.Shiny.Contains("Star")) row.DefaultCellStyle.BackColor = Color.PapayaWhip;
-            else row.DefaultCellStyle.BackColor = row.Index % 2 == 0 ? Color.White : Color.WhiteSmoke;
-        }
-
+        /*
         // IVs
         if (result is IIVFrame iv)
         {
@@ -981,7 +968,7 @@ public partial class MainWindow : Form
                     row.Cells[col].Style.Font = row.DefaultCellStyle.Font;
                 }
             }
-        }
+        }*/
     }
 
     private void B_CopyIVs_Click(object sender, EventArgs e)

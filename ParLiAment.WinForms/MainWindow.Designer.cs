@@ -28,6 +28,7 @@ namespace ParLiAment.WinForms;
     /// </summary>
     private void InitializeComponent()
     {
+        components = new System.ComponentModel.Container();
         DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
         GB_Connection = new GroupBox();
@@ -75,8 +76,6 @@ namespace ParLiAment.WinForms;
         CB_Static_Delay = new CheckBox();
         NUD_Static_Delay = new NumericUpDown();
         CB_Static_FiltersEnabled = new CheckBox();
-        L_Static_Shiny = new Label();
-        CB_Static_Shiny = new ComboBox();
         B_Static_Spe_Max = new Button();
         B_Static_Spe_Min = new Button();
         L_Static_Spe = new Label();
@@ -135,6 +134,21 @@ namespace ParLiAment.WinForms;
         DGV_Results = new DataGridView();
         B_ReadB1S1 = new Button();
         B_CopyIVs = new Button();
+        BS_Results = new BindingSource(components);
+        advancesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        eCDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        pIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        abilityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        natureDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        hPDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        atkDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        defDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        spADataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        spDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        speDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        genderDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        seed0DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+        seed1DataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
         GB_Connection.SuspendLayout();
         GB_Seed.SuspendLayout();
         GB_SAVInfo.SuspendLayout();
@@ -159,6 +173,7 @@ namespace ParLiAment.WinForms;
         GB_ConnectionSettings.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)NUD_BabyModeDelay).BeginInit();
         ((System.ComponentModel.ISupportInitialize)DGV_Results).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)BS_Results).BeginInit();
         SuspendLayout();
         // 
         // GB_Connection
@@ -616,8 +631,6 @@ namespace ParLiAment.WinForms;
         GB_Static_Filters.Controls.Add(CB_Static_Delay);
         GB_Static_Filters.Controls.Add(NUD_Static_Delay);
         GB_Static_Filters.Controls.Add(CB_Static_FiltersEnabled);
-        GB_Static_Filters.Controls.Add(L_Static_Shiny);
-        GB_Static_Filters.Controls.Add(CB_Static_Shiny);
         GB_Static_Filters.Controls.Add(B_Static_Spe_Max);
         GB_Static_Filters.Controls.Add(B_Static_Spe_Min);
         GB_Static_Filters.Controls.Add(L_Static_Spe);
@@ -716,24 +729,6 @@ namespace ParLiAment.WinForms;
         CB_Static_FiltersEnabled.Tag = "";
         CB_Static_FiltersEnabled.Text = "Filters Enabled?";
         CB_Static_FiltersEnabled.UseVisualStyleBackColor = true;
-        // 
-        // L_Static_Shiny
-        // 
-        L_Static_Shiny.AutoSize = true;
-        L_Static_Shiny.Location = new Point(9, 171);
-        L_Static_Shiny.Name = "L_Static_Shiny";
-        L_Static_Shiny.Size = new Size(39, 15);
-        L_Static_Shiny.TabIndex = 162;
-        L_Static_Shiny.Text = "Shiny:";
-        // 
-        // CB_Static_Shiny
-        // 
-        CB_Static_Shiny.FormattingEnabled = true;
-        CB_Static_Shiny.Items.AddRange(new object[] { "Ignore", "Star/Square", "Square Only", "Star Only", "Not Shiny" });
-        CB_Static_Shiny.Location = new Point(53, 168);
-        CB_Static_Shiny.Name = "CB_Static_Shiny";
-        CB_Static_Shiny.Size = new Size(142, 23);
-        CB_Static_Shiny.TabIndex = 24;
         // 
         // B_Static_Spe_Max
         // 
@@ -1291,7 +1286,10 @@ namespace ParLiAment.WinForms;
         dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
         DGV_Results.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
         DGV_Results.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+        DGV_Results.AutoGenerateColumns = false;
         DGV_Results.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        DGV_Results.Columns.AddRange(new DataGridViewColumn[] { advancesDataGridViewTextBoxColumn, eCDataGridViewTextBoxColumn, pIDDataGridViewTextBoxColumn, abilityDataGridViewTextBoxColumn, natureDataGridViewTextBoxColumn, hPDataGridViewTextBoxColumn, atkDataGridViewTextBoxColumn, defDataGridViewTextBoxColumn, spADataGridViewTextBoxColumn, spDDataGridViewTextBoxColumn, speDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, seed0DataGridViewTextBoxColumn, seed1DataGridViewTextBoxColumn });
+        DGV_Results.DataSource = BS_Results;
         DGV_Results.Location = new Point(11, 344);
         DGV_Results.Name = "DGV_Results";
         DGV_Results.ReadOnly = true;
@@ -1320,6 +1318,108 @@ namespace ParLiAment.WinForms;
         B_CopyIVs.Text = "Copy IVs to Filters";
         B_CopyIVs.UseVisualStyleBackColor = true;
         B_CopyIVs.Click += B_CopyIVs_Click;
+        // 
+        // BS_Results
+        // 
+        BS_Results.DataSource = typeof(Core.Interfaces.PokemonFrame);
+        // 
+        // advancesDataGridViewTextBoxColumn
+        // 
+        advancesDataGridViewTextBoxColumn.DataPropertyName = "Advances";
+        advancesDataGridViewTextBoxColumn.HeaderText = "Advances";
+        advancesDataGridViewTextBoxColumn.Name = "advancesDataGridViewTextBoxColumn";
+        advancesDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // eCDataGridViewTextBoxColumn
+        // 
+        eCDataGridViewTextBoxColumn.DataPropertyName = "EC";
+        eCDataGridViewTextBoxColumn.HeaderText = "EC";
+        eCDataGridViewTextBoxColumn.Name = "eCDataGridViewTextBoxColumn";
+        eCDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // pIDDataGridViewTextBoxColumn
+        // 
+        pIDDataGridViewTextBoxColumn.DataPropertyName = "PID";
+        pIDDataGridViewTextBoxColumn.HeaderText = "PID";
+        pIDDataGridViewTextBoxColumn.Name = "pIDDataGridViewTextBoxColumn";
+        pIDDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // abilityDataGridViewTextBoxColumn
+        // 
+        abilityDataGridViewTextBoxColumn.DataPropertyName = "Ability";
+        abilityDataGridViewTextBoxColumn.HeaderText = "Ability";
+        abilityDataGridViewTextBoxColumn.Name = "abilityDataGridViewTextBoxColumn";
+        abilityDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // natureDataGridViewTextBoxColumn
+        // 
+        natureDataGridViewTextBoxColumn.DataPropertyName = "Nature";
+        natureDataGridViewTextBoxColumn.HeaderText = "Nature";
+        natureDataGridViewTextBoxColumn.Name = "natureDataGridViewTextBoxColumn";
+        natureDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // hPDataGridViewTextBoxColumn
+        // 
+        hPDataGridViewTextBoxColumn.DataPropertyName = "HP";
+        hPDataGridViewTextBoxColumn.HeaderText = "HP";
+        hPDataGridViewTextBoxColumn.Name = "hPDataGridViewTextBoxColumn";
+        hPDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // atkDataGridViewTextBoxColumn
+        // 
+        atkDataGridViewTextBoxColumn.DataPropertyName = "Atk";
+        atkDataGridViewTextBoxColumn.HeaderText = "Atk";
+        atkDataGridViewTextBoxColumn.Name = "atkDataGridViewTextBoxColumn";
+        atkDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // defDataGridViewTextBoxColumn
+        // 
+        defDataGridViewTextBoxColumn.DataPropertyName = "Def";
+        defDataGridViewTextBoxColumn.HeaderText = "Def";
+        defDataGridViewTextBoxColumn.Name = "defDataGridViewTextBoxColumn";
+        defDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // spADataGridViewTextBoxColumn
+        // 
+        spADataGridViewTextBoxColumn.DataPropertyName = "SpA";
+        spADataGridViewTextBoxColumn.HeaderText = "SpA";
+        spADataGridViewTextBoxColumn.Name = "spADataGridViewTextBoxColumn";
+        spADataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // spDDataGridViewTextBoxColumn
+        // 
+        spDDataGridViewTextBoxColumn.DataPropertyName = "SpD";
+        spDDataGridViewTextBoxColumn.HeaderText = "SpD";
+        spDDataGridViewTextBoxColumn.Name = "spDDataGridViewTextBoxColumn";
+        spDDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // speDataGridViewTextBoxColumn
+        // 
+        speDataGridViewTextBoxColumn.DataPropertyName = "Spe";
+        speDataGridViewTextBoxColumn.HeaderText = "Spe";
+        speDataGridViewTextBoxColumn.Name = "speDataGridViewTextBoxColumn";
+        speDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // genderDataGridViewTextBoxColumn
+        // 
+        genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+        genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+        genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+        genderDataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // seed0DataGridViewTextBoxColumn
+        // 
+        seed0DataGridViewTextBoxColumn.DataPropertyName = "Seed0";
+        seed0DataGridViewTextBoxColumn.HeaderText = "Seed0";
+        seed0DataGridViewTextBoxColumn.Name = "seed0DataGridViewTextBoxColumn";
+        seed0DataGridViewTextBoxColumn.ReadOnly = true;
+        // 
+        // seed1DataGridViewTextBoxColumn
+        // 
+        seed1DataGridViewTextBoxColumn.DataPropertyName = "Seed1";
+        seed1DataGridViewTextBoxColumn.HeaderText = "Seed1";
+        seed1DataGridViewTextBoxColumn.Name = "seed1DataGridViewTextBoxColumn";
+        seed1DataGridViewTextBoxColumn.ReadOnly = true;
         // 
         // MainWindow
         // 
@@ -1373,6 +1473,7 @@ namespace ParLiAment.WinForms;
         GB_ConnectionSettings.PerformLayout();
         ((System.ComponentModel.ISupportInitialize)NUD_BabyModeDelay).EndInit();
         ((System.ComponentModel.ISupportInitialize)DGV_Results).EndInit();
+        ((System.ComponentModel.ISupportInitialize)BS_Results).EndInit();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -1411,8 +1512,6 @@ namespace ParLiAment.WinForms;
     public CheckBox CB_Static_Delay;
     private NumericUpDown NUD_Static_Delay;
     private CheckBox CB_Static_FiltersEnabled;
-    private Label L_Static_Shiny;
-    private ComboBox CB_Static_Shiny;
     private Button B_Static_Spe_Max;
     private Button B_Static_Spe_Min;
     private Label L_Static_Spe;
@@ -1484,5 +1583,20 @@ namespace ParLiAment.WinForms;
     private Button B_CopyToInitial;
     private Label L_Spawner_Species;
     public ComboBox CB_Spawner_Species;
+    private DataGridViewTextBoxColumn advancesDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn eCDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn pIDDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn abilityDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn natureDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn hPDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn atkDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn defDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn spADataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn spDDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn speDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn seed0DataGridViewTextBoxColumn;
+    private DataGridViewTextBoxColumn seed1DataGridViewTextBoxColumn;
+    private BindingSource BS_Results;
 }
 

@@ -22,6 +22,11 @@ internal static class Validator
 
     public static bool CheckNature(byte nature, Nature target) => target == Nature.Random || nature == (byte)target;
 
+    public static bool CheckIV(int iv, uint min, uint max, IVSearchType type)
+    {
+        return !(type == IVSearchType.Range && (iv < min || iv > max) || type == IVSearchType.Or && iv != min && iv != max);
+    }
+
     public static bool CheckIVs(byte[] IVs, IIVGeneratorConfig cfg)
     {
         for (var i = 0; i < 6; i++)

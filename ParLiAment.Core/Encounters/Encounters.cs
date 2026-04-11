@@ -1,8 +1,4 @@
-﻿using ParLiAment.Core.Structures;
-using PKHeX.Core;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using PKHeX.Core;
 
 namespace ParLiAment.Core;
 
@@ -55,4 +51,20 @@ public static class Encounters
         }
         return ret;
     }
+
+    public static PA8 GetMainEncounter(int index) => Main[index];
+    public static PA8 GetSpawnerEncounter(int index) => Spawner[index];
+
+    public static int GetFixedIVs(Species s) => s switch
+    {
+        Species.Tornadus or Species.Thundurus or Species.Landorus or Species.Enamorus or
+        Species.Cresselia or Species.Darkrai or Species.Shaymin or Species.Heatran or
+        Species.Manaphy or Species.Uxie or Species.Mesprit or Species.Azelf or
+        Species.Dialga or Species.Palkia or Species.Giratina or Species.Regigigas or
+        Species.Arceus
+            => 3,
+        Species.Phione or Species.Vulpix or Species.Cyndaquil or Species.Oshawott or Species.Rowlet
+            => 0,
+        _ => -1,
+    };
 }

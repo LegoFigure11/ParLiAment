@@ -32,6 +32,15 @@ public partial class ResetSettings : Form
         TB_ExtraTimeLoadGame.Text = $"{_config.ExtraTimeLoadGame}";
         CB_AvoidUpdate.SelectedIndex = _config.AvoidSystemUpdate ? 0 : 1;
         CB_ScreenOff.SelectedIndex = _config.ScreenOff ? 0 : 1;
+
+        TB_ExtraTimeReturnHome.KeyPress += _mainWindow.AllowOnlyNumerical_KeyPress!;
+        TB_ExtraTimeReturnHome.KeyDown += _mainWindow.Dec_HandlePaste!;
+        TB_ExtraTimeLoadProfile.KeyPress += _mainWindow.AllowOnlyNumerical_KeyPress!;
+        TB_ExtraTimeLoadProfile.KeyDown += _mainWindow.Dec_HandlePaste!;
+        TB_ExtraTimeLoadGame.KeyPress += _mainWindow.AllowOnlyNumerical_KeyPress!;
+        TB_ExtraTimeLoadGame.KeyDown += _mainWindow.Dec_HandlePaste!;
+        TB_ExtraTimeCloseGame.KeyPress += _mainWindow.AllowOnlyNumerical_KeyPress!;
+        TB_ExtraTimeCloseGame.KeyDown += _mainWindow.Dec_HandlePaste!;
     }
 
     private void TB_ExtraTimeReturnHome_TextChanged(object sender, EventArgs e)

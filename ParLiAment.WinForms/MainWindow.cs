@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text.Json;
 using static ParLiAment.Core.Utils;
+using static ParLiAment.Core.Encounters;
 
 namespace ParLiAment.WinForms;
 
@@ -105,10 +106,18 @@ public partial class MainWindow : Form
         TB_TID.Text = $"{Config.TID:D5}";
         TB_SID.Text = $"{Config.SID:D5}";
 
-        SetComboBoxSelectedIndex(0, CB_BabyMode_Action, CB_Static_Shiny, CB_Static_Nature, CB_Static_Method, CB_Static_Species);
+        CB_Static_Species.Items.Clear();
+        var main = GetMainEncounters();
+        foreach (var item in main) CB_Static_Species.Items.Add(item);
 
-        SetControlText("0", TB_InitialSeed0);
-        SetControlText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentSeed0);
+        CB_Spawner_Species.Items.Clear();
+        var spawner = GetSpawnerEncounters();
+        foreach (var item in spawner) CB_Spawner_Species.Items.Add(item);
+
+        SetComboBoxSelectedIndex(0, CB_BabyMode_Action, CB_Static_Shiny, CB_Static_Nature, CB_Static_Species, CB_Spawner_Species);
+
+        SetControlText("0", TB_InitialSeed0, TB_InitialSeed1);
+        SetControlText(string.Empty, TB_CurrentAdvances, TB_AdvancesIncrease, TB_CurrentSeed0, TB_CurrentSeed1);
 
         TB_Status.Text = "Not Connected.";
         TB_Wild.Text = string.Empty;
@@ -884,8 +893,6 @@ public partial class MainWindow : Form
                 SearchTypes = [GetIVSearchType(L_Static_HPSpacer.GetText()), GetIVSearchType(L_Static_AtkSpacer.GetText()), GetIVSearchType(L_Static_DefSpacer.GetText()), GetIVSearchType(L_Static_SpASpacer.GetText()), GetIVSearchType(L_Static_SpDSpacer.GetText()), GetIVSearchType(L_Static_SpeSpacer.GetText())],
 
                 // Encounter = enc,
-
-                BuggedRoamer = CB_Static_RoamerBug.GetIsChecked(),
 
                 FiltersEnabled = CB_Static_FiltersEnabled.GetIsChecked(),
             };

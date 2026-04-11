@@ -1,4 +1,5 @@
 using ParLiAment.Core.Enums;
+using ParLiAment.Core.Structures;
 using PKHeX.Core;
 using System.Reflection;
 
@@ -53,6 +54,19 @@ public static class Utils
         return reader.ReadToEnd();
     }
 
+    public static byte[]? GetBinaryResource(string name)
+    {
+        if (!resourceNameMap.TryGetValue(name.ToLowerInvariant(), out var resourceName))
+            return null;
+
+        using var resource = thisAssembly.GetManifestResourceStream(resourceName);
+        if (resource is null)
+            return null;
+
+        using var reader = new BinaryReader(resource);
+        return reader.ReadBytes((int)resource.Length);
+    }
+
     public static Version? GetLatestVersion()
     {
         const string endpoint = "https://api.github.com/repos/LegoFigure11/ParLiAment/releases/latest";
@@ -91,7 +105,7 @@ public static class Utils
         var shiny = pk.ShinyXor switch
         {
             0 => "■ - ",
-            < 8 => "★ - ",
+            < 16 => "★ - ",
             _ => string.Empty,
         };
 

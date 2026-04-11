@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Encounters\Resources\main.owl" />
+    <None Remove="Encounters\Resources\spawner.owl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Encounters\Resources\main.owl" />
+    <EmbeddedResource Include="Encounters\Resources\spawner.owl" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="LibUsbDotNet" Version="2.2.29" />
     <PackageReference Include="Microsoft.Z3" Version="4.12.2" />
     <PackageReference Include="NLog" Version="5.4.0" />

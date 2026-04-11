@@ -59,12 +59,11 @@ namespace ParLiAment.WinForms;
         TB_Wild = new TextBox();
         TC_Main = new TabControl();
         TP_OWL = new TabPage();
+        L_Spawner_Species = new Label();
+        CB_Spawner_Species = new ComboBox();
         TP_Static = new TabPage();
-        L_Static_Method = new Label();
-        CB_Static_Method = new ComboBox();
         L_Static_Species = new Label();
         CB_Static_Species = new ComboBox();
-        CB_Static_RoamerBug = new CheckBox();
         B_Static_Search = new Button();
         L_Static_Advances = new Label();
         L_Static_Initial = new Label();
@@ -75,7 +74,6 @@ namespace ParLiAment.WinForms;
         CB_Static_Nature = new ComboBox();
         CB_Static_Delay = new CheckBox();
         NUD_Static_Delay = new NumericUpDown();
-        CB_RareEC = new CheckBox();
         CB_Static_FiltersEnabled = new CheckBox();
         L_Static_Shiny = new Label();
         CB_Static_Shiny = new ComboBox();
@@ -141,6 +139,7 @@ namespace ParLiAment.WinForms;
         GB_Seed.SuspendLayout();
         GB_SAVInfo.SuspendLayout();
         TC_Main.SuspendLayout();
+        TP_OWL.SuspendLayout();
         TP_Static.SuspendLayout();
         GB_Static_Filters.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)NUD_Static_Delay).BeginInit();
@@ -492,6 +491,8 @@ namespace ParLiAment.WinForms;
         // 
         // TP_OWL
         // 
+        TP_OWL.Controls.Add(L_Spawner_Species);
+        TP_OWL.Controls.Add(CB_Spawner_Species);
         TP_OWL.Location = new Point(4, 24);
         TP_OWL.Name = "TP_OWL";
         TP_OWL.Size = new Size(380, 309);
@@ -499,13 +500,28 @@ namespace ParLiAment.WinForms;
         TP_OWL.Text = "Overworld Legendary (Spawner)";
         TP_OWL.UseVisualStyleBackColor = true;
         // 
+        // L_Spawner_Species
+        // 
+        L_Spawner_Species.AutoSize = true;
+        L_Spawner_Species.Location = new Point(15, 23);
+        L_Spawner_Species.Name = "L_Spawner_Species";
+        L_Spawner_Species.Size = new Size(49, 15);
+        L_Spawner_Species.TabIndex = 184;
+        L_Spawner_Species.Text = "Species:";
+        // 
+        // CB_Spawner_Species
+        // 
+        CB_Spawner_Species.FormattingEnabled = true;
+        CB_Spawner_Species.Items.AddRange(new object[] { "Charmander" });
+        CB_Spawner_Species.Location = new Point(70, 20);
+        CB_Spawner_Species.Name = "CB_Spawner_Species";
+        CB_Spawner_Species.Size = new Size(101, 23);
+        CB_Spawner_Species.TabIndex = 183;
+        // 
         // TP_Static
         // 
-        TP_Static.Controls.Add(L_Static_Method);
-        TP_Static.Controls.Add(CB_Static_Method);
         TP_Static.Controls.Add(L_Static_Species);
         TP_Static.Controls.Add(CB_Static_Species);
-        TP_Static.Controls.Add(CB_Static_RoamerBug);
         TP_Static.Controls.Add(B_Static_Search);
         TP_Static.Controls.Add(L_Static_Advances);
         TP_Static.Controls.Add(L_Static_Initial);
@@ -518,24 +534,6 @@ namespace ParLiAment.WinForms;
         TP_Static.TabIndex = 2;
         TP_Static.Text = "Static (Main)";
         TP_Static.UseVisualStyleBackColor = true;
-        // 
-        // L_Static_Method
-        // 
-        L_Static_Method.AutoSize = true;
-        L_Static_Method.Location = new Point(12, 48);
-        L_Static_Method.Name = "L_Static_Method";
-        L_Static_Method.Size = new Size(52, 15);
-        L_Static_Method.TabIndex = 184;
-        L_Static_Method.Text = "Method:";
-        // 
-        // CB_Static_Method
-        // 
-        CB_Static_Method.FormattingEnabled = true;
-        CB_Static_Method.Items.AddRange(new object[] { "Method 1", "Method 4" });
-        CB_Static_Method.Location = new Point(70, 45);
-        CB_Static_Method.Name = "CB_Static_Method";
-        CB_Static_Method.Size = new Size(101, 23);
-        CB_Static_Method.TabIndex = 183;
         // 
         // L_Static_Species
         // 
@@ -554,18 +552,6 @@ namespace ParLiAment.WinForms;
         CB_Static_Species.Name = "CB_Static_Species";
         CB_Static_Species.Size = new Size(101, 23);
         CB_Static_Species.TabIndex = 181;
-        // 
-        // CB_Static_RoamerBug
-        // 
-        CB_Static_RoamerBug.AutoSize = true;
-        CB_Static_RoamerBug.CheckAlign = ContentAlignment.MiddleRight;
-        CB_Static_RoamerBug.Location = new Point(24, 194);
-        CB_Static_RoamerBug.Name = "CB_Static_RoamerBug";
-        CB_Static_RoamerBug.Size = new Size(134, 19);
-        CB_Static_RoamerBug.TabIndex = 180;
-        CB_Static_RoamerBug.Tag = "";
-        CB_Static_RoamerBug.Text = "Bugged Roamer IVs?";
-        CB_Static_RoamerBug.UseVisualStyleBackColor = true;
         // 
         // B_Static_Search
         // 
@@ -629,7 +615,6 @@ namespace ParLiAment.WinForms;
         GB_Static_Filters.Controls.Add(CB_Static_Nature);
         GB_Static_Filters.Controls.Add(CB_Static_Delay);
         GB_Static_Filters.Controls.Add(NUD_Static_Delay);
-        GB_Static_Filters.Controls.Add(CB_RareEC);
         GB_Static_Filters.Controls.Add(CB_Static_FiltersEnabled);
         GB_Static_Filters.Controls.Add(L_Static_Shiny);
         GB_Static_Filters.Controls.Add(CB_Static_Shiny);
@@ -717,19 +702,6 @@ namespace ParLiAment.WinForms;
         NUD_Static_Delay.TabIndex = 166;
         NUD_Static_Delay.TextAlign = HorizontalAlignment.Right;
         NUD_Static_Delay.Value = new decimal(new int[] { 100, 0, 0, 0 });
-        // 
-        // CB_RareEC
-        // 
-        CB_RareEC.AutoSize = true;
-        CB_RareEC.CheckAlign = ContentAlignment.MiddleRight;
-        CB_RareEC.Location = new Point(7, 243);
-        CB_RareEC.Name = "CB_RareEC";
-        CB_RareEC.Size = new Size(75, 19);
-        CB_RareEC.TabIndex = 27;
-        CB_RareEC.Tag = "";
-        CB_RareEC.Text = "Rare PID?";
-        CB_RareEC.UseVisualStyleBackColor = true;
-        CB_RareEC.Visible = false;
         // 
         // CB_Static_FiltersEnabled
         // 
@@ -1376,6 +1348,8 @@ namespace ParLiAment.WinForms;
         GB_SAVInfo.ResumeLayout(false);
         GB_SAVInfo.PerformLayout();
         TC_Main.ResumeLayout(false);
+        TP_OWL.ResumeLayout(false);
+        TP_OWL.PerformLayout();
         TP_Static.ResumeLayout(false);
         TP_Static.PerformLayout();
         GB_Static_Filters.ResumeLayout(false);
@@ -1436,7 +1410,6 @@ namespace ParLiAment.WinForms;
     private GroupBox GB_Static_Filters;
     public CheckBox CB_Static_Delay;
     private NumericUpDown NUD_Static_Delay;
-    public CheckBox CB_RareEC;
     private CheckBox CB_Static_FiltersEnabled;
     private Label L_Static_Shiny;
     private ComboBox CB_Static_Shiny;
@@ -1481,13 +1454,10 @@ namespace ParLiAment.WinForms;
     private Label L_Static_Initial;
     public TextBox TB_Static_Advances;
     public TextBox TB_Static_Initial;
-    public CheckBox CB_Static_RoamerBug;
     private Label L_Static_Species;
     public ComboBox CB_Static_Species;
     private Label L_Static_Nature;
     private ComboBox CB_Static_Nature;
-    private Label L_Static_Method;
-    public ComboBox CB_Static_Method;
     private Button B_BabyMode_Cancel;
     private Button B_BabyMode_Go;
     private Label L_BabyMode;
@@ -1512,5 +1482,7 @@ namespace ParLiAment.WinForms;
     private Label label2;
     public TextBox TB_InitialSeed1;
     private Button B_CopyToInitial;
+    private Label L_Spawner_Species;
+    public ComboBox CB_Spawner_Species;
 }
 

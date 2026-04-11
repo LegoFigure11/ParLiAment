@@ -38,7 +38,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
             if (title != TitleID)
             {
                 IsConnected = false;
-                return (false, $"{title} Pokémon Legends: Arceus.");
+                return (false, $"{title} is not Pokémon Legends: Arceus.");
             }
 
             StatusUpdate("Configuring sysmodule...");

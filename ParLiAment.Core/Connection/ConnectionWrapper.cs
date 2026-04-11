@@ -216,4 +216,48 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
                 break;
         }
     }
+
+    // Modified from https://github.com/kwsch/SysBot.NET/blob/8a82453e96ed5724e175b1a44464c70eca266df0/SysBot.Pokemon/SWSH/PokeRoutineExecutor8SWSH.cs#L223
+    public async Task CloseGame(Interfaces.ISeedResetConfig config, bool first, CancellationToken token)
+    {
+        if (first)
+        {
+            StatusUpdate("Returning HOME...");
+            await Connection.SendAsync(Click(HOME, CRLF), token).ConfigureAwait(false);
+            await Task.Delay(2_000 + config.ExtraTimeReturnHome, token).ConfigureAwait(false);
+        }
+        StatusUpdate("Closing game...");
+        await Connection.SendAsync(Click(X, CRLF), token).ConfigureAwait(false);
+        await Task.Delay(1_000, token).ConfigureAwait(false);
+        await Connection.SendAsync(Click(A, CRLF), token).ConfigureAwait(false);
+        await Task.Delay(5_000 + config.ExtraTimeCloseGame, token).ConfigureAwait(false);
+    }
+
+    // Modified from https://github.com/kwsch/SysBot.NET/blob/8a82453e96ed5724e175b1a44464c70eca266df0/SysBot.Pokemon/SWSH/PokeRoutineExecutor8SWSH.cs#L233
+    public async Task OpenGame(Interfaces.ISeedResetConfig config, CancellationToken token)
+    {
+        StatusUpdate("Loading profile...");
+        await Connection.SendAsync(Click(A, CRLF), token).ConfigureAwait(false);
+        await Task.Delay(1_000 + config.ExtraTimeLoadProfile, token).ConfigureAwait(false);
+
+        if (config.AvoidSystemUpdate)
+        {
+            StatusUpdate("Avoiding System Update...");
+            await Connection.SendAsync(Click(DUP, CRLF), token).ConfigureAwait(false);
+            await Task.Delay(0_600, token).ConfigureAwait(false);
+            await Connection.SendAsync(Click(A, CRLF), token).ConfigureAwait(false);
+            await Task.Delay(1_000 + config.ExtraTimeLoadProfile, token).ConfigureAwait(false);
+        }
+
+        StatusUpdate("Opening the game...");
+        await Connection.SendAsync(Click(A, CRLF), token).ConfigureAwait(false);
+        await Task.Delay(0_600, token).ConfigureAwait(false);
+
+        StatusUpdate("Loading game...");
+        await Task.Delay(10_000 + config.ExtraTimeLoadGame, token).ConfigureAwait(false);
+
+        StatusUpdate("Waiting on HOME Menu...");
+        await Connection.SendAsync(Click(HOME, CRLF), token).ConfigureAwait(false);
+        await Task.Delay(2_000 + config.ExtraTimeReturnHome, token).ConfigureAwait(false);
+    }
 }

@@ -184,6 +184,7 @@ namespace ParLiAment.WinForms;
         B_ReadB1S1 = new Button();
         B_CopyIVs = new Button();
         NUD_ReadSlot = new NumericUpDown();
+        B_ResetSettings = new Button();
         GB_Connection.SuspendLayout();
         GB_Seed.SuspendLayout();
         GB_SAVInfo.SuspendLayout();
@@ -1090,6 +1091,7 @@ namespace ParLiAment.WinForms;
         // 
         // TP_Static
         // 
+        TP_Static.Controls.Add(B_ResetSettings);
         TP_Static.Controls.Add(L_Static_Species);
         TP_Static.Controls.Add(CB_Static_Species);
         TP_Static.Controls.Add(B_Static_Search);
@@ -1889,6 +1891,16 @@ namespace ParLiAment.WinForms;
         NUD_ReadSlot.Size = new Size(32, 23);
         NUD_ReadSlot.TabIndex = 134;
         // 
+        // B_ResetSettings
+        // 
+        B_ResetSettings.Location = new Point(7, 142);
+        B_ResetSettings.Name = "B_ResetSettings";
+        B_ResetSettings.Size = new Size(164, 25);
+        B_ResetSettings.TabIndex = 183;
+        B_ResetSettings.Text = "Reset Settings";
+        B_ResetSettings.UseVisualStyleBackColor = true;
+        B_ResetSettings.Click += B_ResetSettings_Click;
+        // 
         // MainWindow
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -2117,5 +2129,6 @@ namespace ParLiAment.WinForms;
     private NumericUpDown NUD_ReadSlot;
     private Button B_CopyToOWL;
     private BindingSource BS_SpawnerResults;
+    private Button B_ResetSettings;
 }
 

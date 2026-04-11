@@ -16,6 +16,7 @@ namespace ParLiAment.WinForms;
 public partial class MainWindow : Form
 {
     private static CancellationTokenSource Source = new();
+    private static CancellationTokenSource ResetSource = new();
 
     private static readonly Lock _connectLock = new();
 
@@ -251,6 +252,8 @@ public partial class MainWindow : Form
                 }
                 await Source.CancelAsync().ConfigureAwait(false);
                 Source = new();
+                await ResetSource.CancelAsync().ConfigureAwait(false);
+                ResetSource = new();
                 SetControlEnabledState(true, B_Connect);
             },
             token
@@ -572,6 +575,8 @@ public partial class MainWindow : Form
 
         Source.Cancel();
         Source = new();
+        ResetSource.Cancel();
+        ResetSource = new();
     }
 
     private void B_ReadWildPokemon_Click(object sender, EventArgs e)
@@ -1201,6 +1206,22 @@ public partial class MainWindow : Form
             SetControlEnabledState(true, B_Spawner_Generate);
             Frames = [.. spawnerFrames.Cast<object>()];
         });
+    }
+
+    internal bool ResetSettingsFormOpen = false;
+    private ResetSettings? ResetSettingsForm;
+    private void B_ResetSettings_Click(object sender, EventArgs e)
+    {
+        if (!ResetSettingsFormOpen)
+        {
+            ResetSettingsFormOpen = true;
+            ResetSettingsForm = new ResetSettings(ref Config, this);
+            ResetSettingsForm.Show();
+        }
+        else
+        {
+            ResetSettingsForm?.Focus();
+        }
     }
 }
 

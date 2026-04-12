@@ -765,7 +765,7 @@ namespace ParLiAment.WinForms;
         B_Spawner_Spe_Min.TabIndex = 22;
         B_Spawner_Spe_Min.Text = "0";
         B_Spawner_Spe_Min.UseVisualStyleBackColor = true;
-        B_Spawner_Spe_Min.Click += IV_Spacer_Click;
+        B_Spawner_Spe_Min.Click += B_IV_Min_Click;
         // 
         // L_Spawner_Spe
         // 
@@ -822,7 +822,7 @@ namespace ParLiAment.WinForms;
         B_Spawner_SpD_Min.TabIndex = 20;
         B_Spawner_SpD_Min.Text = "0";
         B_Spawner_SpD_Min.UseVisualStyleBackColor = true;
-        B_Spawner_SpD_Min.Click += IV_Spacer_Click;
+        B_Spawner_SpD_Min.Click += B_IV_Min_Click;
         // 
         // L_Spawner_SpD
         // 
@@ -879,7 +879,7 @@ namespace ParLiAment.WinForms;
         B_Spawner_SpA_Min.TabIndex = 18;
         B_Spawner_SpA_Min.Text = "0";
         B_Spawner_SpA_Min.UseVisualStyleBackColor = true;
-        B_Spawner_SpA_Min.Click += IV_Spacer_Click;
+        B_Spawner_SpA_Min.Click += B_IV_Min_Click;
         // 
         // L_Spawner_SpA
         // 
@@ -936,7 +936,7 @@ namespace ParLiAment.WinForms;
         B_Spawner_Def_Min.TabIndex = 16;
         B_Spawner_Def_Min.Text = "0";
         B_Spawner_Def_Min.UseVisualStyleBackColor = true;
-        B_Spawner_Def_Min.Click += IV_Spacer_Click;
+        B_Spawner_Def_Min.Click += B_IV_Min_Click;
         // 
         // L_Spawner_Def
         // 
@@ -993,7 +993,7 @@ namespace ParLiAment.WinForms;
         B_Spawner_Atk_Min.TabIndex = 14;
         B_Spawner_Atk_Min.Text = "0";
         B_Spawner_Atk_Min.UseVisualStyleBackColor = true;
-        B_Spawner_Atk_Min.Click += IV_Spacer_Click;
+        B_Spawner_Atk_Min.Click += B_IV_Min_Click;
         // 
         // L_Spawner_Atk
         // 
@@ -1050,7 +1050,7 @@ namespace ParLiAment.WinForms;
         B_Spawner_HP_Min.TabIndex = 12;
         B_Spawner_HP_Min.Text = "0";
         B_Spawner_HP_Min.UseVisualStyleBackColor = true;
-        B_Spawner_HP_Min.Click += IV_Spacer_Click;
+        B_Spawner_HP_Min.Click += B_IV_Min_Click;
         // 
         // L_Spawner_HP
         // 

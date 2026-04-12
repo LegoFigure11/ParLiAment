@@ -688,7 +688,9 @@ public partial class MainWindow : Form
         if (e is not { Modifiers: Keys.Control, KeyCode: Keys.V } && e is not { Modifiers: Keys.Shift, KeyCode: Keys.Insert }) return;
         var n = string.Empty;
         var newline = 0;
-        foreach (char c in Clipboard.GetText())
+        var str = Clipboard.GetText();
+        if (str.Contains("0x")) str = str.Replace("0x", string.Empty);
+        foreach (char c in str)
         {
             if (c.IsHex()) n += c;
             if (c == (char)Keys.Enter) newline++;

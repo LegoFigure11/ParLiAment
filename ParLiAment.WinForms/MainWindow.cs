@@ -10,6 +10,7 @@ using System.Globalization;
 using System.Text.Json;
 using static ParLiAment.Core.Utils;
 using static ParLiAment.Core.Encounters;
+using ParLiAment.Core.RNG;
 
 namespace ParLiAment.WinForms;
 
@@ -884,7 +885,10 @@ public partial class MainWindow : Form
 
                 FiltersEnabled = CB_Static_FiltersEnabled.GetIsChecked(),
             };
-            var staticFrames = await Core.RNG.Static.Generate(s0, s1, start, end, cfg);
+
+            (s0, s1) = RNGUtil.XoroshiroJump(s0, s1, start);
+
+            var staticFrames = await Static.Generate(s0, s1, start, end, cfg);
 
             hasShifted = false;
             SetBindingSourceDataSource(staticFrames, BS_StaticResults);
@@ -1202,7 +1206,7 @@ public partial class MainWindow : Form
                 FiltersEnabled = CB_Spawner_FiltersEnabled.GetIsChecked(),
             };
             var start = CB_ZeroIndex.GetIsChecked() ? 0UL : 1UL;
-            var spawnerFrames = await Core.RNG.Spawner.Generate(seed, start, end, cfg);
+            var spawnerFrames = await Spawner.Generate(seed, start, end, cfg);
 
             hasShifted = false;
             SetBindingSourceDataSource(spawnerFrames, BS_SpawnerResults);

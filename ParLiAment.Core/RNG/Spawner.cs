@@ -6,7 +6,7 @@ namespace ParLiAment.Core.RNG;
 
 public static class Spawner
 {
-    public static Task<List<SpawnerFrame>> Generate(ulong groupSeed, ulong endAdv, SpawnerConfig cfg)
+    public static Task<List<SpawnerFrame>> Generate(ulong groupSeed, ulong startAdv, ulong endAdv, SpawnerConfig cfg)
     {
         return Task.Run(() =>
         {
@@ -30,7 +30,7 @@ public static class Spawner
             ulong init = unchecked(groupSeed);
             var rng = new Xoroshiro128Plus(init);
 
-            for (ulong i = 1; i <= endAdv; i++)
+            for (ulong i = startAdv; i <= endAdv; i++)
             {
                 var generatorSeed = rng.Next();
 

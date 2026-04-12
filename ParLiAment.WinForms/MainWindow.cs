@@ -1169,6 +1169,7 @@ public partial class MainWindow : Form
     private void B_CopyToOWL_Click(object sender, EventArgs e)
     {
         SetControlText(TB_GroupSeedResult.GetText(), TB_GroupSeed);
+        CB_ZeroIndex.Checked = true;
         TC_Main.SelectedTab = TP_Spawner;
     }
 
@@ -1178,7 +1179,7 @@ public partial class MainWindow : Form
         SetControlEnabledState(false, B_Spawner_Generate);
         Task.Run(async () =>
         {
-            var s0 = ulong.Parse(TB_GroupSeed.GetText(), NumberStyles.AllowHexSpecifier);
+            var seed = ulong.Parse(TB_GroupSeed.GetText(), NumberStyles.AllowHexSpecifier);
             var end = ulong.Parse(TB_Spawner_Advances.GetText());
 
             var cfg = new SpawnerConfig()
@@ -1198,7 +1199,8 @@ public partial class MainWindow : Form
 
                 FiltersEnabled = CB_Spawner_FiltersEnabled.GetIsChecked(),
             };
-            var spawnerFrames = await Core.RNG.Spawner.Generate(s0, end, cfg);
+            var start = CB_ZeroIndex.GetIsChecked() ? 0UL : 1UL;
+            var spawnerFrames = await Core.RNG.Spawner.Generate(seed, start, end, cfg);
 
             hasShifted = false;
             SetBindingSourceDataSource(spawnerFrames, BS_SpawnerResults);

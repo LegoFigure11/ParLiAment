@@ -60,6 +60,7 @@ namespace ParLiAment.WinForms;
         TB_Wild = new TextBox();
         TC_Main = new TabControl();
         TP_Spawner = new TabPage();
+        CB_ZeroIndex = new CheckBox();
         L_Spawner_Advances = new Label();
         TB_Spawner_Advances = new TextBox();
         B_Spawner_Generate = new Button();
@@ -187,6 +188,7 @@ namespace ParLiAment.WinForms;
         B_ReadB1S1 = new Button();
         B_CopyIVs = new Button();
         NUD_ReadSlot = new NumericUpDown();
+        TT_MainWindow = new ToolTip(components);
         GB_Connection.SuspendLayout();
         GB_Seed.SuspendLayout();
         GB_SAVInfo.SuspendLayout();
@@ -561,6 +563,7 @@ namespace ParLiAment.WinForms;
         // 
         // TP_Spawner
         // 
+        TP_Spawner.Controls.Add(CB_ZeroIndex);
         TP_Spawner.Controls.Add(L_Spawner_Advances);
         TP_Spawner.Controls.Add(TB_Spawner_Advances);
         TP_Spawner.Controls.Add(B_Spawner_Generate);
@@ -575,6 +578,19 @@ namespace ParLiAment.WinForms;
         TP_Spawner.TabIndex = 5;
         TP_Spawner.Text = "Overworld Legendary (Spawner)";
         TP_Spawner.UseVisualStyleBackColor = true;
+        // 
+        // CB_ZeroIndex
+        // 
+        CB_ZeroIndex.AutoSize = true;
+        CB_ZeroIndex.CheckAlign = ContentAlignment.MiddleRight;
+        CB_ZeroIndex.Location = new Point(64, 69);
+        CB_ZeroIndex.Name = "CB_ZeroIndex";
+        CB_ZeroIndex.Size = new Size(107, 19);
+        CB_ZeroIndex.TabIndex = 190;
+        CB_ZeroIndex.Tag = "";
+        CB_ZeroIndex.Text = "0-Indexed Seed";
+        TT_MainWindow.SetToolTip(CB_ZeroIndex, "Check this if your seed is from the Group Seed Solver tab.\r\nLeave it unchecked if your seed is from moarencounterbots.");
+        CB_ZeroIndex.UseVisualStyleBackColor = true;
         // 
         // L_Spawner_Advances
         // 
@@ -2157,5 +2173,7 @@ namespace ParLiAment.WinForms;
     private Button B_ResetSettings;
     private Button B_CancelReset;
     private Button B_SeedReset;
+    private CheckBox CB_ZeroIndex;
+    private ToolTip TT_MainWindow;
 }
 

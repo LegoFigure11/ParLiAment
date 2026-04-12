@@ -30,7 +30,7 @@ public static class Spawner
             ulong init = unchecked(groupSeed);
             var rng = new Xoroshiro128Plus(init);
 
-            for (ulong i = 0; i <= endAdv; i++)
+            for (ulong i = 1; i <= endAdv; i++)
             {
                 var generatorSeed = rng.Next();
 

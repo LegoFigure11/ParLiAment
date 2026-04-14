@@ -1260,10 +1260,10 @@ public partial class MainWindow : Form
                         if (first)
                         {
                             await ConnectionWrapper.PressButton(SwitchButton.LSTICK, 50, ResetSource.Token).ConfigureAwait(false); // First input doesn't always go through
-                            first = false;
                         }
                         await ConnectionWrapper.CloseGame(Config, first, ResetSource.Token).ConfigureAwait(false);
                         await ConnectionWrapper.OpenGame(Config, ResetSource.Token).ConfigureAwait(false);
+                        first = false;
 
                         ConnectionWrapper.ResetPointers();
 

@@ -262,7 +262,7 @@ public class ConnectionWrapperAsync(SwitchConnectionConfig Config, Action<string
         await Task.Delay(0_600, token).ConfigureAwait(false);
 
         StatusUpdate("Loading game...");
-        await Task.Delay(10_000 + config.ExtraTimeLoadGame, token).ConfigureAwait(false);
+        await Task.Delay(12_000 + config.ExtraTimeLoadGame, token).ConfigureAwait(false);
 
         StatusUpdate("Waiting on HOME Menu...");
         await Connection.SendAsync(Click(HOME, CRLF), token).ConfigureAwait(false);

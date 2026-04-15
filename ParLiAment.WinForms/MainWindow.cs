@@ -1011,7 +1011,15 @@ public partial class MainWindow : Form
 
     private void CB_BabyMode_Action_SelectedIndexChanged(object sender, EventArgs e)
     {
-        babyModeButton = CB_BabyMode_Action.GetSelectedIndex() == 0 ? SwitchButton.A : SwitchButton.HOME;
+        var index = CB_BabyMode_Action.GetSelectedIndex();
+        babyModeButton = index switch
+        {
+            0 => SwitchButton.A,
+            1 => SwitchButton.HOME,
+            2 => SwitchButton.X,
+            3 => SwitchButton.Y,
+            _ => throw new ArgumentOutOfRangeException(nameof(index), index, null),
+        };
     }
 
     private void B_File1_Click(object sender, EventArgs e)

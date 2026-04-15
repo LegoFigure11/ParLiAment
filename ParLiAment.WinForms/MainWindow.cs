@@ -1012,7 +1012,6 @@ public partial class MainWindow : Form
     private void CB_BabyMode_Action_SelectedIndexChanged(object sender, EventArgs e)
     {
         var index = CB_BabyMode_Action.GetSelectedIndex();
-
         babyModeButton = index switch
         {
             0 => SwitchButton.A,

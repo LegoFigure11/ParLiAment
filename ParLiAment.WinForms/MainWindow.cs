@@ -1015,9 +1015,8 @@ public partial class MainWindow : Form
         babyModeButton = index switch
         {
             0 => SwitchButton.A,
-            1 => SwitchButton.HOME,
-            2 => SwitchButton.X,
-            3 => SwitchButton.Y,
+            1 => SwitchButton.Y,
+            2 => SwitchButton.HOME,
             _ => throw new ArgumentOutOfRangeException(nameof(index), index, null),
         };
     }

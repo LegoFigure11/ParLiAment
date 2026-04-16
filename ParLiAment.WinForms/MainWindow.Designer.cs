@@ -1816,7 +1816,7 @@ namespace ParLiAment.WinForms;
         // CB_BabyMode_Action
         // 
         CB_BabyMode_Action.FormattingEnabled = true;
-        CB_BabyMode_Action.Items.AddRange(new object[] { "A", "HOME", "X", "Y" });
+        CB_BabyMode_Action.Items.AddRange(new object[] { "A", "Y", "HOME" });
         CB_BabyMode_Action.Location = new Point(114, 40);
         CB_BabyMode_Action.Name = "CB_BabyMode_Action";
         CB_BabyMode_Action.Size = new Size(92, 23);

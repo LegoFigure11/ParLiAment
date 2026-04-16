@@ -14,14 +14,18 @@ _by [@LegoFigure11](https://github.com/LegoFigure11/)_
 > A group of owls.
 
 ParLiAment is a sys-botbase client and RNG Tool for Static and Over-World Legendaries (OWLs) in Pok&eacute;mon Legends: Arceus for the Nintendo Switch.
-<!--
-A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Billo-PS) can be found **[here](https://billo-guides.github.io/)**. -->
 
-<!--## Features & shortcuts
+A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Billo-PS) can be found **[here](https://billo-guides.github.io/)**.
 
+## Features & shortcuts
+
+* Full RNG prediction for Static (Main RNG) and Over-World Legendary (Spawner RNG) encounter types.
+* PA8 => Group Seed solver for CFW-Assisted retail RNG.
 * Read Wild Encounters with the "Read Encounter" button.
+* Read Box 1 Slot 1 with the "Read B1S1" button.
 * Shift + Click on an IV button or label to apply the effect to every stat (Shift + Max = 31 all, Shift + Min = 0 all, Shift + any stat name = reset all).
-* Click on the icon between IVs to switch between IV search modes for that stat: ``~`` for a range (e.g. ``0 ~ 31`` accepting all IVs, ``0 ~ 3`` accepting 0, 1, 2, or 3), or ``||`` for either or (e.g. ``0 || 31`` accepting 0 and 31 only, ``29 || 31`` accepting 29 and 31 only).-->
+* Click on the icon between IVs to switch between IV search modes for that stat: ``~`` for a range (e.g. ``0 ~ 31`` accepting all IVs, ``0 ~ 3`` accepting 0, 1, 2, or 3), or ``||`` for either or (e.g. ``0 || 31`` accepting 0 and 31 only, ``29 || 31`` accepting 29 and 31 only).
+* "Baby Mode" for automating RNG processes or pausing the game by returning to the Home Menu at a requested RNG state.
 
 ## Credits and thanks to
 

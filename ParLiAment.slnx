@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="ParLiAment.Core/ParLiAment.Core.csproj">
+    <Platform Project="x64" />
+  </Project>
+  <Project Path="ParLiAment.WinForms/ParLiAment.WinForms.csproj">
+    <BuildDependency Project="ParLiAment.Core/ParLiAment.Core.csproj" />
+    <Platform Project="x64" />
+  </Project>
+</Solution>

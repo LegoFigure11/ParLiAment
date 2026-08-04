@@ -17,6 +17,8 @@ ParLiAment is a sys-botbase client and RNG Tool for Static and Over-World Legend
 
 A comprehensive usage guide brought to you by [Billo-PS](https://github.com/Billo-PS) can be found **[here](https://billo-guides.github.io/)**.
 
+![Tool Image](https://legofigure11.github.io/tools/desktop/res/ParLiAment/README.png)
+
 ## Features & shortcuts
 
 * Full RNG prediction for Static (Main RNG) and Over-World Legendary (Spawner RNG) encounter types.

@@ -1307,7 +1307,8 @@ public partial class MainWindow : Form
 
                             FiltersEnabled = CB_Static_FiltersEnabled.GetIsChecked(),
                         };
-                        staticFrames = await Core.RNG.Static.Generate(s0, s1, start, end, cfg);
+                        (s0, s1) = RNGUtil.XoroshiroJump(s0, s1, start);
+                        staticFrames = await Static.Generate(s0, s1, start, end, cfg);
                     } while (staticFrames?.Count == 0 && !ResetSource.IsCancellationRequested);
 
                     hasShifted = false;

@@ -1,4 +1,5 @@
 ﻿using PKHeX.Core;
+using System.Numerics;
 
 namespace ParLiAment.Core.RNG;
 
